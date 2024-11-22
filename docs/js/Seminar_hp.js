@@ -35,7 +35,7 @@ const contactForm = document.getElementById('contactForm');
 //ナビゲーション部分レンダリング
 document.addEventListener('DOMContentLoaded', () => {
     // ヘッダーとナビゲーションを読み込む
-    const headerContainer = document.createElement('div'); // コンテナを作成
+    const headerContainer = document.createElement('div'); // ヘッダーコンテナを作成
     document.body.insertBefore(headerContainer, document.body.firstChild); // 最初に挿入
 
     fetch('header.html')
@@ -73,8 +73,30 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                 });
             });
+
+            // 初期表示として index.html のコンテンツを読み込む
+            loadInitialContent();
         })
         .catch(error => {
             console.error('ヘッダーを読み込めませんでした:', error.message);
         });
+
+    // 初期表示のコンテンツを読み込む関数
+    function loadInitialContent() {
+        const contentDiv = document.getElementById('content');
+        fetch('index.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(html => {
+                contentDiv.innerHTML = html; // 初期コンテンツを挿入
+            })
+            .catch(error => {
+                contentDiv.innerHTML = `<p>初期コンテンツを読み込めませんでした。</p>`;
+                console.error(error);
+            });
+    }
 });
