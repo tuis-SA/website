@@ -1,0 +1,101 @@
+/*佐藤　ゼミCSS全体d*/
+/* 全体の基本スタイル */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* ヘッダー */
+.header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 2.5rem;
+}
+
+/* ナビゲーションバー */
+.navbar {
+    background-color: black;
+    padding: 1rem 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: black;
+    background-color: white; /* ホバー時の色変化 */
+}
+
+/* セクションのスタイル */
+.section-content {
+    padding: 4rem 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    background-color: white;
+    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* セクションタイトル */
+.section-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* お問い合わせフォームのスタイル */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input, textarea, button {
+    margin: 0.5rem 0;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4CAF50;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar ul li {
+        margin: 1rem 0;
+    }
+
+    .section-content {
+        padding: 2rem 1rem;
+    }
+}
