@@ -9,15 +9,12 @@ body {
 }
 
 /* ヘッダー */
-/* header { */
-    /* background-color: black; */
-    /* background-color: #52525f;
-    background-image: linear-gradient(180deg, #52525f 0%, #000000 100%);    
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 2.5rem;　*/
-/* }  */
+header {
+    background-color: rgba(17, 15, 15, 0.548);
+    height: 30rem;
+    padding-top: 2.5rem;
+    padding-left: 2.2rem;
+}
 
 /* ナビゲーションバー全体のスタイル */
 .navititle {
@@ -29,7 +26,7 @@ body {
     justify-content: flex-start; /* 水平方向で左寄せ */
     align-items: center; /* 垂直方向で中央揃え */
     padding: 0.5rem 1rem; /* パディングを調整 */
-    margin-right: 45rem;
+    margin-right: 30rem;
 }
 
 .navi_title{
@@ -44,6 +41,7 @@ body {
 nav.navbar {
     margin: 0; /* 上下のマージンをリセット */
     padding: 0; /* 上下のパディングをリセット */
+    margin-right: 17rem;
 }
 /* ナビゲーションバーのリスト */
 .navbar ul {
@@ -63,7 +61,7 @@ nav.navbar {
     color: white;
     text-decoration: none;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1rem;
     transition: color 0.5s ease, background-color 0.3s ease, border-radius 0.3s ease; /* 全ての変化をスムーズに */
     display: block; /* クリック範囲を広げるためにブロック要素に */
 }
