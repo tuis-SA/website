@@ -9,18 +9,36 @@ body {
 }
 
 /* ヘッダー */
-.header {
+/* header { */
     /* background-color: black; */
-    background-color: #52525f;
+    /* background-color: #52525f;
     background-image: linear-gradient(180deg, #52525f 0%, #000000 100%);    
     color: white;
     text-align: center;
     padding: 2rem 1rem;
-    font-size: 2.5rem;
-}
+    font-size: 2.5rem;　*/
+/* }  */
+
 /* ナビゲーションバー全体のスタイル */
+.navititle {
+    flex: 1; /* 他の要素と同様に均等配置 */
+    text-align: left; /* テキストを左揃え（必要であれば） */
+    font-size: 1rem; /* 他のリンクと同じフォントサイズ */
+    color: white; /* テキストの色を統一 */
+    display: flex; /* フレックスボックスを適用 */
+    justify-content: flex-start; /* 水平方向で左寄せ */
+    align-items: center; /* 垂直方向で中央揃え */
+    padding: 0.5rem 1rem; /* パディングを調整 */
+    margin-right: 45rem;
+}
+
+.navi_title{
+    position: absolute;
+    display: block;
+}
 .navbar {
-    background-color: grey;
+    background-color: #52525f;
+    background-image: linear-gradient(180deg, #52525f 0%, #000000 100%);   
 }
 
 nav.navbar {
@@ -50,15 +68,24 @@ nav.navbar {
     display: block; /* クリック範囲を広げるためにブロック要素に */
 }
 
-/*ホバー選択時の色*/
-.navbar ul li a:hover {
-    color: black;
-    /* background-color: white; ホバー時の色変化 */
+/* 最後にクリックされたリンクのスタイル */
+.navbar ul li a.active {
+    color: rgba(0, 0, 0, 0.616);
     background-color: #fcffff;
     background-image: linear-gradient(180deg, #fcffff 0%, #78787c 100%);
     border-top-left-radius: 120px;
     border-top-right-radius: 120px;
 }
+
+/* ホバー選択時のスタイル */
+.navbar ul li a:hover {
+    color: rgba(0, 0, 0, 0.8);
+    background-color: #d1d5db; /* ホバー時の背景色 */
+    border-top-left-radius: 120px;
+    border-top-right-radius: 120px;
+}
+
+
 /* セクションのスタイル */
 .section-content {
     padding: 4rem 2rem;

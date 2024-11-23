@@ -21,6 +21,7 @@ body {
 /* ナビゲーションバー全体のスタイル */
 .navbar {
     background-color: grey;
+    color: #4CAF50;
 }
 
 nav.navbar {

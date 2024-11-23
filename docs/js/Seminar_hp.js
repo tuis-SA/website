@@ -100,3 +100,47 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ナビゲーションリンクを取得
+    const links = document.querySelectorAll('.nav-link');
+
+    // 最初のリンクをデフォルトでアクティブにする
+    if (links.length > 0) {
+        links[0].classList.add('active');
+    }
+
+    // 各リンクにクリックイベントを追加
+    links.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault(); // デフォルトのリンク動作を無効化
+
+            // 他のリンクから active クラスを削除
+            links.forEach(l => l.classList.remove('active'));
+
+            // クリックされたリンクに active クラスを追加
+            link.classList.add('active');
+
+            // 対応するページを読み込む
+            const page = link.dataset.page;
+            const contentDiv = document.getElementById('content');
+
+            fetch(page)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentDiv.innerHTML = html; // 新しいコンテンツを挿入
+                })
+                .catch(error => {
+                    contentDiv.innerHTML = `<p>コンテンツを読み込めませんでした。</p>`;
+                    console.error(error);
+                });
+        });
+
+        // ホバーの挙動は CSS で管理するので追加不要
+    });
+});

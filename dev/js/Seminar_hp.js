@@ -31,12 +31,10 @@ const contactForm = document.getElementById('contactForm');
         });
     }
 });
-
-//ナビゲーション部分レンダリング
+// ナビゲーション部分レンダリング
 document.addEventListener('DOMContentLoaded', () => {
-    // ヘッダーとナビゲーションを読み込む
-    const headerContainer = document.createElement('div'); // ヘッダーコンテナを作成
-    document.body.insertBefore(headerContainer, document.body.firstChild); // 最初に挿入
+    const headerContainer = document.createElement('div');
+    document.body.insertBefore(headerContainer, document.body.firstChild);
 
     fetch('header.html')
         .then(response => {
@@ -48,55 +46,76 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(html => {
             headerContainer.innerHTML = html;
 
-            // ナビゲーションリンクのクリックイベントを再設定
-            const links = document.querySelectorAll('.nav-link');
-            const contentDiv = document.getElementById('content');
+            // ヘッダーがロードされた後でリンクにイベントリスナーを設定
+            initializeNavEvents();
 
-            links.forEach(link => {
-                link.addEventListener('click', event => {
-                    event.preventDefault(); // デフォルトのリンク動作を防ぐ
-                    const page = link.dataset.page;
-
-                    fetch(page)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error(`HTTP error! status: ${response.status}`);
-                            }
-                            return response.text();
-                        })
-                        .then(html => {
-                            contentDiv.innerHTML = html; // 取得したHTMLを挿入
-                        })
-                        .catch(error => {
-                            contentDiv.innerHTML = `<p>コンテンツを読み込めませんでした。</p>`;
-                            console.error(error);
-                        });
-                });
-            });
-
-            // 初期表示として index.html のコンテンツを読み込む
+            // 初期コンテンツを読み込む
             loadInitialContent();
         })
         .catch(error => {
             console.error('ヘッダーを読み込めませんでした:', error.message);
         });
-
-    // 初期表示のコンテンツを読み込む関数
-    function loadInitialContent() {
-        const contentDiv = document.getElementById('content');
-        fetch('index.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(html => {
-                contentDiv.innerHTML = html; // 初期コンテンツを挿入
-            })
-            .catch(error => {
-                contentDiv.innerHTML = `<p>初期コンテンツを読み込めませんでした。</p>`;
-                console.error(error);
-            });
-    }
 });
+
+function initializeNavEvents() {
+    const links = document.querySelectorAll('.nav-link');
+    const contentDiv = document.getElementById('content');
+
+    // 初期状態でホームリンクをアクティブ化
+    if (links.length > 0) {
+        links[0].classList.add('active');  // ホームをアクティブ化
+        loadContent(links[0].dataset.page);  // 初期コンテンツを読み込む
+    }
+
+    // リンクがクリックされた時のイベント
+    links.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();  // デフォルトの動作を防ぐ
+
+            // すべてのリンクからactiveクラスを削除
+            links.forEach(l => l.classList.remove('active'));
+
+            // クリックされたリンクをアクティブ化
+            link.classList.add('active');
+
+            // 対応するページを読み込む
+            loadContent(link.dataset.page);
+        });
+    });
+}
+
+function loadInitialContent() {
+    const contentDiv = document.getElementById('content');
+    fetch('index.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            contentDiv.innerHTML = html;
+        })
+        .catch(error => {
+            contentDiv.innerHTML = `<p>初期コンテンツを読み込めませんでした。</p>`;
+            console.error(error);
+        });
+}
+
+function loadContent(page) {
+    const contentDiv = document.getElementById('content');
+    fetch(page)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            contentDiv.innerHTML = html;
+        })
+        .catch(error => {
+            contentDiv.innerHTML = `<p>コンテンツを読み込めませんでした。</p>`;
+            console.error(error);
+        });
+}
