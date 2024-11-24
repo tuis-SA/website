@@ -1,0 +1,164 @@
+/* 基本スタイル */
+.home_title {
+  margin-left: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+}
+
+.we-are {
+  font-size: 9rem;
+  font-weight: bold;
+  color: #333;
+  position: relative;
+  margin: 0;
+  padding-bottom: 0.1rem;
+}
+
+.embodiment-of-technology {
+  font-size: 7rem;
+  font-weight: normal;
+  color: #555;
+  position: relative;
+  margin-left: 3rem;
+}
+
+/* 線のベーススタイル */
+.we-are::before,
+.we-are::after,
+.embodiment-of-technology::before,
+.embodiment-of-technology::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 1.1rem; /* 線の高さ */
+  /* left: 0;  */
+  /* 左側を固定 */
+  width: 0; /* 初期幅 */
+}
+
+.we-are::before {
+  bottom: 0.2rem;
+  background-color: white;
+}
+
+.we-are::after {
+  bottom: -0.1rem;
+  background-color: red;
+  margin-left: 1rem;
+}
+
+.embodiment-of-technology::before {
+  bottom: 0.2rem;
+  background-color: white;
+}
+
+.embodiment-of-technology::after {
+  bottom: -0.2rem;
+  background-color: red;
+  margin-left: 1rem;
+}
+
+/* アニメーション */
+@keyframes slideIn {
+  from {
+    width: 0; /* 線を最初は非表示 */
+  }
+  to {
+    width: var(--line-width); /* カスタムプロパティで幅を制御 */
+  }
+}
+
+/* アニメーション適用 */
+.we-are::before {
+  --line-width: 28.5rem; /* 白い線の最大幅 */
+  animation: slideIn 1.5s ease-out forwards;
+}
+
+.we-are::after {
+  --line-width: 29rem; /* 赤い線の最大幅 */
+  animation: slideIn 1.8s ease-out forwards;
+}
+
+.embodiment-of-technology::before {
+  --line-width: 82.5rem; /* 白い線の最大幅 */
+  animation: slideIn 2s ease-out forwards;
+}
+
+.embodiment-of-technology::after {
+  --line-width: 83.5rem; /* 赤い線の最大幅 */
+  animation: slideIn 2.3s ease-out forwards;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 1700px) {
+  .we-are {
+    font-size: 7.5rem;
+  }
+
+  .embodiment-of-technology {
+    font-size: 6rem;
+  }
+
+  .we-are::before {
+    --line-width: 25rem;
+  }
+
+  .we-are::after {
+    --line-width: 26rem;
+  }
+
+  .embodiment-of-technology::before {
+    --line-width: 71rem;
+  }
+
+  .embodiment-of-technology::after {
+    --line-width: 72rem;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .home_title {
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .we-are {
+    font-size: 6rem;
+  }
+
+  .embodiment-of-technology {
+    font-size: 4.5rem;
+  }
+
+  .we-are::before {
+    --line-width: 19.5rem;
+  }
+
+  .we-are::after {
+    --line-width: 20rem;
+  }
+
+  .embodiment-of-technology::before {
+    --line-width: 53rem;
+  }
+
+  .embodiment-of-technology::after {
+    --line-width: 53rem;
+  }
+}
+
+/* home description styles */
+.home_content {
+  display: flex;
+}
+
+.home_description {
+  width: 50%;
+}
+
+.home_image {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 20%;
+}

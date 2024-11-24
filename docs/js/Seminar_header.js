@@ -1,9 +1,17 @@
 // ヘッダーとナビゲーションを初期化
 document.addEventListener('DOMContentLoaded', () => {
+    // 最初に暗転状態を適用
+    document.body.classList.add('fade-in');
+
+    // ページ読み込み完了後に暗転を解除
+    window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+    });
+
+    // 既存のヘッダー読み込み処理を開始
     const headerContainer = document.createElement('div');
     document.body.insertBefore(headerContainer, document.body.firstChild);
 
-    // ヘッダーをロード
     fetch('header.html')
         .then(response => {
             if (!response.ok) {
@@ -27,7 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 初期コンテンツを読み込む
 function loadInitialContent() {
-    loadContent('index.html'); // 初期ページとして`index.html`をロード
+    // 初期ページとして`index.html`をロード
+    const initialLink = document.querySelector('.nav-link[data-page="index.html"]');
+    if (initialLink) {
+        initialLink.classList.add('active'); // 初期状態で「ホーム」リンクをアクティブ化
+    }
+    loadContent('index.html');
 }
 
 // ナビゲーションリンクにイベントを設定

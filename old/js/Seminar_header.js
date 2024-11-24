@@ -1,9 +1,17 @@
 // ヘッダーとナビゲーションを初期化
 document.addEventListener('DOMContentLoaded', () => {
+    // 最初に暗転状態を適用
+    document.body.classList.add('fade-in');
+
+    // ページ読み込み完了後に暗転を解除
+    window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+    });
+
+    // 既存のヘッダー読み込み処理を開始
     const headerContainer = document.createElement('div');
     document.body.insertBefore(headerContainer, document.body.firstChild);
 
-    // ヘッダーをロード
     fetch('header.html')
         .then(response => {
             if (!response.ok) {
