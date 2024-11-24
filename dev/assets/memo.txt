@@ -1,0 +1,10 @@
+http://127.0.0.1:8080
+npx http-server\
+スーパーリロード（Ctrl + Shift + R）を実行。
+
+
+動的レンダリングにするため、header以外の各HTMLのbody部分に記載するのではなくまず
+  <div id="content" class="section-content">
+  </div>
+  内に書き込み、ナビゲーションごとに内容を変更する必要がある。
+

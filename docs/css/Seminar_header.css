@@ -1,0 +1,176 @@
+/*佐藤　SeminarCSS全体d*/
+/* 全体の基本スタイル */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* ヘッダー */
+header {
+    background-color:  black;
+    height: 50rem;
+    padding-top: 1.5rem;
+    padding-left: 2.2rem;
+}
+
+/* ナビゲーションバー全体のスタイル */
+/* ナビゲーションタイトル */
+.navititle {
+    flex-shrink: 0; /* ナビゲーションタイトルの幅を固定 */
+    margin-right: 30rem; /* レスポンシブ調整 */
+    white-space: nowrap; /* 改行を防止 */
+    font-size: 1.2rem; /* 必要に応じて調整 */
+    color: white;
+    display: flex; /* フレックスボックスを適用 */
+    justify-content: flex-start; /* 水平方向で左寄せ */
+    align-items: center; /* 垂直方向で中央揃え */
+    padding: 0.3rem 1rem; /* パディングを調整 */
+}
+
+/* ナビゲーションバーをスクロールで固定する */
+.navigation_bar {
+    position: sticky; /* スクロール時に固定 */
+    top: 0.9rem; /* スクロールして上から0pxの位置で固定 */
+}
+
+.navi_title{
+    position: absolute;
+    display: block;
+}
+.navbar {
+    background-color: #52525f;
+    background-image: linear-gradient(180deg, #52525f 0%, #000000 100%);   
+}
+
+nav.navbar {
+    margin: 0; /* 上下のマージンをリセット */
+    padding: 0; /* 上下のパディングをリセット */
+    margin-right: 13rem;
+}
+/* ナビゲーションバーのリスト */
+.navbar ul {
+    list-style: none;
+    display: flex; /*フレックスボックスを有効化*/
+    margin: 0;
+    padding: 0;
+    width: 100%;  /* ナビゲーションバー全体を使う */
+    justify-content: space-between; /* 要素間の均等配置 */
+}
+/* 各ナビゲーションリンク */
+.navbar ul li {
+    flex: 1; /* 各項目を均等に伸ばす */
+    text-align: center; /* 各項目を中央揃え */
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem; /* フォントサイズ */
+    padding: 0.4rem 1rem; /* 上下 左右のパディング */
+    transition: color 0.5s ease, background-color 0.3s ease, border-radius 0.3s ease; 
+    display: block; /* クリック範囲を広げるためにブロック要素に */
+    white-space: nowrap; /* テキストの改行を防止 */
+}
+
+/* 最後にクリックされたリンクのスタイル */
+.navbar ul li a.active {
+    color: rgba(0, 0, 0, 0.616);
+    background-color: #fcffff;
+    background-image: linear-gradient(180deg, #fcffff 0%, #78787c 100%);
+    border-top-left-radius: 120px;
+    border-top-right-radius: 120px;
+}
+
+/* ホバー選択時のスタイル */
+.navbar ul li a:hover {
+    color: rgba(0, 0, 0, 0.8);
+    background-color: #d1d5db; /* ホバー時の背景色 */
+    border-top-left-radius: 120px;
+    border-top-right-radius: 120px;
+}
+
+
+/* セクションのスタイル */
+/* .section-content {
+    padding: 4rem 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    background-color: white;
+    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* セクションタイトル */
+/* .section-content h2 { */
+    /* font-size: 2rem;
+    margin-bottom: 1rem;
+} */ 
+
+/* お問い合わせフォームのスタイル */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input, textarea, button {
+    margin: 0.5rem 0;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4CAF50;
+}
+
+/* ナビゲーションバーのレスポンシブ調整 */
+/* 1500px以上では最大余白を維持 */
+@media (min-width: 1500px) {
+    .navititle {
+        margin-right: 30rem;
+    }
+}
+
+/* 1480px以下での余白 */
+@media (max-width: 1480px) {
+    .navititle {
+        margin-right: 7rem; /* 1480px以下では余白を完全に消す */
+    }
+}
+
+/* 1180px以下での余白 */
+@media (max-width: 1180px) {
+    .navbar ul li a {
+        font-size: 0.9rem; /* フォントサイズを縮小 */
+        padding: 0.6rem 0.8rem; /* パディングを縮小 */
+    }
+    .navititle {
+        font-size: 1rem; /* タイトルを縮小 */
+        margin-right: 5rem; /* タイトルの右マージンを調整 */
+    }
+}
+
+/* スマホ対応（オプション） */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column; /* 縦並びに切り替え */
+    }
+    .navbar ul li {
+        margin: 1rem 0;
+    }
+    .navititle {
+        margin-right: 0; /* 余白を削除 */
+        text-align: center;
+    }
+}
