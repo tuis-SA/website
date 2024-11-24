@@ -10,23 +10,30 @@ body {
 
 /* ヘッダー */
 header {
-    background-color: rgba(17, 15, 15, 0.548);
-    height: 30rem;
-    padding-top: 2.5rem;
+    background-color:  black;
+    height: 50rem;
+    padding-top: 1.5rem;
     padding-left: 2.2rem;
 }
 
 /* ナビゲーションバー全体のスタイル */
+/* ナビゲーションタイトル */
 .navititle {
-    flex: 1; /* 他の要素と同様に均等配置 */
-    text-align: left; /* テキストを左揃え（必要であれば） */
-    font-size: 1rem; /* 他のリンクと同じフォントサイズ */
-    color: white; /* テキストの色を統一 */
+    flex-shrink: 0; /* ナビゲーションタイトルの幅を固定 */
+    margin-right: 30rem; /* レスポンシブ調整 */
+    white-space: nowrap; /* 改行を防止 */
+    font-size: 1.2rem; /* 必要に応じて調整 */
+    color: white;
     display: flex; /* フレックスボックスを適用 */
     justify-content: flex-start; /* 水平方向で左寄せ */
     align-items: center; /* 垂直方向で中央揃え */
-    padding: 0.5rem 1rem; /* パディングを調整 */
-    margin-right: 30rem;
+    padding: 0.3rem 1rem; /* パディングを調整 */
+}
+
+/* ナビゲーションバーをスクロールで固定する */
+.navigation_bar {
+    position: sticky; /* スクロール時に固定 */
+    top: 0.9rem; /* スクロールして上から0pxの位置で固定 */
 }
 
 .navi_title{
@@ -41,7 +48,7 @@ header {
 nav.navbar {
     margin: 0; /* 上下のマージンをリセット */
     padding: 0; /* 上下のパディングをリセット */
-    margin-right: 17rem;
+    margin-right: 13rem;
 }
 /* ナビゲーションバーのリスト */
 .navbar ul {
@@ -50,6 +57,7 @@ nav.navbar {
     margin: 0;
     padding: 0;
     width: 100%;  /* ナビゲーションバー全体を使う */
+    justify-content: space-between; /* 要素間の均等配置 */
 }
 /* 各ナビゲーションリンク */
 .navbar ul li {
@@ -60,10 +68,11 @@ nav.navbar {
 .navbar ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
-    padding: 0.7rem 1rem;
-    transition: color 0.5s ease, background-color 0.3s ease, border-radius 0.3s ease; /* 全ての変化をスムーズに */
+    font-size: 1rem; /* フォントサイズ */
+    padding: 0.4rem 1rem; /* 上下 左右のパディング */
+    transition: color 0.5s ease, background-color 0.3s ease, border-radius 0.3s ease; 
     display: block; /* クリック範囲を広げるためにブロック要素に */
+    white-space: nowrap; /* テキストの改行を防止 */
 }
 
 /* 最後にクリックされたリンクのスタイル */
@@ -85,7 +94,7 @@ nav.navbar {
 
 
 /* セクションのスタイル */
-.section-content {
+/* .section-content {
     padding: 4rem 2rem;
     margin: 2rem auto;
     max-width: 800px;
@@ -96,10 +105,10 @@ nav.navbar {
 }
 
 /* セクションタイトル */
-.section-content h2 {
-    font-size: 2rem;
+/* .section-content h2 { */
+    /* font-size: 2rem;
     margin-bottom: 1rem;
-}
+} */ 
 
 /* お問い合わせフォームのスタイル */
 form {
@@ -125,17 +134,43 @@ button:hover {
     background-color: #4CAF50;
 }
 
-/* レスポンシブデザイン */
+/* ナビゲーションバーのレスポンシブ調整 */
+/* 1500px以上では最大余白を維持 */
+@media (min-width: 1500px) {
+    .navititle {
+        margin-right: 30rem;
+    }
+}
+
+/* 1480px以下での余白 */
+@media (max-width: 1480px) {
+    .navititle {
+        margin-right: 7rem; /* 1480px以下では余白を完全に消す */
+    }
+}
+
+/* 1180px以下での余白 */
+@media (max-width: 1180px) {
+    .navbar ul li a {
+        font-size: 0.9rem; /* フォントサイズを縮小 */
+        padding: 0.6rem 0.8rem; /* パディングを縮小 */
+    }
+    .navititle {
+        font-size: 1rem; /* タイトルを縮小 */
+        margin-right: 5rem; /* タイトルの右マージンを調整 */
+    }
+}
+
+/* スマホ対応（オプション） */
 @media (max-width: 768px) {
     .navbar ul {
-        flex-direction: column;
+        flex-direction: column; /* 縦並びに切り替え */
     }
-
     .navbar ul li {
         margin: 1rem 0;
     }
-
-    .section-content {
-        padding: 2rem 1rem;
+    .navititle {
+        margin-right: 0; /* 余白を削除 */
+        text-align: center;
     }
 }
