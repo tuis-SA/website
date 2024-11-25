@@ -35,7 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 初期コンテンツを読み込む
 function loadInitialContent() {
-    loadContent('index.html'); // 初期ページとして`index.html`をロード
+    // 初期ページとして`index.html`をロード
+    const initialLink = document.querySelector('.nav-link[data-page="index.html"]');
+    if (initialLink) {
+        initialLink.classList.add('active'); // 初期状態で「ホーム」リンクをアクティブ化
+    }
+    loadContent('index.html');
 }
 
 // ナビゲーションリンクにイベントを設定

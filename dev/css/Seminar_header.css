@@ -2,14 +2,14 @@
 /* ナビゲーションタイトル */
 .navititle {
     flex-shrink: 0; /* ナビゲーションタイトルの幅を固定 */
-    margin-right: 30rem; /* レスポンシブ調整 */
+    margin-right: 29vw; /* レスポンシブ調整 */
     white-space: nowrap; /* 改行を防止 */
-    font-size: 1.2rem; /* 必要に応じて調整 */
+    font-size: 1.1vw;; /* 必要に応じて調整 */
     color: white;
     display: flex; /* フレックスボックスを適用 */
     justify-content: flex-start; /* 水平方向で左寄せ */
     align-items: center; /* 垂直方向で中央揃え */
-    padding: 0.3rem 1rem; /* パディングを調整 */
+    padding: 0.3vw 1vw; /* パディングを調整 */
 }
 
 /* ナビゲーションバーをスクロールで固定する */
@@ -28,9 +28,9 @@
 }
 
 nav.navbar {
-    margin: 0; /* 上下のマージンをリセット */
-    padding: 0; /* 上下のパディングをリセット */
-    margin-right: 13rem;
+    margin: 0;
+    padding: 0;
+    margin-right: 20vw;
 }
 /* ナビゲーションバーのリスト */
 .navbar ul {
@@ -50,8 +50,8 @@ nav.navbar {
 .navbar ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1rem; /* フォントサイズ */
-    padding: 0.4rem 1rem; /* 上下 左右のパディング */
+    font-size: 1vw; /* フォントサイズ */
+    padding: 0.4vw 1vw; /* 上下 左右のパディング */
     transition: color 0.5s ease, background-color 0.3s ease, border-radius 0.3s ease; 
     display: block; /* クリック範囲を広げるためにブロック要素に */
     white-space: nowrap; /* テキストの改行を防止 */
@@ -73,24 +73,6 @@ nav.navbar {
     border-top-left-radius: 120px;
     border-top-right-radius: 120px;
 }
-
-
-/* セクションのスタイル */
-/* .section-content {
-    padding: 4rem 2rem;
-    margin: 2rem auto;
-    max-width: 800px;
-    background-color: white;
-    color: #333;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* セクションタイトル */
-/* .section-content h2 { */
-    /* font-size: 2rem;
-    margin-bottom: 1rem;
-} */ 
 
 /* お問い合わせフォームのスタイル */
 form {
@@ -114,45 +96,4 @@ button {
 
 button:hover {
     background-color: #4CAF50;
-}
-
-/* ナビゲーションバーのレスポンシブ調整 */
-/* 1500px以上では最大余白を維持 */
-@media (min-width: 1500px) {
-    .navititle {
-        margin-right: 30rem;
-    }
-}
-
-/* 1480px以下での余白 */
-@media (max-width: 1480px) {
-    .navititle {
-        margin-right: 7rem; /* 1480px以下では余白を完全に消す */
-    }
-}
-
-/* 1180px以下での余白 */
-@media (max-width: 1180px) {
-    .navbar ul li a {
-        font-size: 0.9rem; /* フォントサイズを縮小 */
-        padding: 0.6rem 0.8rem; /* パディングを縮小 */
-    }
-    .navititle {
-        font-size: 1rem; /* タイトルを縮小 */
-        margin-right: 5rem; /* タイトルの右マージンを調整 */
-    }
-}
-
-/* スマホ対応（オプション） */
-@media (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column; /* 縦並びに切り替え */
-    }
-    .navbar ul li {
-        margin: 1rem 0;
-    }
-    .navititle {
-        margin-right: 0; /* 余白を削除 */
-        text-align: center;
-    }
 }
