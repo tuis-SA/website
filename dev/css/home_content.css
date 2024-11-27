@@ -1,8 +1,8 @@
 /* 基本スタイル */
 .home_title {
-  margin-left: 3rem;
-  margin-top: 2rem;
-  margin-bottom: 6rem;
+  margin-left: 3vw;
+  margin-top: 2vw;
+  margin-bottom: 6vw;
 }
 
 .we-are {
@@ -53,7 +53,7 @@
 }
 
 .embodiment-of-technology::after {
-  bottom: -0.7vw;;
+  bottom: -0.7vw;
   background-color: red;
   margin-left: 1vw;
 }
@@ -100,7 +100,7 @@
 }
 
 .home_image {
-  width: 20rem;
-  height: 20rem;
+  width: 20vw;
+  height: 62vh;;
   border-radius: 20%;
 }
