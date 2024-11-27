@@ -30,7 +30,6 @@
 nav.navbar {
     margin: 0;
     padding: 0;
-    margin-right: 20vw;
 }
 /* ナビゲーションバーのリスト */
 .navbar ul {
@@ -50,7 +49,7 @@ nav.navbar {
 .navbar ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1vw; /* フォントサイズ */
+    font-size: 1.25vw; /* フォントサイズ */
     padding: 0.4vw 1vw; /* 上下 左右のパディング */
     transition: color 0.5s ease, background-color 0.3s ease, border-radius 0.3s ease; 
     display: block; /* クリック範囲を広げるためにブロック要素に */
@@ -96,4 +95,25 @@ button {
 
 button:hover {
     background-color: #4CAF50;
+}
+
+/* モバイルスタイル */
+@media (max-width: 650px) {
+  
+  nav.navbar {
+    margin-right: 0vw;
+  }
+  .navigation_bar {
+    position: fixed; /* 固定を指定 */
+    top: 0; /* 上部に固定 */
+    left: 0; /* 左端に固定 */
+    width: 100%; /* 横幅を画面全体に広げる */
+    z-index: 1000; /* 他の要素よりも上に表示 */
+  }
+  .navbar ul li a {
+    font-size: 1.5vw;
+  }
+  .navititle{
+    font-size: 2.1vw;
+  }
 }
