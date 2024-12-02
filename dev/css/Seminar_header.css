@@ -4,7 +4,7 @@
     flex-shrink: 0; /* ナビゲーションタイトルの幅を固定 */
     margin-right: 29vw; /* レスポンシブ調整 */
     white-space: nowrap; /* 改行を防止 */
-    font-size: 1.1vw;; /* 必要に応じて調整 */
+    font-size: 1.3vw; /* 必要に応じて調整 */
     color: white;
     display: flex; /* フレックスボックスを適用 */
     justify-content: flex-start; /* 水平方向で左寄せ */
@@ -50,7 +50,7 @@ nav.navbar {
     color: white;
     text-decoration: none;
     font-size: 1.25vw; /* フォントサイズ */
-    padding: 0.4vw 1vw; /* 上下 左右のパディング */
+    padding: 0.5vw 1vw; /* 上下 左右のパディング */
     transition: color 0.5s ease, background-color 0.3s ease, border-radius 0.3s ease; 
     display: block; /* クリック範囲を広げるためにブロック要素に */
     white-space: nowrap; /* テキストの改行を防止 */
@@ -111,9 +111,11 @@ button:hover {
     z-index: 1000; /* 他の要素よりも上に表示 */
   }
   .navbar ul li a {
-    font-size: 1.5vw;
+    padding: 2.25vw 1vw;
+    font-size: 2.1vw;
   }
   .navititle{
-    font-size: 2.1vw;
+    margin-right: 11vw;
+    font-size: 3.0vw;
   }
 }
