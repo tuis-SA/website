@@ -3,6 +3,7 @@
   margin-left: 3vw;
   margin-top: 2vw;
   margin-bottom: 6vw;
+  height: 35vw; /* image_palce */
 }
 
 .we-are {
@@ -92,15 +93,20 @@
 
 /* home description styles */
 .home_content {
-  display: flex;
+  /*home-something*/
 }
 
-.home_description {
-  width: 50%;
+.home_description_title {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  color: #6f6f6f;
+  font-weight: 700; /**/
+  font-size: 9vw;
 }
 
-.home_image {
-  width: 20vw;
-  height: 62vh;;
-  border-radius: 20%;
+
+/* モバイルスタイル */
+@media (max-width: 650px) {
+  
 }
