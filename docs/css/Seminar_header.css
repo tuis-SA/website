@@ -118,6 +118,8 @@ nav.navbar {
     background: none;
     border: none;
     margin-left: auto;
+    /* スマホで見るとなぜか消えるので下記追加。 */
+    z-index: 2000; /* 他の要素より前面に配置 */
   }
 
   .hamburger_menu span {
