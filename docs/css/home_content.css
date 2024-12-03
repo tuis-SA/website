@@ -92,9 +92,6 @@
 
 
 /* home description styles */
-.home_content {
-  /*home-something*/
-}
 
 .home_description_title {
   width: 100%;
@@ -109,6 +106,6 @@
 /* モバイルスタイル */
 @media (max-width: 650px) {
   .home_title{
-    margin-top: 40px;
+    margin-top: 64px;
   }
 }
