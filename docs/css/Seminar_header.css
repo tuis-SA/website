@@ -105,6 +105,12 @@ nav.navbar {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+
+  .hamburger_aria{
+    width: 31px;
+    height: 38px;
+    margin-right: 10px;
+  }
   
   .hamburger_menu {
     display: flex;
