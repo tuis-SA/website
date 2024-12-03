@@ -107,7 +107,7 @@ nav.navbar {
   }
 
   .hamburger_aria{
-    width: 31px;
+    width: 80px;
     height: 38px;
     margin-right: 10px;
   }
@@ -117,7 +117,7 @@ nav.navbar {
     flex-direction: column;
     justify-content: space-between;
     /* width: 30px; もしかしたら計算できない値になっている可能性があるので一時数値を変える*/
-    width: 31px;
+    width: 30px;
     height: 19px;
     margin: 5px 10px 10px 10px;
     padding-top: 5px;
