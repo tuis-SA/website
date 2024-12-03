@@ -105,22 +105,17 @@ nav.navbar {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
-
-  .hamburger_aria{
-    width: 80px;
-    height: 38px;
-    margin-right: 10px;
-  }
   
   .hamburger_menu {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* width: 30px; もしかしたら計算できない値になっている可能性があるので一時数値を変える*/
-    width: 30px;
-    height: 25px;
-    margin: 4px 10px 10px 10px;
-    padding-top: 3px;
+    /* 50pxでないとなぜかスマホで丁度いい感じに表示される。　のでPC版のデベロッパツールだと
+    　　少しキモく表示されているが無視。*/
+    width: 50px;
+    height: 19px;
+    margin: 5px 10px 10px 10px;
+    padding-top: 5px;
     cursor: pointer;
     background: none;
     border: none;
