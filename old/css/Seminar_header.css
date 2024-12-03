@@ -1,99 +1,121 @@
 /* ナビゲーションバー全体のスタイル */
 /* ナビゲーションタイトル */
 .navititle {
-    flex-shrink: 0; /* ナビゲーションタイトルの幅を固定 */
-    margin-right: 29vw; /* レスポンシブ調整 */
-    white-space: nowrap; /* 改行を防止 */
-    font-size: 1.1vw;; /* 必要に応じて調整 */
-    color: white;
-    display: flex; /* フレックスボックスを適用 */
-    justify-content: flex-start; /* 水平方向で左寄せ */
-    align-items: center; /* 垂直方向で中央揃え */
-    padding: 0.3vw 1vw; /* パディングを調整 */
+  flex-shrink: 0; /* ナビゲーションタイトルの幅を固定 */
+  margin-right: 29vw; /* レスポンシブ調整 */
+  white-space: nowrap; /* 改行を防止 */
+  font-size: 1.3vw; /* 必要に応じて調整 */
+  color: white;
+  display: flex; /* フレックスボックスを適用 */
+  align-items: center; /* 垂直方向で中央揃え */
+  padding: 0.3vw 1vw; /* パディングを調整 */
 }
 
 /* ナビゲーションバーをスクロールで固定する */
 .navigation_bar {
-    position: sticky; /* スクロール時に固定 */
-    top: 0.9rem; /* スクロールして上から0pxの位置で固定 */
+  position: sticky; /* スクロール時に固定 */
+  top: 0.9rem; /* スクロールして上から0pxの位置で固定 */
+  justify-content: flex-start; /* 水平方向で左寄せ */
 }
 
 .navi_title{
-    position: absolute;
-    display: block;
+  position: absolute;
+  display: block;
 }
 .navbar {
-    background-color: #52525f;
-    background-image: linear-gradient(180deg, #52525f 0%, #000000 100%);   
+  background-color: #52525f;
+  background-image: linear-gradient(180deg, #52525f 0%, #000000 100%);   
 }
 
 nav.navbar {
-    margin: 0;
-    padding: 0;
-    margin-right: 20vw;
+  margin: 0;
+  padding: 0;
 }
 /* ナビゲーションバーのリスト */
 .navbar ul {
-    list-style: none;
-    display: flex; /*フレックスボックスを有効化*/
-    margin: 0;
-    padding: 0;
-    width: 100%;  /* ナビゲーションバー全体を使う */
-    justify-content: space-between; /* 要素間の均等配置 */
+  list-style: none;
+  display: flex; /*フレックスボックスを有効化*/
+  margin: 0;
+  padding: 0;
+  width: 100%;  /* ナビゲーションバー全体を使う */
+  justify-content: space-between; /* 要素間の均等配置 */
 }
 /* 各ナビゲーションリンク */
 .navbar ul li {
-    flex: 1; /* 各項目を均等に伸ばす */
-    text-align: center; /* 各項目を中央揃え */
+  flex: 1; /* 各項目を均等に伸ばす */
+  text-align: center; /* 各項目を中央揃え */
 }
 
 .navbar ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1vw; /* フォントサイズ */
-    padding: 0.4vw 1vw; /* 上下 左右のパディング */
-    transition: color 0.5s ease, background-color 0.3s ease, border-radius 0.3s ease; 
-    display: block; /* クリック範囲を広げるためにブロック要素に */
-    white-space: nowrap; /* テキストの改行を防止 */
+  color: white;
+  text-decoration: none;
+  font-size: 1.25vw; /* フォントサイズ */
+  padding: 0.5vw 1vw; /* 上下 左右のパディング */
+  transition: color 0.5s ease, background-color 0.3s ease, border-radius 0.3s ease; 
+  display: block; /* クリック範囲を広げるためにブロック要素に */
+  white-space: nowrap; /* テキストの改行を防止 */
 }
 
 /* 最後にクリックされたリンクのスタイル */
 .navbar ul li a.active {
-    color: rgba(0, 0, 0, 0.616);
-    background-color: #fcffff;
-    background-image: linear-gradient(180deg, #fcffff 0%, #78787c 100%);
-    border-top-left-radius: 120px;
-    border-top-right-radius: 120px;
+  color: rgba(0, 0, 0, 0.616);
+  background-color: #fcffff;
+  background-image: linear-gradient(180deg, #fcffff 0%, #78787c 100%);
+  border-top-left-radius: 120px;
+  border-top-right-radius: 120px;
 }
 
 /* ホバー選択時のスタイル */
 .navbar ul li a:hover {
-    color: rgba(0, 0, 0, 0.8);
-    background-color: #d1d5db; /* ホバー時の背景色 */
-    border-top-left-radius: 120px;
-    border-top-right-radius: 120px;
+  color: rgba(0, 0, 0, 0.8);
+  background-color: #d1d5db; /* ホバー時の背景色 */
+  border-top-left-radius: 120px;
+  border-top-right-radius: 120px;
 }
 
 /* お問い合わせフォームのスタイル */
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 label, input, textarea, button {
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 }
 
 button {
-    background-color: #333;
-    color: white;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: #333;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #4CAF50;
+  background-color: #4CAF50;
+}
+
+/* モバイルスタイル */
+@media (max-width: 650px) {
+
+  nav.navbar {
+    margin-right: 0vw;
+  }
+  .navigation_bar {
+    position: fixed; /* 固定を指定 */
+    top: 0; /* 上部に固定 */
+    left: 0; /* 左端に固定 */
+    width: 100%; /* 横幅を画面全体に広げる */
+    z-index: 1000; /* 他の要素よりも上に表示 */
+  }
+  .navbar ul li a {
+    padding: 2.25vw 1vw;
+    font-size: 2.1vw;
+  }
+  .navititle{
+    margin-right: 11vw;
+    font-size: 3.0vw;
+  }
 }

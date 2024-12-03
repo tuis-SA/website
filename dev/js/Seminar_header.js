@@ -1,138 +1,140 @@
-// ヘッダーとナビゲーションを初期化
+// DOMの初期化
 document.addEventListener('DOMContentLoaded', () => {
-    // 最初に暗転状態を適用
-    document.body.classList.add('fade-in');
+  // フェードイン効果の設定
+  document.body.classList.add('fade-in');
 
-    // ページ読み込み完了後に暗転を解除
-    window.addEventListener('load', () => {
-        document.body.classList.add('loaded');
-    });
+  // ページ読み込み完了時の処理
+  window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+  });
 
-    // 既存のヘッダー読み込み処理を開始
-    const headerContainer = document.createElement('div');
-    document.body.insertBefore(headerContainer, document.body.firstChild);
+  // ヘッダーの動的読み込み
+  const headerContainer = document.createElement('div');
+  document.body.insertBefore(headerContainer, document.body.firstChild);
 
-    fetch('header.html')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text();
-        })
-        .then(html => {
-            headerContainer.innerHTML = html;
+  fetch('header.html')
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.text();
+      })
+      .then(html => {
+          headerContainer.innerHTML = html;
 
-            // ナビゲーションイベントを設定
-            initializeNavEvents();
+          // ナビゲーションイベントを初期化
+          initializeNavEvents();
 
-            // 初期コンテンツをロード
-            loadInitialContent();
-        })
-        .catch(error => {
-            console.error('ヘッダーを読み込めませんでした:', error.message);
-        });
+          // ハンバーガーメニューの初期化（ヘッダー読み込み後）
+          initializeHamburgerMenu();
+
+          // 初期コンテンツのロード
+          loadInitialContent();
+      })
+      .catch(error => {
+          console.error('ヘッダーを読み込めませんでした:', error.message);
+      });
 });
 
-// 初期コンテンツを読み込む
+// 初期コンテンツのロード
 function loadInitialContent() {
-    // 初期ページとして`index.html`をロード
-    const initialLink = document.querySelector('.nav-link[data-page="index.html"]');
-    if (initialLink) {
-        initialLink.classList.add('active'); // 初期状態で「ホーム」リンクをアクティブ化
-    }
-    loadContent('index.html');
+  const initialLink = document.querySelector('.nav-link[data-page="index.html"]');
+  if (initialLink) {
+      initialLink.classList.add('active');
+  }
+  loadContent('index.html');
 }
 
 // ナビゲーションリンクにイベントを設定
 function initializeNavEvents() {
-    const links = document.querySelectorAll('.nav-link');
+  const links = document.querySelectorAll('.nav-link');
+  links.forEach(link => {
+      link.addEventListener('click', event => {
+          event.preventDefault();
 
-    links.forEach(link => {
-        link.addEventListener('click', event => {
-            event.preventDefault(); // デフォルトの動作を防ぐ
+          links.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
 
-            // すべてのリンクからactiveクラスを削除
-            links.forEach(l => l.classList.remove('active'));
-
-            // クリックされたリンクをアクティブ化
-            link.classList.add('active');
-
-            // 対応するページを読み込む
-            const page = link.dataset.page;
-            if (page) {
-                loadContent(page);
-            }
-        });
-    });
+          const page = link.dataset.page;
+          if (page) {
+              loadContent(page);
+          }
+      });
+  });
 }
 
-// 指定したHTMLファイルから`#content`部分を動的に取得して置き換える
+// ハンバーガーメニューの初期化
+function initializeHamburgerMenu() {
+  const hamburgerMenu = document.querySelector('.hamburger_menu');
+  const menu = document.querySelector('.menu');
+
+  if (hamburgerMenu && menu) {
+      hamburgerMenu.addEventListener('click', () => {
+          menu.classList.toggle('active');
+      });
+  } else {
+      console.error("ハンバーガーメニューまたはメニューが見つかりません");
+  }
+}
+
+// 動的コンテンツのロード
 function loadContent(page) {
-    const contentDiv = document.getElementById('content');
-    if (!contentDiv) {
-        console.error('content要素が見つかりません');
-        return;
-    }
-    console.log(`Loading content for: ${page}`); // デバッグ用ログ
-    fetch(page)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text();
-        })
-        .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
+  const contentDiv = document.getElementById('content');
+  if (!contentDiv) {
+      console.error('content要素が見つかりません');
+      return;
+  }
 
-            // 新しいコンテンツの#contentを取得
-            const newContent = doc.querySelector('#content');
-            if (newContent) {
-                // 現在の#contentを新しい#contentで置き換え
-                contentDiv.innerHTML = newContent.innerHTML;
+  fetch(page)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.text();
+      })
+      .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const newContent = doc.querySelector('#content');
 
-                // 必要に応じて動的初期化を実行
-                initializePageSpecificFeatures();
-            } else {
-                console.error(`#contentが見つかりません: ${page}`);
-            }
-        })
-        .catch(error => {
-            contentDiv.innerHTML = `<p>コンテンツを読み込めませんでした。</p>`;
-            console.error('コンテンツエラー:', error.message);
-        });
+          if (newContent) {
+              contentDiv.innerHTML = newContent.innerHTML;
+              initializePageSpecificFeatures();
+          } else {
+              console.error(`#contentが見つかりません: ${page}`);
+          }
+      })
+      .catch(error => {
+          contentDiv.innerHTML = `<p>コンテンツを読み込めませんでした。</p>`;
+          console.error('コンテンツエラー:', error.message);
+      });
 }
 
-// ページごとの機能を初期化（例: フォーム処理など）
+// ページごとの初期化処理
 function initializePageSpecificFeatures() {
-    if (typeof initializeContactForm === 'function') {
-        initializeContactForm(); // お問い合わせフォームの初期化
-    } else {
-        console.warn('initializeContactForm が見つかりません。');
-    }
+  if (typeof initializeContactForm === 'function') {
+      initializeContactForm();
+  }
 }
 
 // お問い合わせフォームの送信処理
 function initializeContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (event) {
-            event.preventDefault(); // フォームのデフォルト動作をキャンセル
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+      contactForm.addEventListener('submit', event => {
+          event.preventDefault();
 
-            // フォームのデータを取得
-            const name = document.getElementById('name')?.value || '';
-            const email = document.getElementById('email')?.value || '';
-            const message = document.getElementById('message')?.value || '';
+          const name = document.getElementById('name')?.value || '';
+          const email = document.getElementById('email')?.value || '';
+          const message = document.getElementById('message')?.value || '';
 
-            // メッセージ送信完了表示
-            const responseMessage = document.getElementById('responseMessage');
-            if (responseMessage) {
-                responseMessage.textContent = 'メッセージが送信されました。ありがとうございます！';
-                responseMessage.style.color = 'green';
-            }
+          const responseMessage = document.getElementById('responseMessage');
+          if (responseMessage) {
+              responseMessage.textContent = 'メッセージが送信されました。ありがとうございます！';
+              responseMessage.style.color = 'green';
+          }
 
-            // フォームの内容をクリア
-            contactForm.reset();
-        });
-    }
+          contactForm.reset();
+      });
+  }
 }

@@ -1,6 +1,6 @@
 /* 基本スタイル */
 .home_title {
-  margin-left: 3vw;
+  margin-left: 4vw;
   margin-top: 2vw;
   margin-bottom: 6vw;
   height: 35vw; /* image_palce */
@@ -108,5 +108,7 @@
 
 /* モバイルスタイル */
 @media (max-width: 650px) {
-  
+  .home_title{
+    margin-top: 40px;
+  }
 }

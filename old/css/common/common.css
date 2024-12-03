@@ -1,8 +1,9 @@
 /* 全体の基本スタイル */
 body {
   font-family: 'Arial', sans-serif;  
-  padding-top: 1.5rem;
-  padding-left: 2.2rem;
+  padding-top: 2.0vw;
+  padding-left: 3.5vw;
+  margin-right: 3.5vw;
   background-color:  black;
   color: grey;
   /* ヘッダー */
@@ -16,4 +17,16 @@ body.fade-in {
 /* ページが完全に表示される状態 */
 body.loaded {
   opacity: 1;
+}
+
+
+/* モバイルスタイル */
+@media (max-width: 650px) {
+  body{
+    /* padding-top: 0vw;
+    padding-left: 0vw; */
+    padding: 0;
+    margin:11vw 0vw 0vw 0vw;
+  }
+  
 }

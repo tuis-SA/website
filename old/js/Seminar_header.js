@@ -136,3 +136,13 @@ function initializeContactForm() {
         });
     }
 }
+
+// ナビゲーションメニューを開閉するためのスクリプトを追加します。
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburgerMenu = document.querySelector(".hamburger_menu");
+  const menu = document.querySelector(".menu");
+
+  hamburgerMenu.addEventListener("click", function () {
+    menu.classList.toggle("active"); // メニューの表示・非表示を切り替える
+  });
+});
