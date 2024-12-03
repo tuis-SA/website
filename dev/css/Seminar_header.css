@@ -110,8 +110,8 @@ nav.navbar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* width: 30px; */
-    width: 186px;
+    /* width: 30px; もしかしたら計算できない値になっている可能性があるので一時数値を変える*/
+    width: 31px;
     height: 19px;
     margin: 5px 10px 10px 10px;
     padding-top: 5px;
