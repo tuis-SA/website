@@ -118,9 +118,9 @@ nav.navbar {
     justify-content: space-between;
     /* width: 30px; もしかしたら計算できない値になっている可能性があるので一時数値を変える*/
     width: 30px;
-    height: 19px;
-    margin: 5px 10px 10px 10px;
-    padding-top: 5px;
+    height: 25px;
+    margin: 4px 10px 10px 10px;
+    padding-top: 3px;
     cursor: pointer;
     background: none;
     border: none;
