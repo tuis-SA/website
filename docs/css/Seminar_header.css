@@ -110,6 +110,7 @@ nav.navbar {
     width: 80px;
     height: 38px;
     margin-right: 10px;
+    background-color: red;
   }
   
   .hamburger_menu {
@@ -117,7 +118,7 @@ nav.navbar {
     flex-direction: column;
     justify-content: space-between;
     /* width: 30px; もしかしたら計算できない値になっている可能性があるので一時数値を変える*/
-    width: 30px;
+    width: 50px;
     height: 19px;
     margin: 5px 10px 10px 10px;
     padding-top: 5px;
