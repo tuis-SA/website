@@ -8,6 +8,7 @@ body {
   color: grey;
   /* ヘッダー */
 }
+
 /* ページ暗転時の初期状態 */
 body.fade-in {
   opacity: 0;
@@ -19,6 +20,10 @@ body.loaded {
   opacity: 1;
 }
 
+/*index.html以外のpageスタイル*/
+.non-home{
+  margin-top: 50px;
+}
 
 /* モバイルスタイル */
 @media (max-width: 650px) {
@@ -26,6 +31,7 @@ body.loaded {
     /* padding-top: 0vw;
     padding-left: 0vw; */
     padding: 0;
-    margin:11vw 0vw 0vw 0vw;
+    margin:0vw 0vw 0vw 0vw;
   }
+  
 }
