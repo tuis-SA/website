@@ -9,7 +9,7 @@
 .we-are {
   font-size: 8vw;
   font-weight: bold;
-  color: #333;
+  color: #d4d1d1f5;
   position: relative;
   margin: 0;
   padding-bottom: 0.1vw;
@@ -18,7 +18,7 @@
 .embodiment-of-technology {
   font-size: 5.65vw;
   font-weight: normal;
-  color: #555;
+  color: #d4d1d1f5;
   position: relative;
   margin-left: 3vw;
 }
@@ -95,14 +95,40 @@
 
 .home_description_title {
   width: 100%;
+  margin-bottom: 2vw;
   position: relative;
   text-align: center;
-  color: #6f6f6f;
+  color: #d4d1d1f5;
   font-weight: 700; /**/
-  font-size: 9vw;
+  font-size: 8vw;
 }
 
+/* home topic styles */
+  .home_topics{
+    margin-top: 10vw;
+  }
+  .home_topic_content{
+    width : 80%;
+  }
+  
+  .home_topic_time{
+    font-size: 1.4vw;
+    color: gray;
+  }
 
+  .home_topic_description{
+    border-bottom: 1px solid white;
+  }
+
+  .home_topic_description{
+    font-size: 1.5vw;
+  }
+
+
+/* home helpus styles */
+  .home_helpus {
+    margin-top: 10vw;
+  }
 /* モバイルスタイル */
 @media (max-width: 650px) {
   .home_title{
