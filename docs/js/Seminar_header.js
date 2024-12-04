@@ -1,11 +1,10 @@
-// DOMの初期化
 document.addEventListener('DOMContentLoaded', () => {
   // フェードイン効果の設定
   document.body.classList.add('fade-in');
 
   // ページ読み込み完了時の処理
   window.addEventListener('load', () => {
-      document.body.classList.add('loaded');
+    document.body.classList.add('loaded');
   });
 
   // ヘッダーの動的読み込み
@@ -13,53 +12,55 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.insertBefore(headerContainer, document.body.firstChild);
 
   fetch('header.html')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.text();
-      })
-      .then(html => {
-          headerContainer.innerHTML = html;
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(html => {
+      headerContainer.innerHTML = html;
 
-          // ナビゲーションイベントを初期化
-          initializeNavEvents();
+      // ナビゲーションイベントを初期化
+      initializeNavEvents();
 
-          // ハンバーガーメニューの初期化（ヘッダー読み込み後）
-          initializeHamburgerMenu();
+      // ハンバーガーメニューの初期化
+      initializeHamburgerMenu();
 
-          // 初期コンテンツのロード
-          loadInitialContent();
-      })
-      .catch(error => {
-          console.error('ヘッダーを読み込めませんでした:', error.message);
-      });
+      // 初期コンテンツのロード
+      loadInitialContent();
+    })
+    .catch(error => {
+      console.error('ヘッダーを読み込めませんでした:', error.message);
+    });
 });
 
 // 初期コンテンツのロード
 function loadInitialContent() {
   const initialLink = document.querySelector('.nav-link[data-page="index.html"]');
   if (initialLink) {
-      initialLink.classList.add('active');
+    initialLink.classList.add('active');
   }
   loadContent('index.html');
 }
 
 // ナビゲーションリンクにイベントを設定
 function initializeNavEvents() {
-  const links = document.querySelectorAll('.nav-link');
-  links.forEach(link => {
-      link.addEventListener('click', event => {
-          event.preventDefault();
+  document.addEventListener('click', event => {
+    const target = event.target.closest('.nav-link');
+    if (target && target.dataset.page) {
+      event.preventDefault();
 
-          links.forEach(l => l.classList.remove('active'));
-          link.classList.add('active');
+      // 他のリンクの "active" クラスを解除
+      const links = document.querySelectorAll('.nav-link');
+      links.forEach(link => link.classList.remove('active'));
 
-          const page = link.dataset.page;
-          if (page) {
-              loadContent(page);
-          }
-      });
+      // 現在のリンクに "active" クラスを追加
+      target.classList.add('active');
+
+      // 動的にコンテンツをロード
+      loadContent(target.dataset.page);
+    }
   });
 }
 
@@ -69,11 +70,11 @@ function initializeHamburgerMenu() {
   const menu = document.querySelector('.menu');
 
   if (hamburgerMenu && menu) {
-      hamburgerMenu.addEventListener('click', () => {
-          menu.classList.toggle('active');
-      });
+    hamburgerMenu.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
   } else {
-      console.error("ハンバーガーメニューまたはメニューが見つかりません");
+    console.error('ハンバーガーメニューまたはメニューが見つかりません');
   }
 }
 
@@ -81,39 +82,39 @@ function initializeHamburgerMenu() {
 function loadContent(page) {
   const contentDiv = document.getElementById('content');
   if (!contentDiv) {
-      console.error('content要素が見つかりません');
-      return;
+    console.error('content要素が見つかりません');
+    return;
   }
 
   fetch(page)
-      .then(response => {
-          if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.text();
-      })
-      .then(html => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
-          const newContent = doc.querySelector('#content');
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const newContent = doc.querySelector('#content');
 
-          if (newContent) {
-              contentDiv.innerHTML = newContent.innerHTML;
-              initializePageSpecificFeatures();
-          } else {
-              console.error(`#contentが見つかりません: ${page}`);
-          }
-      })
-      .catch(error => {
-          contentDiv.innerHTML = `<p>コンテンツを読み込めませんでした。</p>`;
-          console.error('コンテンツエラー:', error.message);
-      });
+      if (newContent) {
+        contentDiv.innerHTML = newContent.innerHTML;
+        initializePageSpecificFeatures();
+      } else {
+        console.error(`#contentが見つかりません: ${page}`);
+      }
+    })
+    .catch(error => {
+      contentDiv.innerHTML = `<p>コンテンツを読み込めませんでした。</p>`;
+      console.error('コンテンツエラー:', error.message);
+    });
 }
 
 // ページごとの初期化処理
 function initializePageSpecificFeatures() {
   if (typeof initializeContactForm === 'function') {
-      initializeContactForm();
+    initializeContactForm();
   }
 }
 
@@ -121,20 +122,20 @@ function initializePageSpecificFeatures() {
 function initializeContactForm() {
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-      contactForm.addEventListener('submit', event => {
-          event.preventDefault();
+    contactForm.addEventListener('submit', event => {
+      event.preventDefault();
 
-          const name = document.getElementById('name')?.value || '';
-          const email = document.getElementById('email')?.value || '';
-          const message = document.getElementById('message')?.value || '';
+      const name = document.getElementById('name')?.value || '';
+      const email = document.getElementById('email')?.value || '';
+      const message = document.getElementById('message')?.value || '';
 
-          const responseMessage = document.getElementById('responseMessage');
-          if (responseMessage) {
-              responseMessage.textContent = 'メッセージが送信されました。ありがとうございます！';
-              responseMessage.style.color = 'green';
-          }
+      const responseMessage = document.getElementById('responseMessage');
+      if (responseMessage) {
+        responseMessage.textContent = 'メッセージが送信されました。ありがとうございます！';
+        responseMessage.style.color = 'green';
+      }
 
-          contactForm.reset();
-      });
+      contactForm.reset();
+    });
   }
 }
