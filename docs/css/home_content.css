@@ -1,7 +1,7 @@
 /* 基本スタイル */
 .home_title {
   padding-left: 4vw;
-  padding-top: 2vw;
+  padding-top: 5vw;
   padding-bottom: 6vw;
     /*背景画像指定*/
   height: 50vw;  /* image_palce */
@@ -99,10 +99,10 @@
 
 /* home description styles */
 
-/* .home_content{
+.home_content{
   padding-left: 3.5vw;
   padding-right: 3.5vw;
-} */
+}
 .home_description_title {
   width: 100%;
   margin-bottom: 2vw;
