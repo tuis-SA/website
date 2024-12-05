@@ -9,14 +9,53 @@
     <script src="js/Seminar_header.js"></script>
 </head>
 <body>
-    <script src="js/Seminar_header.js"></script>
-    <!-- コンテンツが表示される領域 -->
-    <div id="content" class="section-content">
-      <div class="non-home">
-        <h2>ホーム</h2>
-        <p>ゼミ紹介が押されました。</p>
-        ...
-      </div> 
-    </div>
+  <script src="js/Seminar_header.js"></script>
+
+  <!-- コンテンツが表示される領域 -->
+  <div id="content" class="section-content">   <!-- ここのdiv要素の中に内容を書く。　レンダリングするためなのでここのクラス名はいじらない。--->
+
+    <div class="non-home">
+      <h2>ホーム</h2>
+      <p>ゼミ紹介が押されました。</p>
+      ...
+    </div> 
+      
+    <!-- 共通部分　footer--->
+    <footer>
+      <div class="social-links">
+        <!--twitter icon　target="_blank"で新しいタブで開く-->
+        <a href="https://x.com/tuis_saitolab?s=21&t=dLSNgFhon_sUEKbFCtq_Hg" target="_blank" rel="noopener noreferrer" class="social-link">
+          <i class="fa-brands fa-x-twitter fa-3x" ></i>
+        </a>
+        
+        <!--Instagram icon　target="_blank"で新しいタブで開く-->
+        <a href="https://www.instagram.com/tuis.cansat.saitolab/profilecard/?igsh=MTluMDNqNWVhOG9wYg==" target="_blank" rel="noopener noreferrer" class="social-link">
+          <i class="fa-brands fa-instagram fa-3x"></i>
+        </a>
+      </div>
+
+      
+      <div  class="footer_section1">
+        
+        <div class="footer_address_infomation">
+          <p>東京情報大学　〒265-0077 <br>
+            千葉県千葉市若葉区御成台４丁目４−１<br></p>
+          <p>7号館　4館　斎藤・秋山ゼミ</p>
+        </div>
+      
+        <div class="footer_navigations">
+          <a href="index.html" class="nav-link non-header-link" data-page="index.html">ホーム</a>
+          <a href="ゼミ紹介.html" class="nav-link non-header-link" data-page="ゼミ紹介.html">ゼミ紹介</a>
+          <a href="活動記録.html" class="nav-link non-header-link" data-page="活動記録.html">活動記録</a>
+          <a href="教員紹介.html" class="nav-link non-header-link" data-page="教員紹介.html">教員紹介</a>
+          <a href="スポンサー.html" class="nav-link non-header-link" data-page="スポンサー.html">スポンサー</a>
+          <a href="問い合わせページ.html" class="nav-link non-header-link" data-page="問い合わせページ.html">問い合わせ</a>
+        </div>
+        
+      </div>
+      
+    </footer>
+  </div>
+  
 </body>
 </html>

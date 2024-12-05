@@ -1,9 +1,15 @@
 /* 基本スタイル */
 .home_title {
-  margin-left: 4vw;
-  margin-top: 2vw;
-  margin-bottom: 6vw;
-  height: 35vw; /* image_palce */
+  padding-left: 4vw;
+  padding-top: 2vw;
+  padding-bottom: 6vw;
+    /*背景画像指定*/
+  height: 50vw;  /* image_palce */
+  background-image: url("../assets/pictures/home/home_image.jpg");
+  background-repeat: no-repeat; /* 繰り返しを防ぐ */
+  background-size: cover; /* 全体にフィット */
+  background-position: center; /* 中央に配置 */
+  
 }
 
 .we-are {
@@ -93,6 +99,10 @@
 
 /* home description styles */
 
+/* .home_content{
+  padding-left: 3.5vw;
+  padding-right: 3.5vw;
+} */
 .home_description_title {
   width: 100%;
   margin-bottom: 2vw;
