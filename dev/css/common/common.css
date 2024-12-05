@@ -1,12 +1,8 @@
 /* 全体の基本スタイル */
 body {
-  font-family: 'Arial', sans-serif;  
-  padding-top: 2.0vw;
-  padding-left: 3.5vw;
-  margin-right: 3.5vw;
+  font-family: 'Arial', sans-serif;
   background-color:  black;
   color: white;
-  /* ヘッダー */
 }
 
 /* ページ暗転時の初期状態 */
