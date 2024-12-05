@@ -1,12 +1,8 @@
 /* 全体の基本スタイル */
 body {
-  font-family: 'Arial', sans-serif;  
-  padding-top: 2.0vw;
-  padding-left: 3.5vw;
-  margin-right: 3.5vw;
+  font-family: 'Arial', sans-serif;
   background-color:  black;
   color: white;
-  /* ヘッダー */
 }
 
 /* ページ暗転時の初期状態 */
@@ -30,6 +26,33 @@ body.loaded {
   display: inline;
   color: steelblue;
 }
+/* 共通フッター */
+footer{
+  margin: 100px 0px 0px 0px;
+  padding: 30px 0px 0px 0px;
+  border-top:3px solid gray;
+  width: 100%;
+}
+
+footer .footer_address_infomation p {
+  /* スタイルをここに記述 */
+  font-size: 1.3vw;
+}
+
+
+.social-link {
+  text-decoration: none; /* 下線を消す */
+  color: inherit; /* 親要素の色を継承する */
+}
+
+.social-link :hover {
+  color: #b09d9dcd; /* Twitterカラーに変更 */
+}
+
+.social-links{
+  border: 2px solid white;
+}
+
 /* モバイルスタイル */
 @media (max-width: 650px) {
   body{
@@ -40,3 +63,4 @@ body.loaded {
   }
   
 }
+
