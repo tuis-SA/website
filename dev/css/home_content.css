@@ -106,6 +106,7 @@
 .home_description_title {
   width: 100%;
   margin-bottom: 2vw;
+  margin-top: 2vw;
   position: relative;
   text-align: center;
   color: #d4d1d1f5;
@@ -124,7 +125,7 @@
 
   .home_topic_content{
     width : 95%;
-    margin-bottom: 1.2vw;
+    margin-bottom: 15px;
   }
   
   .home_topic_time{
@@ -156,7 +157,7 @@
     font-size: 12vw;
   }
   .home_description_content{
-    font-size: 13px;
+    font-size: 15px;
   }
   .home_topic_description {
     font-size: 12px;
