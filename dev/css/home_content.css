@@ -114,14 +114,17 @@
 }
 
 .home_description_content{
-  font-size: 1.8vw;
+  font-size: 2vw;
 }
+
 /* home topic styles */
   .home_topics{
     margin-top: 10vw;
   }
+
   .home_topic_content{
     width : 80%;
+    margin-bottom: 1.2vw;
   }
   
   .home_topic_time{
@@ -148,5 +151,11 @@
   .home_title{
     margin-top: 64px;
     height: 80vh;
+  }
+  .home_description_title{
+    font-size: 12vw;
+  }
+  .home_description_content{
+    font-size: 2.5vw;
   }
 }
