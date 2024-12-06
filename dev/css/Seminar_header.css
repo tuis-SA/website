@@ -79,6 +79,7 @@ nav.navbar {
     position: fixed; /* 固定 */
     top: 0;          /* 上端に配置 */
     left: 0;         /* 左端に配置 */
+    padding: 0;
     width: 100%;     /* 全幅に広げる */
     z-index: 1000;   /* 他の要素の上に表示 */
   }

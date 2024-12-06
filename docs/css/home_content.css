@@ -147,5 +147,6 @@
 @media (max-width: 650px) {
   .home_title{
     margin-top: 64px;
+    height: 80vh;
   }
 }
