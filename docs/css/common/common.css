@@ -77,6 +77,9 @@ footer .footer_address_infomation p {
   font-size: 1.3vw;
 }
 
+p{
+  margin-bottom: 0;
+}
 /* モバイルスタイル */
 @media (max-width: 650px) {
   body{
