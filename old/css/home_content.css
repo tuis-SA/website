@@ -1,7 +1,7 @@
 /* 基本スタイル */
 .home_title {
   padding-left: 4vw;
-  padding-top: 2vw;
+  padding-top: 5vw;
   padding-bottom: 6vw;
     /*背景画像指定*/
   height: 50vw;  /* image_palce */
@@ -99,13 +99,14 @@
 
 /* home description styles */
 
-/* .home_content{
+.home_content{
   padding-left: 3.5vw;
   padding-right: 3.5vw;
-} */
+}
 .home_description_title {
   width: 100%;
   margin-bottom: 2vw;
+  margin-top: 2vw;
   position: relative;
   text-align: center;
   color: #d4d1d1f5;
@@ -114,14 +115,17 @@
 }
 
 .home_description_content{
-  font-size: 1.8vw;
+  font-size: 2vw;
 }
+
 /* home topic styles */
   .home_topics{
     margin-top: 10vw;
   }
+
   .home_topic_content{
-    width : 80%;
+    width : 95%;
+    margin-bottom: 15px;
   }
   
   .home_topic_time{
@@ -147,5 +151,24 @@
 @media (max-width: 650px) {
   .home_title{
     margin-top: 64px;
+    height: 80vh;
+  }
+  .home_description_title{
+    font-size: 12vw;
+  }
+  .home_description_content{
+    font-size: 15px;
+  }
+  .home_topic_description {
+    font-size: 12px;
+  }
+  .home_topic_time {
+    margin-bottom: 0.2vw;
+    font-size: 12px;
+    color: gray;
+  }
+
+  .social-links i {
+    font-size: 1.5em; /* fa-1.5x 相当  emは*/
   }
 }
