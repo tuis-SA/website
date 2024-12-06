@@ -36,7 +36,8 @@ footer{
 
 footer .footer_address_infomation p {
   /* スタイルをここに記述 */
-  font-size: 2.1vw;
+  /* font-size: 1.5vw; */
+  font-size: 2.4vw;
   margin-bottom: 2vw;
 }
 
