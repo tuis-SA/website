@@ -123,7 +123,7 @@
   }
 
   .home_topic_content{
-    width : 80%;
+    width : 95%;
     margin-bottom: 1.2vw;
   }
   
@@ -156,6 +156,18 @@
     font-size: 12vw;
   }
   .home_description_content{
-    font-size: 2.5vw;
+    font-size: 13px;
+  }
+  .home_topic_description {
+    font-size: 12px;
+  }
+  .home_topic_time {
+    margin-bottom: 0.2vw;
+    font-size: 12px;
+    color: gray;
+  }
+
+  .social-links i {
+    font-size: 1.5em; /* fa-1.5x 相当  emは*/
   }
 }
