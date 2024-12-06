@@ -171,4 +171,7 @@
   .social-links i {
     font-size: 1.5em; /* fa-1.5x 相当  emは*/
   }
+  footer .footer_address_infomation p {
+    font-size: 2.4vw;
+  }
 }

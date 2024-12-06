@@ -28,7 +28,7 @@ body.loaded {
 }
 /* 共通フッター */
 footer{
-  margin: 100px 0px 0px 0px;
+  margin: 70px 0px 0px 0px;
   padding: 30px 0px 0px 0px;
   border-top:3px solid gray;
   width: 100%;
@@ -36,8 +36,11 @@ footer{
 
 footer .footer_address_infomation p {
   /* スタイルをここに記述 */
-  font-size: 1.3vw;
+  font-size: 2.1vw;
+  margin-bottom: 2vw;
 }
+
+
 
 
 .social-link {
@@ -50,9 +53,33 @@ footer .footer_address_infomation p {
 }
 
 .social-links{
-  border: 2px solid white;
+  justify-content: center; /* 水平方向に中央寄せ */
+  align-items: center; /* 必要なら垂直方向にも中央揃え */
+  width: 100%; /* 幅を100%に設定 */
+  padding-bottom: 2vw;
+  display: flex; /* フレックスボックスを有効化 */
+  gap: 20px;
 }
 
+.footer_section1{
+  display: flex;
+  justify-content: flex-start; /* 子要素を左寄せ */
+  width: 100%;
+}
+
+.footer_navigations{
+  display: flex; /* フレックスボックスを有効化 */
+  justify-content: center; /* 水平方向に中央寄せ */
+  align-items: center; /* 垂直方向に中央寄せ */
+  gap: 1vw; /* 各リンク間の間隔 */
+  height: 100%; /* 必要に応じて高さを指定 */
+  width: 60%;
+  font-size: 1.7vw;
+}
+
+p{
+  margin-bottom: 0;
+}
 /* モバイルスタイル */
 @media (max-width: 650px) {
   body{
@@ -61,6 +88,5 @@ footer .footer_address_infomation p {
     padding: 0;
     margin:0vw 0vw 0vw 0vw;
   }
-  
 }
 

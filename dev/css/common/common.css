@@ -36,7 +36,7 @@ footer{
 
 footer .footer_address_infomation p {
   /* スタイルをここに記述 */
-  font-size: 2.1vw;
+  font-size: 1.5vw;
   margin-bottom: 2vw;
 }
 
@@ -73,7 +73,7 @@ footer .footer_address_infomation p {
   align-items: center; /* 垂直方向に中央寄せ */
   gap: 1vw; /* 各リンク間の間隔 */
   height: 100%; /* 必要に応じて高さを指定 */
-  width: 60%;
+  width: 50%;
   font-size: 1.7vw;
 }
 
@@ -87,6 +87,9 @@ p{
     padding-left: 0vw; */
     padding: 0;
     margin:0vw 0vw 0vw 0vw;
+  }
+  footer .footer_address_infomation p{
+    font-size: 2.5vw;
   }
 }
 
