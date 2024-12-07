@@ -5,6 +5,12 @@ body {
   color: white;
 }
 
+/* ライトモードのスタイル */
+body.light-mode {
+  background-color: white;
+  color: black;
+}
+
 /* ページ暗転時の初期状態 */
 body.fade-in {
   opacity: 0;
@@ -75,6 +81,15 @@ footer .footer_address_infomation p {
 p{
   margin-bottom: 0;
 }
+
+/* lightmode  and darkmode*/
+.themes_content {
+  transform: scale(0.4);
+  position: fixed;
+  margin-left: 9vw;
+  margin-top: 5vw;
+}
+
 /* モバイルスタイル */
 @media (max-width: 650px) {
   body{

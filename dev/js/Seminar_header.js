@@ -29,9 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 初期コンテンツのロード
       loadInitialContent();
+
+      // テーマ切り替えボタンの初期化
+      initializeThemeSwitcher();
     })
     .catch(error => {
-      console.error('ヘッダーを読み込めませんでした:', error.message);
+      console.error('ヘッダーを読み込めませんでした:', error);
     });
 });
 
@@ -152,4 +155,30 @@ function initializeContactForm() {
       contactForm.reset();
     });
   }
+}
+
+// ライトモードとダークモードの切り替え機能を初期化
+function initializeThemeSwitcher() {
+  const themeSwitcherButton = document.getElementById('themeSwitch');
+  const body = document.body;
+
+  // 初期状態のテーマを適用
+  const isLightMode = localStorage.getItem('theme') === 'light';
+  if (isLightMode) {
+    body.classList.add('light-mode');
+    themeSwitcherButton.textContent = '現在：ライトモード';
+  }
+
+  // ボタンをクリックしてテーマを切り替え
+  themeSwitcherButton.addEventListener('click', () => {
+    if (body.classList.contains('light-mode')) {
+      body.classList.remove('light-mode');
+      themeSwitcherButton.textContent = '現在：ダークモード';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      body.classList.add('light-mode');
+      themeSwitcherButton.textContent = '現在：ライトモード';
+      localStorage.setItem('theme', 'light');
+    }
+  });
 }
