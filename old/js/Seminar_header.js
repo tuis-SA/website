@@ -68,10 +68,19 @@ function initializeNavEvents() {
 function initializeHamburgerMenu() {
   const hamburgerMenu = document.querySelector('.hamburger_menu');
   const menu = document.querySelector('.menu');
+  const menuLinks = document.querySelectorAll('.menu li a'); // メニュー内の各リンク
 
   if (hamburgerMenu && menu) {
+    // ハンバーガーメニューをクリックしたときにメニューの表示切替
     hamburgerMenu.addEventListener('click', () => {
       menu.classList.toggle('active');
+    });
+
+    // 各リンクをクリックしたときにメニューを閉じる
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+      });
     });
   } else {
     console.error('ハンバーガーメニューまたはメニューが見つかりません');
@@ -100,6 +109,11 @@ function loadContent(page) {
 
       if (newContent) {
         contentDiv.innerHTML = newContent.innerHTML;
+
+        // ページの一番上にスクロール
+        window.scrollTo(0, 0);
+
+        // ページ固有の初期化処理を実行
         initializePageSpecificFeatures();
       } else {
         console.error(`#contentが見つかりません: ${page}`);

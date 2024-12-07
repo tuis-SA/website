@@ -16,11 +16,6 @@ body.loaded {
   opacity: 1;
 }
 
-/*index.html以外のpageスタイル*/
-.non-home{
-  margin-top: 60px;
-}
-
 .non-header-link{
   text-decoration: underline;
   display: inline;
