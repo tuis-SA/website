@@ -1,0 +1,2 @@
+# 改行コードをLFに固定する（Unix系）
+* text=auto eol=lf
