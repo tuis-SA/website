@@ -18,13 +18,13 @@
     }
   }
 }
-//レンダリング後　ボール背景部分　最初部分
+
 .theme-switch__label {
   padding: 20px;
   margin: 60px;
   transition: background-color 200ms ease-in-out;
-  width: 4.2vw;
-  height: 4.2vw;
+  width: 120px;
+  height: 50px;
   border-radius: 50px;
   text-align: center;
   background-color: slateGray;
@@ -37,14 +37,14 @@
     transform: translate3d(0, -50%, 0);
     top: 50%;
   }
-//レンダリング後太陽部分　最初
+
   &::before {
     content: '\263C';
     right: 100%;
     margin-right: 10px;
     color: orange;
   }
-  //レンダリング後　最初　月
+
   &::after {
     content: '\263E';
     left: 100%;
@@ -63,8 +63,8 @@
     position: absolute;
     top: calc(100% + 15px);
     left: 5px;
-    width: 4.2vw;
-    height: 4.2vw;
+    width: 40px;
+    height: 40px;
     content: '';
     border-radius: 50%;
     background-color: lightBlue;

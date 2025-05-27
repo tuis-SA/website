@@ -7,11 +7,4 @@ npx http-server\
   <div id="content" class="section-content">
   </div>
   内に書き込み、ナビゲーションごとに内容を変更する必要がある。
-js
-HTMLを動的に読み込み (fetch)、#content に差し替える仕組みを作っている。
-
-git cmd
-作業前
-git fetch website                             # 最新のリモート情報を取得
-git diff website/自身の作業ブランチ名           # ローカルのカレントブランチとリモートmainの差分を確認
 
