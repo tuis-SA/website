@@ -1,0 +1,16 @@
+http://127.0.0.1:8080
+npx http-server\
+スーパーリロード（Ctrl + Shift + R）を実行。
+
+
+動的レンダリングにするため、header以外の各HTMLのbody部分に記載するのではなくまず
+  <div id="content" class="section-content">
+  </div>
+  内に書き込み、ナビゲーションごとに内容を変更する必要がある。
+
+
+git cmd
+作業前
+git fetch website                             # 最新のリモート情報を取得
+git diff website/自身の作業ブランチ名           # ローカルのカレントブランチとリモートmainの差分を確認
+
