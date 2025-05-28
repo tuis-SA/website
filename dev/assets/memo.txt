@@ -13,5 +13,10 @@ HTMLを動的に読み込み (fetch)、#content に差し替える仕組みを�
 git cmd
 作業前
 git fetch website                             # 最新のリモート情報を取得
-git diff website/自身の作業ブランチ名           # ローカルのカレントブランチとリモートmainの差分を確認
+git diff website/main dev/nekoma -- website/
+  #差分確認
+  リモートの website にある main ブランチ と
+  ローカルの dev/nekoma ブランチ を
+  website/ ディレクトリに限定して
+  差分比較する
 
