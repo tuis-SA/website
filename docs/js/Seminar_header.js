@@ -29,9 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 初期コンテンツのロード
       loadInitialContent();
+
+      // テーマ切り替えボタンの初期化
+      initializeThemeSwitcher();
     })
     .catch(error => {
-      console.error('ヘッダーを読み込めませんでした:', error.message);
+      console.error('ヘッダーを読み込めませんでした:', error);
     });
 });
 
@@ -115,6 +118,12 @@ function loadContent(page) {
 
         // ページ固有の初期化処理を実行
         initializePageSpecificFeatures();
+        
+        // テーマを再適用
+        if (document.body.classList.contains('light-mode')) {
+          applyLightModeToAll();
+        }
+        
       } else {
         console.error(`#contentが見つかりません: ${page}`);
       }
@@ -152,4 +161,46 @@ function initializeContactForm() {
       contactForm.reset();
     });
   }
+}
+
+function initializeThemeSwitcher() {
+  const themeSwitcherButton = document.getElementById('themeSwitch');
+  const body = document.body;
+
+  // 初期状態のテーマを適用
+  const isLightMode = localStorage.getItem('theme') === 'light';
+  if (isLightMode) {
+    body.classList.add('light-mode');
+    applyLightModeToAll();
+    themeSwitcherButton.textContent = '現在：ライトモード';
+  }
+
+  // テーマ切り替え時の処理
+  themeSwitcherButton.addEventListener('click', () => {
+    const isCurrentlyLight = body.classList.contains('light-mode');
+
+    if (isCurrentlyLight) {
+      body.classList.remove('light-mode');
+      removeLightModeFromAll();
+      themeSwitcherButton.textContent = '現在：ダークモード';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      body.classList.add('light-mode');
+      applyLightModeToAll();
+      themeSwitcherButton.textContent = '現在：ライトモード';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+}
+
+// light-mode クラスを全要素に適用
+function applyLightModeToAll() {
+  const allElements = document.querySelectorAll('*');
+  allElements.forEach(el => el.classList.add('light-mode'));
+}
+
+// light-mode クラスを全要素から削除
+function removeLightModeFromAll() {
+  const allElements = document.querySelectorAll('*');
+  allElements.forEach(el => el.classList.remove('light-mode'));
 }

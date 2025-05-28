@@ -34,6 +34,9 @@
   font-weight: 700; /**/
   font-size: 5vw;
 }
+.suponsor_description_title.light-mode {
+  color: black;
+}
 
 .suponsor_description_content{
   font-size: 1.7vw;
@@ -56,7 +59,10 @@
   font-size: 1.7vw;
   padding: 1vw 0vw 0vw 0vw;
 }
-
+.suponsor_provide.light-mode {
+  border-top: 0.3vw solid black;
+  border-bottom: 0.3vw solid black;
+}
 
 /* 企業へのお礼品*/
 .suponsor_corporate_gifts {
@@ -70,7 +76,10 @@
   margin: 3vw 0vw 3vw 2vw;
   padding: 0vw 0vw 1vw 0vw;
 }
-
+.suponsor_corporate_gifts.light-mode {
+  border-top: 0.3vw solid black;
+  border-bottom: 0.3vw solid black;
+}
 .suponsor_corporate_gifts_content{
   font-size: 1.7vw;
   padding: 1vw 0vw 0vw 0vw;
@@ -86,8 +95,8 @@
 
 @media (max-width: 650px) {
   .suponsor_header {
-      margin-top: 64px;
-      height: 80vh;
+    padding-top: 64px;
+    height: 80vh;
   }
   .suponsor_title {
     font-size: 7vw;

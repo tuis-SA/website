@@ -11,7 +11,9 @@
   background-position: center; /* 中央に配置 */
   
 }
-
+.sp {
+  display: none;
+}
 .we-are {
   font-size: 8vw;
   font-weight: bold;
@@ -33,7 +35,9 @@
 .we-are::before,
 .we-are::after,
 .embodiment-of-technology::before,
-.embodiment-of-technology::after {
+.embodiment-of-technology::after,
+.technology::before, 
+.technology::after{
   content: '';
   display: block;
   position: absolute;
@@ -64,7 +68,16 @@
   background-color: red;
   margin-left: 1vw;
 }
+.technology::before {
+  bottom: 0.35vw;
+  background-color: white;
+}
 
+.technology::after {
+  bottom: -0.1vw;
+  background-color: red;
+  margin-left: 1vw;
+}
 /* アニメーション */
 @keyframes slideIn {
   from {
@@ -135,11 +148,11 @@
   }
 
   .home_topic_description{
+    font-size: 1.5vw;
     border-bottom: 1px solid white;
   }
-
-  .home_topic_description{
-    font-size: 1.5vw;
+  .home_topic_description.light-mode {
+    border-bottom: 1px solid black;
   }
 
 
@@ -149,8 +162,16 @@
   }
 /* モバイルスタイル */
 @media (max-width: 650px) {
+  .pc {
+    display: none;
+  }
+  .sp {
+    display: block;
+    padding-top: 70px;
+    height: 80vh;
+  }
   .home_title{
-    margin-top: 64px;
+    padding-top: 64px;
     height: 80vh;
   }
   .home_description_title{
@@ -173,5 +194,38 @@
   }
   footer .footer_address_infomation p {
     font-size: 2.4vw;
+  }
+
+  .technology {
+    font-size: 8vw;
+    color: rgba(212, 209, 209, 0.96);
+    position: relative;
+    margin-left: 48vw;
+    font-weight: bold;
+  }
+
+  .technology::before {
+    --line-width: 44vw;
+    animation: 1.5s ease-out 0s 1 normal forwards running slideIn;
+  }
+  
+  .technology::after {
+    --line-width: 45vw;
+    animation: 1.8s ease-out 0s 1 normal forwards running slideIn;
+  }
+  .we-are {
+    font-size: 8vw;
+  }
+  .embodiment-of-technology {
+    padding-top: 5px;
+    font-weight: bold;
+    font-size: 8vw;
+    margin-left: 9vw;
+  }
+  .embodiment-of-technology::before {
+    --line-width: 73vw;
+  }
+  .embodiment-of-technology::after {
+    --line-width: 74vw;
   }
 }
