@@ -86,8 +86,11 @@ p{
 .themes_content {
   transform: scale(0.4);
   position: fixed;
-  margin-left: 9vw;
-  margin-top: 5vw;
+  margin-left: 60vw;
+  margin-top: 6vw;
+  width: 100%;
+  z-index: 999;
+
 }
 
 /* モバイルスタイル */
@@ -100,6 +103,10 @@ p{
   }
   footer .footer_address_infomation p{
     font-size: 2.5vw;
+  }
+  .themes_content {
+    margin-left: 56vw;
+    margin-top: 62px;
   }
 }
 

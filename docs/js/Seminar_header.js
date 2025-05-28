@@ -118,6 +118,12 @@ function loadContent(page) {
 
         // ページ固有の初期化処理を実行
         initializePageSpecificFeatures();
+        
+        // テーマを再適用
+        if (document.body.classList.contains('light-mode')) {
+          applyLightModeToAll();
+        }
+        
       } else {
         console.error(`#contentが見つかりません: ${page}`);
       }
@@ -157,7 +163,6 @@ function initializeContactForm() {
   }
 }
 
-// ライトモードとダークモードの切り替え機能を初期化
 function initializeThemeSwitcher() {
   const themeSwitcherButton = document.getElementById('themeSwitch');
   const body = document.body;
@@ -166,19 +171,36 @@ function initializeThemeSwitcher() {
   const isLightMode = localStorage.getItem('theme') === 'light';
   if (isLightMode) {
     body.classList.add('light-mode');
+    applyLightModeToAll();
     themeSwitcherButton.textContent = '現在：ライトモード';
   }
 
-  // ボタンをクリックしてテーマを切り替え
+  // テーマ切り替え時の処理
   themeSwitcherButton.addEventListener('click', () => {
-    if (body.classList.contains('light-mode')) {
+    const isCurrentlyLight = body.classList.contains('light-mode');
+
+    if (isCurrentlyLight) {
       body.classList.remove('light-mode');
+      removeLightModeFromAll();
       themeSwitcherButton.textContent = '現在：ダークモード';
       localStorage.setItem('theme', 'dark');
     } else {
       body.classList.add('light-mode');
+      applyLightModeToAll();
       themeSwitcherButton.textContent = '現在：ライトモード';
       localStorage.setItem('theme', 'light');
     }
   });
+}
+
+// light-mode クラスを全要素に適用
+function applyLightModeToAll() {
+  const allElements = document.querySelectorAll('*');
+  allElements.forEach(el => el.classList.add('light-mode'));
+}
+
+// light-mode クラスを全要素から削除
+function removeLightModeFromAll() {
+  const allElements = document.querySelectorAll('*');
+  allElements.forEach(el => el.classList.remove('light-mode'));
 }
