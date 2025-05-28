@@ -4,16 +4,18 @@
   padding-top: 5vw;
   padding-bottom: 6vw;
     /*背景画像指定*/
-  height: 50vw;  /* image_palce */
+  height: 50vw;
   background-image: url("../assets/pictures/home/home_image.jpg");
   background-repeat: no-repeat; /* 繰り返しを防ぐ */
   background-size: cover; /* 全体にフィット */
   background-position: center; /* 中央に配置 */
   
 }
+/*スマホ用表示*/
 .sp {
-  display: none;
+  display: none;/*表示しない*/
 }
+
 .we-are {
   font-size: 8vw;
   font-weight: bold;
@@ -68,6 +70,7 @@
   background-color: red;
   margin-left: 1vw;
 }
+
 .technology::before {
   bottom: 0.35vw;
   background-color: white;
@@ -121,10 +124,9 @@
   width: 100%;
   margin-bottom: 2vw;
   margin-top: 2vw;
-  position: relative;
   text-align: center;
   color: #d4d1d1f5;
-  font-weight: 700; /**/
+  font-weight: 700; /*フォント重み*/
   font-size: 8vw;
 }
 
@@ -203,7 +205,7 @@
   .technology {
     font-size: 8vw;
     color: rgba(212, 209, 209, 0.96);
-    position: relative;
+    position: relative;/*要素の「位置指定の基準をその要素自身」*/
     margin-left: 48vw;
     font-weight: bold;
   }
