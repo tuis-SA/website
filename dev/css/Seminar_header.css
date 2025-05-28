@@ -115,8 +115,8 @@ nav.navbar {
     flex-direction: column;
     justify-content: space-between;
     /* 50pxでないとなぜかスマホで丁度いい感じに表示される。　のでPC版のデベロッパツールだと
-    　　少しキモく表示されているが無視。*/
-    width: 50px;
+    　　少しキモく表示されているが無視。追記なんかちゃんと反映されているので35pxに*/
+    width: 35px;
     height: 19px;
     margin: 5px 10px 10px 10px;
     padding-top: 5px;
