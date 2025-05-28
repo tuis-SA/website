@@ -14,7 +14,7 @@
   transition: background-color 200ms ease-in-out;
   width: 12.1vw;
   height: 5.1vw;
-  border-radius: 50px;
+  border-radius: 60px;
   text-align: center;
   background-color: slateGray;
   box-shadow: -4px 4px 15px inset rgba(0, 0, 0, 0.4); }
@@ -62,11 +62,11 @@
 /*# sourceMappingURL=change_mode.css.map */
 @media (max-width: 650px) {
   .theme-switch__label {
-    width: 20.1vw;
-    height: 9.1vw;
+      width: 26.1vw;
+      height: 12.1vw;
 }
   .theme-switch__label::before, .theme-switch__label::after {
-      font-size: 8.5vw;
+      font-size: 12vw;
   }
   .theme-switch__label span {
     bottom: calc(100% + 1.2vw);
@@ -74,13 +74,13 @@
   .theme-switch__label span::after {
     top: calc(100% + 2.1vw);
     left: 0.8vw;
-    width: 7.2vw;
-    height: 7.2vw;
+    width: 10.2vw;
+    height: 10.2vw;
   }
   .theme-switch__label span {
     bottom: calc(100% + 1.2vw);
   }
   .theme-switch__input:checked ~ .theme-switch__label span::after {
-    transform: translate3d(10.5vw, 0px, 0px);
+    transform: translate3d(13.5vw, 0px, 0px);
 }
 }
