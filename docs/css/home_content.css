@@ -116,6 +116,7 @@
   padding-left: 3.5vw;
   padding-right: 3.5vw;
 }
+
 .home_description_title {
   width: 100%;
   margin-bottom: 2vw;
@@ -127,6 +128,9 @@
   font-size: 8vw;
 }
 
+.home_description_title.light-mode{
+  color: black;
+}
 .home_description_content{
   font-size: 2vw;
 }
