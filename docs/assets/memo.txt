@@ -14,8 +14,8 @@ git cmd
 
 前提
 リモート名が websiteである #git remote
-
-
+ 
+ 
 例:作業前
   #git fetch website                                          #最新のリモート情報(GitHub上で他の作業ブランチがマージされた結果)を取得
   #git diff website/main 自身の作業ブランチ名(例：dev/nekoma)   #差分確認

@@ -19,7 +19,7 @@
   background-color: slateGray;
   box-shadow: -4px 4px 15px inset rgba(0, 0, 0, 0.4); }
   .theme-switch__label::before, .theme-switch__label::after {
-    font-size: 4.5vw;
+    font-size: 4.5vw;/*太陽アイコンと月アイコン大きさ指定 */
     position: absolute;
     transform: translate3d(0, -50%, 0);
     top: 50%; }
