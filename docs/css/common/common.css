@@ -36,13 +36,9 @@ footer{
 }
 
 footer .footer_address_infomation p {
-  /* スタイルをここに記述 */
   font-size: 1.5vw;
   margin-bottom: 2vw;
 }
-
-
-
 
 .social-link {
   text-decoration: none; /* 下線を消す */
@@ -50,15 +46,15 @@ footer .footer_address_infomation p {
 }
 
 .social-link :hover {
-  color: #b09d9dcd; /* Twitterカラーに変更 */
+  color: #b09d9dcd; /*カーソルが上に来た際にTwitterカラーに変更 */
 }
 
 .social-links{
   justify-content: center; /* 水平方向に中央寄せ */
   align-items: center; /* 必要なら垂直方向にも中央揃え */
-  width: 100%; /* 幅を100%に設定 */
+  width: 100%;
   padding-bottom: 2vw;
-  display: flex; /* フレックスボックスを有効化 */
+  display: flex; /*flexボックスにして制御する宣言 */
   gap: 20px;
 }
 
@@ -82,7 +78,7 @@ p{
   margin-bottom: 0;
 }
 
-/* lightmode  and darkmode*/
+/*swichi lightmode and darkmode*/
 .themes_content {
   transform: scale(0.4);
   position: fixed;
