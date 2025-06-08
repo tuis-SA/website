@@ -11,12 +11,63 @@ js
 HTMLを動的に読み込み (fetch)、#content に差し替える仕組みを作っている。
 
 git cmd
-作業前
-git fetch website                             # 最新のリモート情報を取得
-git diff website/main dev/nekoma -- website/
-  #差分確認
-  リモートの website にある main ブランチ と
-  ローカルの dev/nekoma ブランチ を
-  website/ ディレクトリに限定して
-  差分比較する
 
+前提
+リモート名が websiteである #git remote
+ 
+ 
+例:作業前
+  #git fetch website                                          #最新のリモート情報(GitHub上で他の作業ブランチがマージされた結果)を取得
+  #git diff website/main 自身の作業ブランチ名(例：dev/nekoma)   #差分確認
+    リモートの website にある main ブランチ と
+    ローカルの自身の作業ブランチ名(例：dev/nekoma)　ブランチ を
+    差分比較する
+
+  上記の時、間違えて他の人が他の作業領域を変える、例えばdev/banbuがやるところの一部をdev/nekomaが変えてしまって身に覚えのない
+  変更がされている出力が出るときがある（ほぼないと思うけど　万が一）。その時の出力例として
+
+    diff --git a/website/pageA/index.html b/website/pageA/index.html
+    index 1a2b3c4..5d6e7f8 100644
+    --- a/website/pageA/index.html
+    +++ b/website/pageA/index.html
+    @@ -10,7 +10,7 @@
+    -    <h2>Page A subtitle</h2>
+    +    <h2>Page A subtitle updated</h2>
+
+    @@ -25,6 +25,7 @@
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+    +        <li>Item added by someone else?</li>
+        </ul>
+
+
+  この例を見てわかることとして「二つの追加」と「一つの削除（@@ -10,7 +10,7 @@同じ行なので変更）」などがある。
+  <li>Item added by someone else?</li>　の部分がdev/banbuが変更に身に覚えがないのであれば、まず誰がやったかを
+  確認するため下記コマンド例
+
+  git blame website/main -- website/pageA/index.html
+
+  などで確認し出力例として
+  1a2b3c4d (banbu   2024-05-31 09:01:00 +0900)     <h2>Page A subtitle</h2>
+  5d6e7f8a (nekoma  2024-06-01 10:12:45 +0900)     <li>Item added by someone else?</li>
+  とnekomaが勝手に変更したと特定できるので理由を問い詰めよう。（相談しましょ）
+
+  なお、これらはコンフリクト起こしたくないというときなので、べつに起きても直せばいいのでそこは大丈夫です。
+  大丈夫かなーと思ったら作業開始
+
+
+例:作業後
+  git add .
+  git commit -m "｛変更した内容などざっくり記述｝"
+  git push リモート名(例website)　自身の作業ブランチ名(例dev/nekoma)
+
+  push終わったらサイトリーダーに報告。
+
+
+
+その他メモ
+ローカル、リモート含めたブランチ名表示
+#git branch -a
+ローカルのみのブランチ表示
+#dev/nekoma
