@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // ページ読み込み完了時の処理
   window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+  // 通常ロードしても、一番上にする。
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual'; // スクロール位置の自動復元を無効化
+  }
+    window.scrollTo(0, 0); 
   });
 
   // ヘッダーの動的読み込み
@@ -139,6 +144,11 @@ function initializePageSpecificFeatures() {
   if (typeof initializeContactForm === 'function') {
     initializeContactForm();
   }
+
+  // トピック切り替えの初期化 index.js
+  if (typeof initializeTopicToggle === 'function') {
+    initializeTopicToggle();
+  }
 }
 
 // お問い合わせフォームの送信処理
@@ -164,43 +174,46 @@ function initializeContactForm() {
 }
 
 function initializeThemeSwitcher() {
-  const themeSwitcherButton = document.getElementById('themeSwitch');
-  const body = document.body;
+    const themeSwitcherButton = document.getElementById('themeSwitch');
+    const body = document.body;
 
-  // 初期状態のテーマを適用
-  const isLightMode = localStorage.getItem('theme') === 'light';
-  if (isLightMode) {
-    body.classList.add('light-mode');
-    applyLightModeToAll();
-    themeSwitcherButton.textContent = '現在：ライトモード';
-  }
+    // ボタンが存在しない場合は処理しない
+    if (!themeSwitcherButton) return;
 
-  // テーマ切り替え時の処理
-  themeSwitcherButton.addEventListener('click', () => {
-    const isCurrentlyLight = body.classList.contains('light-mode');
+    // 初期状態：常にダークモード（light-modeクラスがない状態）
+    // 以前のlocalStorageからテーマを読み込む処理は削除しました
+    body.classList.remove('light-mode'); // bodyからlight-modeクラスを削除
+    removeLightModeFromAll(); // 全要素からlight-modeクラスを削除
+    themeSwitcherButton.textContent = '現在：ダークモード'; // ボタンのテキストもダークモードに設定
 
-    if (isCurrentlyLight) {
-      body.classList.remove('light-mode');
-      removeLightModeFromAll();
-      themeSwitcherButton.textContent = '現在：ダークモード';
-      localStorage.setItem('theme', 'dark');
-    } else {
-      body.classList.add('light-mode');
-      applyLightModeToAll();
-      themeSwitcherButton.textContent = '現在：ライトモード';
-      localStorage.setItem('theme', 'light');
-    }
-  });
+    // テーマ切り替え時の処理
+    themeSwitcherButton.addEventListener('click', () => {
+        const isCurrentlyLight = body.classList.contains('light-mode');
+
+        if (isCurrentlyLight) {
+            // 現在ライトモードなので、ダークモードに切り替える
+            body.classList.remove('light-mode');
+            removeLightModeFromAll();
+            themeSwitcherButton.textContent = '現在：ダークモード';
+            // localStorage.setItem('theme', 'dark'); // localStorageへの保存も不要
+        } else {
+            // 現在ダークモードなので、ライトモードに切り替える
+            body.classList.add('light-mode');
+            applyLightModeToAll();
+            themeSwitcherButton.textContent = '現在：ライトモード';
+            // localStorage.setItem('theme', 'light'); // localStorageへの保存も不要
+        }
+    });
 }
 
 // light-mode クラスを全要素に適用
 function applyLightModeToAll() {
-  const allElements = document.querySelectorAll('*');
-  allElements.forEach(el => el.classList.add('light-mode'));
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(el => el.classList.add('light-mode'));
 }
 
 // light-mode クラスを全要素から削除
 function removeLightModeFromAll() {
-  const allElements = document.querySelectorAll('*');
-  allElements.forEach(el => el.classList.remove('light-mode'));
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(el => el.classList.remove('light-mode'));
 }

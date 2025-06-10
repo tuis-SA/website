@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="css/sponsor.css">
     <!--- CDN Font Awesome -->
     <script src="https://kit.fontawesome.com/0934374552.js" crossorigin="anonymous"></script>
-
-
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 </head>
-<body>
-  <script src="js/Seminar_header.js"></script>
-  <!-- jQuery CDN -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<body class="fade-in">
+  <script src="js/Seminar_header.js" defer></script>
+  <script src="js/index.js" defer></script>
   <!-- コンテンツが表示される領域 -->
   <div id="content" class="section-content"> <!-- ここのdiv要素の中に内容を書く。　レンダリングするためなのでここのクラス名はいじらない。--->
     <!-- キャッチコピー　意味--->
@@ -50,27 +50,72 @@
         <h1 class="home_description_title"><span style="color:red;">N</span>ew Topics</h2>
         
         <!-- 2か月ごとに更新。--->
+        <!-- 2025 -->
         <div class="home_topic_content">
-          <h5 class="home_topic_time">2024-11-17 | Wednesday</h5>
+          <h5 class="home_topic_time">2025-05-19 | Mon</h5>
+          <p class="home_topic_description">LEGO Spikeを活用したロボットプログラミング体験授業を実施しました！</p>
+        </div>
+
+        <div class="home_topic_content">
+          <h5 class="home_topic_time">2025-03-21 | Fri</h5>
+          <p class="home_topic_description">鳥取ローバーチャレンジで「SuperNOVAチーム」が初代王者になりました！</p>
+        </div>
+        
+        <div class="home_topic_content">
+          <h5 class="home_topic_time">2025-03-10 | Tue</h5>
+          <p class="home_topic_description">種子島ロケットコンテスト2025にて斎藤ゼミの3チームが快挙達成しました！</p>
+        </div>
+        
+        <!-- 2024 -->
+        <div class="home_topic_content">
+          <h5 class="home_topic_time">2024-11-17 | Sun</h5>
           <p class="home_topic_description">能代成果報告会を行いました！！</p>
         </div>
 
         <div class="home_topic_content">
-          <h5 class="home_topic_time">2024-10-25 | Wednesday</h5>
+          <h5 class="home_topic_time">2024-10-25 | Fri</h5>
           <p class="home_topic_description">翔風祭にて25~28日にかけてミニCANSAT等を販売しました～！！</p>
         </div>
-
-        <div class="home_topic_content">
-          <h5 class="home_topic_time">2024-10-22 | Wednesday</h5>
+        
+        <!-- ここから初期非表示　moreで表示 css:extra-topic 追記--->
+        <div class="home_topic_content extra-topic">
+          <h5 class="home_topic_time">2024-10-22 | Tue</h5>
           <p class="home_topic_description">東京大学で韓国チームとの交流会を行いました！！</p>
         </div>
 
-        <div class="home_topic_content">
-          <h5 class="home_topic_time">2024-10-17 | Thursday</h5>
-          <p class="home_topic_description">大学パンフレットの取材や撮影を行いました！！</p>
+        <div class="home_topic_content extra-topic">
+          <h5 class="home_topic_time">2024-10-17 | Sat</h5>
+          <p class="home_topic_description">大学パンフレットの取材や撮影を行いました！！aaa</p>
         </div>
-      </div> 
 
+        <div class="home_topic_content extra-topic">
+          <h5 class="home_topic_time">Comming soon...</h5>
+          <p class="home_topic_description">wait for ... </p>
+        </div>
+
+        <div class="home_topic_content extra-topic">
+          <h5 class="home_topic_time">Comming soon...</h5>
+          <p class="home_topic_description">wait for ... </p>
+        </div>
+
+        <div class="home_topic_content extra-topic">
+          <h5 class="home_topic_time">Comming soon...</h5>
+          <p class="home_topic_description">wait for ... </p>
+        </div>
+
+        <div class="home_topic_content extra-topic">
+          <h5 class="home_topic_time">Comming soon...</h5>
+          <p class="home_topic_description">Thx for watching.</p>
+        </div>
+        
+      </div>
+      <!-- moreボタン 5件ずつ表示　Close allで全部閉じる。-->
+      <div style="text-align: center; margin-top: 10px;">
+        <button id="toggleTopicsButton_more">more▼</button>
+        <button id="toggleTopicsButton_close">Close all ▲</button>
+      </div>
+      <!-- 最新情報 end--->
+      
       <!-- 企業様支援--->
       <div class="home_helpus">
         <h1 class="home_description_title"><span style="color:red;">H</span>elp Us!!</h2>
@@ -79,7 +124,7 @@
           詳細は　<a href="スポンサー.html" class="nav-link non-header-link" data-page="スポンサー.html">スポンサー様</a>　をご参照ください
         </p>
       </div> 
-
+      
 
     <!-- 共通部分　footer--->
     <footer>
@@ -113,9 +158,8 @@
         </div>
         
       </div>
-      
     </footer>
 
-    </div>
+  </div>
 </body>
 </html>
