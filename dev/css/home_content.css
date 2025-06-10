@@ -175,13 +175,20 @@
   /* ボタンのスタイル (オプション、必要に応じて調整) */
   #toggleTopicsButton_more,
   #toggleTopicsButton_close {
-      display: inline-block; /* デフォルトの表示 */
-      padding: 8px 15px;
-      margin: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
+    display: inline-block; /* デフォルトの表示 */
+    background-color: black;
+    padding: 0.8vw 1.5vw;
+    margin: 0.5vw;
+    border: 0.2vw solid #ccc;
+    color: white;
+    cursor: pointer;
+    font-size: 1vw;  
+  }
+
+  #toggleTopicsButton_more.light-mode,
+  #toggleTopicsButton_close.light-mode{
+    background-color: transparent; /* 背景指定なし */
+    color: black;
   }
 /*new topic more_button end*/
 /* home topic styles (New Topics) end*/
@@ -214,13 +221,14 @@
   }
   .home_description_content{
     font-size: 15px;
+    line-height: 30px;
   }
   .home_topic_description {
-    font-size: 12px;
+    font-size: 14px;
   }
   .home_topic_time {
     margin-bottom: 0.2vw;
-    font-size: 12px;
+    font-size: 13px;
     color: gray;
   }
 
@@ -262,5 +270,15 @@
   }
   .embodiment-of-technology::after {
     --line-width: 74vw;
+  }
+  /*new topic more_button*/
+  #toggleTopicsButton_more,
+  #toggleTopicsButton_close {
+      display: inline-block; /* デフォルトの表示 */
+      padding: 8px 15px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-size: 1rem;
   }
 }
