@@ -118,6 +118,112 @@
   font-size: 2vw;
 }
 
+/* home description Cards */
+.card-container {
+    display: flex; /* Flexboxを有効にする */
+    flex-wrap: wrap; /* 子要素を折り返す */
+    justify-content: space-around; /* カード間に均等なスペースを確保 */
+    align-items: flex-start; /* カードの上端を揃える */
+    width: 100%; /* 親要素の幅いっぱいに広げる */
+    padding: 1vw; /* コンテナ全体の余白（任意） */
+    box-sizing: border-box; /* paddingをwidthに含める */
+}
+
+.card {
+    /* width: calc(50% - 2vw); */ /* 50%から左右の余白を引く */
+    flex: 0 0 calc(50% - 2vw); /* Flexアイテムとして、伸縮せず50%から余白を引いた幅 */
+    max-width: calc(50% - 2vw); /* 念のため最大幅も指定 */
+    margin: 1vw; /* 上下左右の余白 */
+    border: 1px solid #ddd; /* カードの境界線 */
+    border-radius: 0.5vw; /* 角丸 */
+    box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.1); /* 影 */
+    background-color: #fff; /* 背景色 */
+    padding: 1.5vw; /* カード内部の余白 */
+    box-sizing: border-box; /* paddingをwidthに含める */
+    display: flex; /* カード内の要素をFlexboxで配置 */
+    flex-direction: column; /* 縦方向に並べる */
+}
+
+.card-media {
+    width: 100%;
+    /* height: 15vw; */ /* 画像の縦横比に合わせて調整してください */
+    padding-bottom: 56.25%; /* 16:9 のアスペクト比を維持するためのハック */
+    background-color: #333; /* プレースホルダーの背景色 */
+    position: relative; /* padding-bottomで高さを確保するため */
+    overflow: hidden; /* メディア内容がはみ出さないように */
+    border-radius: 0.3vw;
+    margin-bottom: 1.5vw;
+}
+
+/* 実際の画像を使用する場合は以下のように */
+/* .card-media img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.card-title {
+    font-size: 1.8vw; /* タイトルのフォントサイズ */
+    margin-top: 0;
+    margin-bottom: 0.5vw;
+    color: #333;
+}
+
+.card-subhead {
+    font-size: 1.2vw; /* サブヘッドのフォントサイズ */
+    margin-top: 0;
+    margin-bottom: 1vw;
+    color: #666;
+}
+
+.card-text {
+    font-size: 1vw; /* 本文のフォントサイズ */
+    line-height: 1.5;
+    margin-bottom: 1.5vw;
+    color: #555;
+    flex-grow: 1; /* テキストが余白を埋めるように伸縮 */
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.8vw; /* ボタン間のスペース */
+    margin-top: auto; /* ボタン群をカードの下部に配置 */
+}
+
+.card-actions button {
+    padding: 0.8vw 1.5vw;
+    border: none;
+    border-radius: 0.3vw;
+    cursor: pointer;
+    font-size: 1vw;
+    white-space: nowrap; /* ボタン内のテキストが折り返さないように */
+}
+
+.primary-action {
+    background-color: #333;
+    color: #fff;
+}
+
+.primary-action:hover {
+    background-color: #555;
+}
+
+.secondary-action {
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #333;
+}
+
+.secondary-action:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
 /* home topic styles */
   .home_topics{
     margin-top: 10vw;
