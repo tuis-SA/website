@@ -41,16 +41,26 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => {
       console.error('ヘッダーを読み込めませんでした:', error);
     });
+
+    // 戻る・進むボタン対応
+    window.addEventListener('popstate', (event) => {
+    const page = (event.state && event.state.page) || 'index.html';
+    loadContent(page, false); // 履歴操作なので履歴を追加しない
+    });
 });
 
 // 初期コンテンツのロード
 function loadInitialContent() {
-  const initialLink = document.querySelector('.nav-link[data-page="index.html"]');
-  if (initialLink) {
-    initialLink.classList.add('active');
+  const urlParams = new URLSearchParams(window.location.search);
+  const page = urlParams.get('page') || 'index.html';
+
+  const targetLink = document.querySelector(`.nav-link[data-page="${page}"]`);
+  if (targetLink) {
+    targetLink.classList.add('active');
   }
-  loadContent('index.html');
+  loadContent(page, false); // 初期ロードでは履歴を追加しない
 }
+
 
 // ナビゲーションリンクにイベントを設定
 function initializeNavEvents() {
@@ -96,7 +106,7 @@ function initializeHamburgerMenu() {
 }
 
 // 動的コンテンツのロード
-function loadContent(page) {
+function loadContent(page, updateHistory = true) {
   const contentDiv = document.getElementById('content');
   if (!contentDiv) {
     console.error('content要素が見つかりません');
@@ -118,17 +128,19 @@ function loadContent(page) {
       if (newContent) {
         contentDiv.innerHTML = newContent.innerHTML;
 
-        // ページの一番上にスクロール
+        // スクロール、初期化処理など
         window.scrollTo(0, 0);
-
-        // ページ固有の初期化処理を実行
         initializePageSpecificFeatures();
-        
-        // テーマを再適用
+
         if (document.body.classList.contains('light-mode')) {
           applyLightModeToAll();
         }
-        
+
+        // URL を変更（履歴に追加）
+        if (updateHistory) {
+          history.pushState({ page }, '', `?page=${page}`);
+        }
+
       } else {
         console.error(`#contentが見つかりません: ${page}`);
       }
