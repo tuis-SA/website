@@ -17,6 +17,8 @@ https://github.com/tuis-SA/website/tree/main
   　・その後、画像のリサイズ（https://www.iloveimg.com/ja/resize-image）で800　600  にリサイズして
   　　作業を終える
   
+CSSはheader.htmlに記載しないと適応できない。
+
 
 
 bootstrapが指定してないのに勝手に上書きするケースがある。
