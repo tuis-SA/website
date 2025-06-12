@@ -223,6 +223,9 @@
     box-sizing: border-box;
     border-radius: 0 !important;
   }
+  .card.light-mode{
+    background-color: #726a5d !important;
+  }
   .card-media {
     background-color: #333;
     color: #fff;
@@ -398,10 +401,7 @@
   .card-text,
   .card-link{
     font-size: 5vw  !important;
-  }
-
-  .card-link {
-    margin-left: 64vw;
+    margin-right: 1vw;
   }
 
   .card-media {
