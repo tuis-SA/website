@@ -4,13 +4,31 @@
   padding-top: 5vw;
   padding-bottom: 6vw;
     /*背景画像指定*/
-  height: 50vw;
-  background-image: url("../assets/pictures/home/home_image.png");
-  background-repeat: no-repeat; /* 繰り返しを防ぐ */
-  background-size: cover; /* 全体にフィット */
-  background-position: center; /* 中央に配置 */
-  
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 縦横比 */
+  overflow: hidden;
+  /* min-height: 200px; モバイル対策 */
 }
+
+/* 背景画像として使うimg */
+.home_image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* トリミングしつつぴったり表示 */
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* テキストを上に重ねる */
+.home_text {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
 /*スマホ用表示*/
 .sp {
   display: none;/*表示しない*/
@@ -310,7 +328,6 @@
   }
   .home_title{
     padding-top: 64px;
-    height: 80vh;
   }
   .home_description_title{
     font-size: 13vw;
