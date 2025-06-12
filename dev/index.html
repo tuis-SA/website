@@ -62,20 +62,19 @@
     <h1 class="home_description_title"><span style="color:red;">C</span>ontens</h1>
       <!-- Cards 1行目-->
       <div class="cards">
+        
         <!-- PCは一つの幅に２つコンテンツおく。 class="card"　単位で設置するので２つおく。-->
         <div class="card">
           <div class="card-media card_Seminar_activities">
             <img src="./assets/pictures/home/Seminar_activities.png" alt="セミナー活動" class="bg-img">
           </div>
           <div class="card-content">
-            <div class="card-title">ゼミ活動</div>
+            <div class="card-title">ゼミ紹介</div>
             <div class="card-subhead">Subhead</div><!-- サブ見出しには、日付や場所などの追加情報が含まれる場合があります。 -->
-            <div class="card-text">
-              Text non tempor quam, et lacinia sapien.<br>
-              Text non tempor quam, et lacinia sapien.<br>
-              Text non tempor quam, et lacinia sapien.<br>
+            <div class="card-text"><!-- 高さ7行までを基準にする。120文字程度。 それ以上だと高さ崩れる。-->
+              <br><br><br><br> <br><br><br>
+              <a href="ゼミ紹介.html" class="nav-link card-link" data-page="ゼミ紹介.html">more →</a>
             </div>
-            <a href="ゼミ紹介.html" class="nav-link card-link" data-page="ゼミ紹介.html">more →</a>
           </div>
         </div>
 
@@ -84,20 +83,20 @@
             <img src="./assets/pictures/home/Activity_record.png" alt="セミナー活動" class="bg-img">
           </div>
           <div class="card-content">
-            <div class="card-title">活動記録</div>
+            <div class="card-title">CanSat</div>
             <div class="card-subhead">Subhead</div>
             <div class="card-text">
-              Text non tempor quam, et lacinia sapien.<br>
-              Text non tempor quam, et lacinia sapien.<br>
-              Text non tempor quam, et lacinia sapien.<br>
+              <br><br><br><br> <br><br><br>
+              <a href="CanSat.html" class="nav-link card-link" data-page="CanSat.html">more →</a>
             </div>
-            <a href="活動記録.html" class="nav-link card-link" data-page="活動記録.html">more →</a>
           </div>
         </div>
+
       </div>
 
       <!-- Cards 2行目          まだ途中-->
       <div class="cards">
+
         <!-- PCは一つの幅に２つコンテンツおく。 class="card"　単位で設置するので２つおく。-->
         <div class="card">
           <div class="card-media card_Seminar_activities">
@@ -107,33 +106,32 @@
             <div class="card-title">教員紹介</div>
             <div class="card-subhead">Subhead</div><!-- サブ見出しには、日付や場所などの追加情報が含まれる場合があります。 -->
             <div class="card-text">
-              Text non tempor quam, et lacinia sapien.<br>
-              Text non tempor quam, et lacinia sapien.<br>
-              Text non tempor quam, et lacinia sapien.<br>
+              <br><br><br><br> <br><br><br>
+              <a href="教員紹介.html" class="nav-link card-link" data-page="教員紹介.html">more →</a>
             </div>
-            <a href="教員紹介.html" class="nav-link card-link" data-page="教員紹介.html">more →</a>
           </div>
         </div>
 
         <div class="card">
           <div class="card-media card_Seminar_activities">
-            <img src="./assets/pictures/home/Activity_record.png" alt="セミナー活動" class="bg-img">
+            <img src="./assets/pictures/home/sponsor_image_link.png" alt="セミナー活動" class="bg-img">
           </div>
           <div class="card-content">
             <div class="card-title">スポンサー</div>
             <div class="card-subhead">Subhead</div>
             <div class="card-text">
-              Text non tempor quam, et lacinia sapien.<br>
-              Text non tempor quam, et lacinia sapien.<br>
-              Text non tempor quam, et lacinia sapien.<br>
+              　現在、我々の活動費や機材を個人で負担しております。<br>
+              　そのため企業様のご支援を募集中しており、
+              ご支援企業様にはWeb掲載や報告書等で御礼いたします。
+              　応援して下さる企業様及び個人様がいらっしゃいましたら下記 「more → 」より詳細をご確認ください。
+              <a href="スポンサー.html" class="nav-link card-link" data-page="スポンサー.html">more →</a>
             </div>
-            <a href="スポンサー.html" class="nav-link card-link" data-page="スポンサー.html">more →</a>
           </div>
         </div>
+        
       </div>
       <!-- Cards end --->
       <!-- Contens end-->
-
 
       <!-- 最新情報 -->
       <div class="home_topics">
@@ -197,18 +195,20 @@
           <h5 class="home_topic_time">Comming soon...</h5>
           <p class="home_topic_description">Thx for watching.</p>
         </div>
-        
-      </div>
-      <!-- moreボタン 5件ずつ表示　Close allで全部閉じる。-->
-      <div style="text-align: center; margin-top: 10px;">
-        <button id="toggleTopicsButton_more">more▼</button>
-        <button id="toggleTopicsButton_close">Close all ▲</button>
+              <!-- moreボタン 5件ずつ表示　Close allで全部閉じる。-->
+        <div style="text-align: center; margin-top: 10px;">
+          <button id="toggleTopicsButton_more">more▼</button>
+          <button id="toggleTopicsButton_close">Close all ▲</button>
+        </div>
       </div>
       <!-- 最新情報 end--->
-      
+      <!-- スポンサーロゴとリンク掲載 -->
+      <div class="home_sponsor">
+        <h1 class="home_description_title"><span style="color:red;">S</span>ponsors</h1>
+      </div>
       <!-- 企業様支援--->
       <div class="home_helpus">
-        <h1 class="home_description_title"><span style="color:red;">H</span>elp Us!!</h2>
+        <h1 class="home_description_title"><span style="color:red;">H</span>elp Us!!</h1>
         <p class="home_description_content">私たちはCANSATの開発及びドローンの開発をしております。
           これらを行うために、個人様ならび企業様の幅広い分野からのご支援・ご協力をお願いしております。
           詳細は　<a href="スポンサー.html" class="nav-link non-header-link" data-page="スポンサー.html">スポンサー様</a>　をご参照ください
@@ -242,7 +242,7 @@
         <div class="footer_navigations">
           <a href="index.html" class="nav-link non-header-link" data-page="index.html">ホーム</a>
           <a href="ゼミ紹介.html" class="nav-link non-header-link" data-page="ゼミ紹介.html">ゼミ紹介</a>
-          <a href="活動記録.html" class="nav-link non-header-link" data-page="活動記録.html">活動記録</a>
+          <a href="CanSat.html" class="nav-link non-header-link" data-page="CanSat.html">CanSat</a>
           <a href="教員紹介.html" class="nav-link non-header-link" data-page="教員紹介.html">教員紹介</a>
           <a href="スポンサー.html" class="nav-link non-header-link" data-page="スポンサー.html">スポンサー</a>
         </div>

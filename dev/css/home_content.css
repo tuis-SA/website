@@ -142,6 +142,9 @@
 /* home topic styles (New Topics)*/
   .home_topics{
     margin-top: 10vw;
+    width: 100%;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
   }
 
   .home_topic_content{
@@ -201,14 +204,17 @@
 }
 /* Cards styles */
   .cards {
+    margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12vw; /* カード間の余白 */
+    
   }
 
   .card {
     max-width: 33vw;
+    margin-right: 6vw;
+    margin-left: 6vw;
     background-color: black !important;
     border-color: #fff !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -228,7 +234,13 @@
   .card-content {
     padding: 1rem;
     background-color: black;
+    height: 28vw;
   }
+  .card-content.light-mode {
+    padding: 1rem;
+    background-color: #726a5d;
+  }
+  
   .card-title {
     font-size: 2.5vw;
     font-weight: bold;
@@ -243,7 +255,6 @@
     color: white;
     font-size: 1.5vw;
     line-height: 1.4;
-    margin-bottom: 1rem;
   }
   .card-actions {
     display: flex;
@@ -251,9 +262,9 @@
   }
 
   .card-link{
-    margin-left: 22vw;
+    margin-left: 24vw;
     padding-top: 2vw !important;
-    font-size: 1.3vw !important;
+    font-size: 1.5vw !important;
     color: skyblue !important;
   }
 
@@ -276,6 +287,8 @@
 /* home helpus styles */
   .home_helpus {
     margin-top: 10vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
   }
 
 /* モバイルスタイル */

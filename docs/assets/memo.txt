@@ -7,8 +7,16 @@ https://tuis-sa.github.io/website/
 github
 https://github.com/tuis-SA/website/tree/main
 画像
-800x600 統一　or 1600 1200 比率統一する
-最終的に800x600に固定する。
+  800x600 統一　or 1600 1200 比率統一する
+  最終的に800x600に固定する。
+  手順
+  　・jpg... etcをpngに変換する
+  　・比率を800×600にするため一度画像を大きくする。
+  　・その後、切り抜き（https://www.iloveimg.com/ja/crop-image）に移動して、切り抜きたい画像のぎりぎり比率
+  　　 800*x 600*x　を切り抜き、保存する。
+  　・その後、画像のリサイズ（https://www.iloveimg.com/ja/resize-image）で800　600  にリサイズして
+  　　作業を終える
+  
 
 
 bootstrapが指定してないのに勝手に上書きするケースがある。

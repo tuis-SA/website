@@ -59,6 +59,7 @@ footer .footer_address_infomation p {
 }
 
 .footer_section1{
+  padding-left: 3.5vw;
   display: flex;
   justify-content: flex-start; /* 子要素を左寄せ */
   width: 100%;

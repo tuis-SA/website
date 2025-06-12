@@ -1,4 +1,4 @@
-.suponsor_header {
+.sponsor_header {
   /* 背景画像指定 */
   height: 50vw; /* image_palce */
   background-image: url("../assets/pictures/sponsor/cansat_everyone.jpg");
@@ -12,11 +12,11 @@
   align-items: center; /* 垂直方向に中央寄せ */
 }
 
-.suponsor_content{
+.sponsor_content{
   padding-left: 3.5vw;
   padding-right: 3.5vw;
 }
-.suponsor_title {
+.sponsor_title {
   /* テキストスタイル */
   text-align: center;
   font-size: 4vw;
@@ -24,7 +24,7 @@
   color: white; 
 }
 
-.suponsor_description_title{
+.sponsor_description_title{
   width: 100%;
   margin-bottom: 2vw;
   margin-top: 2vw;
@@ -34,16 +34,16 @@
   font-weight: 700; /**/
   font-size: 5vw;
 }
-.suponsor_description_title.light-mode {
+.sponsor_description_title.light-mode {
   color: black;
 }
 
-.suponsor_description_content{
+.sponsor_description_content{
   font-size: 1.7vw;
 }
 
 /*支援物*/
-.suponsor_provide {
+.sponsor_provide {
   /* ボーダーの設定（上下のみ表示） */
   width: 50%;
   border-top: 0.3vw solid white; /* 上のボーダー */
@@ -55,17 +55,17 @@
   padding: 0vw 0vw 1vw 0vw;
 }
 
-.suponsor_provide_content{
+.sponsor_provide_content{
   font-size: 1.7vw;
   padding: 1vw 0vw 0vw 0vw;
 }
-.suponsor_provide.light-mode {
+.sponsor_provide.light-mode {
   border-top: 0.3vw solid black;
   border-bottom: 0.3vw solid black;
 }
 
 /* 企業へのお礼品*/
-.suponsor_corporate_gifts {
+.sponsor_corporate_gifts {
   /* ボーダーの設定（上下のみ表示） */
   width: 50%;
   border-top: 0.3vw solid white; /* 上のボーダー */
@@ -76,11 +76,11 @@
   margin: 3vw 0vw 3vw 2vw;
   padding: 0vw 0vw 1vw 0vw;
 }
-.suponsor_corporate_gifts.light-mode {
+.sponsor_corporate_gifts.light-mode {
   border-top: 0.3vw solid black;
   border-bottom: 0.3vw solid black;
 }
-.suponsor_corporate_gifts_content{
+.sponsor_corporate_gifts_content{
   font-size: 1.7vw;
   padding: 1vw 0vw 0vw 0vw;
 }
@@ -88,58 +88,58 @@
 
 
 /* 企業問い合わせメールアドレス先*/
-.suponsor_description_address{
+.sponsor_description_address{
   font-size: 1.35vw;
   padding-top: 1vw;
 }
 
 @media (max-width: 650px) {
-  .suponsor_header {
+  .sponsor_header {
     padding-top: 64px;
     height: 80vh;
   }
-  .suponsor_title {
+  .sponsor_title {
     font-size: 7vw;
   }
 
-  .suponsor_description_title{
+  .sponsor_description_title{
     font-size: 25px;
     padding: 15px 0px 10px 0px;
   }
-  .suponsor_description_content{
+  .sponsor_description_content{
     font-size: 15px;
   }
   
-  .suponsor_provide{
+  .sponsor_provide{
     width: 80%;
     margin: 20px 0px 20px 0px;
   }
   
-  .suponsor_provide_content{
+  .sponsor_provide_content{
     font-size: 13px;
     /* 2行目以降のインデント */
     text-indent: -1rem;
     padding-left: 1em;
   }
   
-  .suponsor_corporate_gifts{
+  .sponsor_corporate_gifts{
     margin: 20px 0px 20px 0px;
   }
   
   
-  .suponsor_corporate_gifts_content{
+  .sponsor_corporate_gifts_content{
     font-size: 13px;
     /* 2行目以降のインデント */
     text-indent: -1rem;
     padding-left: 1em;
   }
   
-  .suponsor_corporate_gifts{
+  .sponsor_corporate_gifts{
     width: 80%;
   }
   
   /* 連絡先アドレス */
-  .suponsor_description_address {
+  .sponsor_description_address {
     font-size: 12px;
     padding-top: 10px;
   }  
