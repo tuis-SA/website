@@ -205,13 +205,14 @@
 /* Cards styles */
   .cards {
     margin-top: 100px;
-    display: flex;
+    display: flex;/* 一番高い高さのカードで文字数が決定される。*/
     flex-wrap: wrap;
     justify-content: center;
     
   }
 
   .card {
+    width: 33vw;
     max-width: 33vw;
     margin-right: 6vw;
     margin-left: 6vw;
@@ -232,9 +233,10 @@
     justify-content: center;
   }
   .card-content {
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
     background-color: black;
-    height: 28vw;
   }
   .card-content.light-mode {
     padding: 1rem;
@@ -262,12 +264,14 @@
   }
 
   .card-link{
-    margin-left: 24vw;
     padding-top: 2vw !important;
     font-size: 1.5vw !important;
     color: skyblue !important;
+    margin-top: auto;
+    text-align: right;
+    padding-bottom: 1vw;
+    padding-right: 1vw;
   }
-
 /* card pictures */
 .card_Seminar_activities{
   width: 100%;
@@ -378,6 +382,7 @@
   }
 
   .card {
+    width: 100%;
     max-width: 90vw; /* スマホ画面いっぱい使う */
     margin-bottom: 20px;
   }
