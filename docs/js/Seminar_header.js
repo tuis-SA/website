@@ -126,6 +126,14 @@ function loadContent(page, updateHistory = true) {
       const newContent = doc.querySelector('#content');
 
       if (newContent) {
+        // この下に画像パス修正処理
+        const images = newContent.querySelectorAll('img');
+        images.forEach(img => {
+          if (img.src.startsWith(location.origin) && img.getAttribute('src').startsWith('/assets')) {
+            const relativePath = img.getAttribute('src').replace(/^\/+/, '');
+            img.src = `${location.origin}/${relativePath}`;
+          }
+        });
         contentDiv.innerHTML = newContent.innerHTML;
 
         // スクロール、初期化処理など
