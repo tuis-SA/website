@@ -107,83 +107,87 @@ function initializeHamburgerMenu() {
 
 // 動的コンテンツのロード
 function loadContent(page, updateHistory = true) {
-  const contentDiv = document.getElementById('content');
-  if (!contentDiv) {
-    console.error('content要素が見つかりません');
-    return;
-  }
+    const contentDiv = document.getElementById('content');
+    if (!contentDiv) {
+        console.error('content要素が見つかりません');
+        return;
+    }
 
-  fetch(page)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then(html => {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      const newContent = doc.querySelector('#content');
+    // GitHub Pagesのリポジトリ名を取得（例: website）
+    // 例: https://tuis-sa.github.io/website/ -> repoName = 'website'
+    const repoName = location.pathname.split('/')[1] || '';
+    const baseUrl = repoName ? `/${repoName}` : ''; // '/website' または ''
 
-      if (newContent) {
-        // GitHub Pagesのリポジトリ名を取得（例: your-repo）
-        // リポジトリ名がない場合は空文字
-        const repoName = location.pathname.split('/')[1] || '';
-        const baseUrl = repoName ? `/${repoName}` : ''; // '/your-repo' または ''
-
-        // 画像パス修正処理
-        const images = newContent.querySelectorAll('img');
-        images.forEach(img => {
-          const originalSrc = img.getAttribute('src');
-          // ルート相対パス（/assets/...）の場合のみ修正
-          if (originalSrc && originalSrc.startsWith('/assets')) {
-            // 例: /assets/pictures/ -> /your-repo/assets/pictures/
-            img.src = `${baseUrl}${originalSrc}`;
-          }
-        });
-
-        // CSSリンクのパス修正（もしHTMLが動的にロードされるならこれも必要）
-        const links = newContent.querySelectorAll('link[rel="stylesheet"]');
-        links.forEach(link => {
-            const originalHref = link.getAttribute('href');
-            if (originalHref && originalHref.startsWith('/css')) {
-                link.href = `${baseUrl}${originalHref}`;
+    // fetchするページのパスを構築
+    // GitHub Pagesの場合、fetch('cansat.html') は
+    // 'https://tuis-sa.github.io/website/cansat.html' と解決されるべき
+    // そのため、baseUrl を fetch に直接渡す必要はなく、相対パスのまま fetch すれば良い
+    // ただし、もしページ名自体が "/cansat.html" のようにルート相対パスで渡される場合、
+    // fetch(`${baseUrl}${page}`) のようにbaseUrlを付与する必要がある
+    // 現在のコード（data-page="cansat.html"）では相対パスなので page のままでOK
+    fetch(page)
+        .then(response => {
+            if (!response.ok) {
+                // エラー時は具体的なパスとステータスをコンソールに出力
+                console.error(`コンテンツロード失敗: ${response.url} - HTTP error! status: ${response.status}`);
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        });
+            return response.text();
+        })
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const newContent = doc.querySelector('#content');
 
-        // JavaScriptスクリプトのパス修正（もしHTMLが動的にロードされるならこれも必要）
-        const scripts = newContent.querySelectorAll('script[src]');
-        scripts.forEach(script => {
-            const originalSrc = script.getAttribute('src');
-            if (originalSrc && originalSrc.startsWith('/js')) {
-                script.src = `${baseUrl}${originalSrc}`;
+            if (newContent) {
+                // 動的に読み込まれたHTML内のアセットパスを修正
+                // ルート相対パス（例: /assets/pictures/）の場合のみbaseUrlを付与
+                // 例: /assets/pictures/ -> /website/assets/pictures/
+                const elementsWithSrcOrHref = newContent.querySelectorAll('[src], [href]');
+                elementsWithSrcOrHref.forEach(el => {
+                    let attribute = el.getAttribute('src') || el.getAttribute('href');
+
+                    if (attribute && !attribute.startsWith('http://') && !attribute.startsWith('https://')) {
+                        // パスが '/' で始まる場合のみ、baseUrl を付与して修正
+                        if (attribute.startsWith('/')) {
+                            const newPath = `${baseUrl}${attribute}`;
+                            if (el.hasAttribute('src')) {
+                                el.src = newPath;
+                            } else {
+                                el.href = newPath;
+                            }
+                        }
+                        // ドキュメント相対パス（例: assets/pictures/）の場合は、
+                        // ブラウザが自動的に解決するため、ここでは特に変更は不要です。
+                        // そのため、HTML側のパスを「assets/...」のように記述することが推奨されます。
+                    }
+                });
+
+                contentDiv.innerHTML = newContent.innerHTML;
+
+                // スクロール、ページ固有機能の初期化など
+                window.scrollTo(0, 0);
+                initializePageSpecificFeatures(); // ページ固有のJSを実行する関数（別途定義が必要）
+
+                // ライトモードが有効な場合は適用
+                if (document.body.classList.contains('light-mode')) {
+                    applyLightModeToAll(); // ライトモードを適用する関数（別途定義が必要）
+                }
+
+                // URL を変更（履歴に追加）
+                if (updateHistory) {
+                    history.pushState({ page }, '', `${baseUrl}/?page=${page}`);
+                }
+
+            } else {
+                console.error(`#content要素が読み込まれたHTML内に見つかりません: ${page}`);
             }
+        })
+        .catch(error => {
+            // エラー表示
+            contentDiv.innerHTML = `<p style="color: red; text-align: center; padding: 20px;">コンテンツを読み込めませんでした。お手数ですが、後ほどもう一度お試しください。</p>`;
+            console.error('コンテンツロードエラー:', error.message);
         });
-
-
-        contentDiv.innerHTML = newContent.innerHTML;
-
-        // スクロール、初期化処理など
-        window.scrollTo(0, 0);
-        initializePageSpecificFeatures();
-
-        if (document.body.classList.contains('light-mode')) {
-          applyLightModeToAll();
-        }
-
-        // URL を変更（履歴に追加）
-        if (updateHistory) {
-          history.pushState({ page }, '', `${baseUrl}?page=${page}`);
-        }
-
-      } else {
-        console.error(`#contentが見つかりません: ${page}`);
-      }
-    })
-    .catch(error => {
-      contentDiv.innerHTML = `<p>コンテンツを読み込めませんでした。</p>`;
-      console.error('コンテンツエラー:', error.message);
-    });
 }
 
 // ページごとの初期化処理
