@@ -126,14 +126,41 @@ function loadContent(page, updateHistory = true) {
       const newContent = doc.querySelector('#content');
 
       if (newContent) {
-        // この下に画像パス修正処理
+        // GitHub Pagesのリポジトリ名を取得（例: your-repo）
+        // リポジトリ名がない場合は空文字
+        const repoName = location.pathname.split('/')[1] || '';
+        const baseUrl = repoName ? `/${repoName}` : ''; // '/your-repo' または ''
+
+        // 画像パス修正処理
         const images = newContent.querySelectorAll('img');
         images.forEach(img => {
-          if (img.src.startsWith(location.origin) && img.getAttribute('src').startsWith('/assets')) {
-            const relativePath = img.getAttribute('src').replace(/^\/+/, '');
-            img.src = `${location.origin}/${relativePath}`;
+          const originalSrc = img.getAttribute('src');
+          // ルート相対パス（/assets/...）の場合のみ修正
+          if (originalSrc && originalSrc.startsWith('/assets')) {
+            // 例: /assets/pictures/ -> /your-repo/assets/pictures/
+            img.src = `${baseUrl}${originalSrc}`;
           }
         });
+
+        // CSSリンクのパス修正（もしHTMLが動的にロードされるならこれも必要）
+        const links = newContent.querySelectorAll('link[rel="stylesheet"]');
+        links.forEach(link => {
+            const originalHref = link.getAttribute('href');
+            if (originalHref && originalHref.startsWith('/css')) {
+                link.href = `${baseUrl}${originalHref}`;
+            }
+        });
+
+        // JavaScriptスクリプトのパス修正（もしHTMLが動的にロードされるならこれも必要）
+        const scripts = newContent.querySelectorAll('script[src]');
+        scripts.forEach(script => {
+            const originalSrc = script.getAttribute('src');
+            if (originalSrc && originalSrc.startsWith('/js')) {
+                script.src = `${baseUrl}${originalSrc}`;
+            }
+        });
+
+
         contentDiv.innerHTML = newContent.innerHTML;
 
         // スクロール、初期化処理など
@@ -146,7 +173,7 @@ function loadContent(page, updateHistory = true) {
 
         // URL を変更（履歴に追加）
         if (updateHistory) {
-          history.pushState({ page }, '', `?page=${page}`);
+          history.pushState({ page }, '', `${baseUrl}?page=${page}`);
         }
 
       } else {
