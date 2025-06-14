@@ -271,7 +271,7 @@
   }
   .card-subhead {
     color: #bebebe;
-    font-size: 1.5vw;
+    font-size: 1.9vw;
     margin-bottom: 0.5rem;
   }
   .card-text {
@@ -285,7 +285,6 @@
   }
 
   .card-link{
-    padding-top: 2vw !important;
     font-size: 1.5vw !important;
     color: skyblue !important;
     margin-top: auto;

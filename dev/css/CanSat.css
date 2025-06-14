@@ -72,15 +72,18 @@
   white-space: nowrap;
 }
 
-  .CanSat_Topics_Contents,
-  .CanSat_Topics_event_pictures {
-    flex: 1 1 48%; /* 横幅50%ずつ、自動で高さ調整 */
-    min-width: 300px; /* ←これを指定すると、狭くなりすぎたときに折り返す */
-    box-sizing: border-box;
-    padding: 1rem; /* 任意の余白（お好みで） */
-    
-  }
-
+.CanSat_Topics_Contents,
+.CanSat_Topics_event_pictures {
+  flex: 1 1 48%; /* 横幅50%ずつ、自動で高さ調整 */
+  min-width: 300px; /* ←これを指定すると、狭くなりすぎたときに折り返す */
+  box-sizing: border-box;
+  padding: 1rem; /* 任意の余白（お好みで） */
+  
+}
+.CanSat_Content_event_description_h2{
+  display: inline-block;
+  margin-left: 2vw;
+}
 /* 画像が親に合わせて収まるようにする */
 .CanSat_Topics_event_pictures img {
   width: 100%;
@@ -102,7 +105,12 @@
 
 .CanSat_event_day_description,
 .CanSat_Content_event_description{
-  font-size: 1.5vw;
+  font-size: 2vw;
+  margin-left: 4vw;
+}
+.CanSat_Content_event_description,
+.CanSat_Content_event_description_h2 {
+   line-height: 1.6; /* 行間を1.6倍に */
 }
 /* モバイルスタイル */
 @media (max-width: 650px) {
@@ -118,8 +126,9 @@
     font-size: 13vw;
   }
   .CanSat_description_content{
-    font-size: 15px;
-    line-height: 30px;
+  font-size: 22px;
+  line-height: 34px;
+
   }
     /* 横並び解除 */
   .CanSat_Topics {
@@ -137,7 +146,7 @@
 
   .CanSat_event_day_description,
   .CanSat_Content_event_description{
-    font-size: 3vw;
+    font-size: 4vw;
   }
   /*--　改行解除　--*/
   .CanSat_Topics_event_summary,
