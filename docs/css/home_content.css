@@ -2,10 +2,10 @@
 .home_title {
   padding-left: 4vw;
   padding-top: 5vw;
-  padding-bottom: 6vw;
     /*背景画像指定*/
   position: relative;
   width: 100%;
+  height: 100vh;
   aspect-ratio: 4 / 3; /* 縦横比 */
   overflow: hidden;
   /* min-height: 200px; モバイル対策 */
@@ -134,24 +134,24 @@
 /* home description styles */
 
 .home_content{
-  padding-left: 3.5vw;
-  padding-right: 3.5vw;
+  padding-left: 17vw;
+  padding-right: 17vw;
 }
 
 .home_description_title {
   width: 100%;
-  margin: 90px 0px 90px 0px;
+  margin: 45px 0px 45px 0px;
   text-align: center;
   color: #d4d1d1f5;
   font-weight: 700; /*フォント重み*/
-  font-size: 8vw;
+  font-size: 6vw;
 }
 
 .home_description_title.light-mode{
   color: black;
 }
 .home_description_content{
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
 
 .home_description_Announcement{
@@ -161,8 +161,8 @@
   .home_topics{
     margin-top: 10vw;
     width: 100%;
-    padding-left: 3.5vw;
-    padding-right: 3.5vw;
+    padding-left: 17vw;
+    padding-right: 17vw;
   }
 
   .home_topic_content{
@@ -172,12 +172,12 @@
   
   .home_topic_time{
     margin-bottom: 0.2vw;
-    font-size: 1.4vw;
+    font-size: 1vw;
     color: gray;
   }
 
   .home_topic_description{
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     border-bottom: 1px solid white;
   }
   .home_topic_description.light-mode {
@@ -230,8 +230,8 @@
   }
 
   .card {
-    width: 33vw;
-    max-width: 33vw;
+    width: 29vw;
+    max-width: 29vw;
     margin-right: 6vw;
     margin-left: 6vw;
     background-color: black !important;
@@ -265,18 +265,18 @@
   }
   
   .card-title {
-    font-size: 2.5vw;
+    font-size: 2vw;
     font-weight: bold;
     color: #e0dfdf  !important;
   }
   .card-subhead {
     color: #bebebe;
-    font-size: 1.9vw;
+    font-size: 1.3vw;
     margin-bottom: 0.5rem;
   }
   .card-text {
     color: white;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     line-height: 1.4;
   }
   .card-actions {
@@ -285,7 +285,7 @@
   }
 
   .card-link{
-    font-size: 1.5vw !important;
+    font-size: 1.2vw !important;
     color: skyblue !important;
     margin-top: auto;
     text-align: right;
@@ -311,8 +311,8 @@
 /* home helpus styles */
   .home_helpus {
     margin-top: 10vw;
-    padding-left: 3.5vw;
-    padding-right: 3.5vw;
+    padding-left: 17vw;
+    padding-right: 17vw;
   }
 
 /* モバイルスタイル */
@@ -322,14 +322,21 @@
   }
   .sp {
     display: block;
-    padding-top: 70px;
-    height: 80vh;
+    padding-top: 70px !important;
+    height: 100vh;
   }
+  .home_helpus,
+  .home_topics,
+  .home_content{
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
   .home_title{
     padding-top: 64px;
   }
   .home_description_title{
-    font-size: 13vw;
+    font-size: 12vw;
   }
   .home_description_content{
     font-size: 15px;

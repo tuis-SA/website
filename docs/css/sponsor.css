@@ -1,6 +1,6 @@
 .sponsor_header {
   /* 背景画像指定 */
-  height: 50vw; /* image_palce */
+  height: 100vh; /* image_palce */
   background-image: url("../assets/pictures/sponsor/cansat_everyone.jpg");
   background-repeat: no-repeat; /* 繰り返しを防ぐ */
   background-size: cover; /* 全体にフィット */
@@ -13,8 +13,8 @@
 }
 
 .sponsor_content{
-  padding-left: 3.5vw;
-  padding-right: 3.5vw;
+  padding-left: 17vw;
+  padding-right: 17vw;
 }
 .sponsor_title {
   /* テキストスタイル */
@@ -32,14 +32,14 @@
   text-align: center;
   color: #d4d1d1f5;
   font-weight: 700; /**/
-  font-size: 5vw;
+  font-size: 4vw;
 }
 .sponsor_description_title.light-mode {
   color: black;
 }
 
 .sponsor_description_content{
-  font-size: 1.7vw;
+  font-size: 1.5vw;
 }
 
 /*支援物*/
@@ -56,7 +56,7 @@
 }
 
 .sponsor_provide_content{
-  font-size: 1.7vw;
+  font-size: 1.5vw;
   padding: 1vw 0vw 0vw 0vw;
 }
 .sponsor_provide.light-mode {
@@ -81,7 +81,7 @@
   border-bottom: 0.3vw solid black;
 }
 .sponsor_corporate_gifts_content{
-  font-size: 1.7vw;
+  font-size: 1.5vw;
   padding: 1vw 0vw 0vw 0vw;
 }
 
@@ -94,9 +94,13 @@
 }
 
 @media (max-width: 650px) {
+  .sponsor_content{
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
   .sponsor_header {
     padding-top: 64px;
-    height: 80vh;
+    height: 100vh;
   }
   .sponsor_title {
     font-size: 7vw;

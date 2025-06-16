@@ -14,11 +14,13 @@
     <!-- コンテンツが表示される領域 -->
     <div id="content" class="section-content">  <!-- ここのdiv要素の中に内容を書く。　レンダリングするためなのでここのクラス名はいじらない。--->
       <link rel="stylesheet" href="css/teacher.css"> <!-- CSSファイルを読み込む -->
-    
 
       <!-- 教員紹介ホーム画像 -->
       <div class="teacher-title-area">
-        <img src="assets/pictures/teacher/faculty.png" alt="教員紹介タイトル画像" class="teacher-header-image">
+        <picture>
+          <source media="(max-width: 650px)" srcset="assets/pictures/teacher/faculty_long.jpg">
+          <img src="assets/pictures/teacher/faculty.png" alt="教員紹介タイトル画像" class="teacher-header-image">
+        </picture>
         <div class="teacher-title-text">教員紹介</div>
       </div>
 

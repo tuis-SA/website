@@ -3,7 +3,7 @@
   flex-shrink: 0;
   margin-right: 29vw;
   white-space: nowrap;
-  font-size: 1.3vw;
+  font-size: 15px;
   color: white;
   display: flex;
   align-items: center;
@@ -13,15 +13,12 @@
 .navigation_bar {
   position: fixed;
   width: 100%;
-  top: 0.9rem;
   z-index: 1000;
-  padding-left: 3.5vw;
-  padding-right: 3.5vw;
 }
 
 .navbar {
-  background-color: #52525f;
-  background-image: linear-gradient(180deg, #52525f 0%, #000000 100%);
+  background-color: black;
+  /* background-image: linear-gradient(180deg, #52525f 0%, #000000 100%); */
 }
 /* ナビゲーションバーの上下左右余白0 */
 nav.navbar {
@@ -45,8 +42,8 @@ nav.navbar {
 .navbar ul li a {
   color: white;
   text-decoration: none;
-  font-size: 1.25vw;
-  padding: 0.5vw 1vw;
+  font-size: 15px;
+  padding: 0.6vw 1vw;
   display: block;
   transition: color 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
   white-space: nowrap; /* テキストの改行を防止 */
@@ -57,16 +54,16 @@ nav.navbar {
   color: rgba(0, 0, 0, 0.616);
   background-color: #fcffff;
   background-image: linear-gradient(180deg, #fcffff 0%, #78787c 100%);
-  border-top-left-radius: 120px;
-  border-top-right-radius: 120px;
+  /* border-top-left-radius: 120px;
+  border-top-right-radius: 120px; */
 }
 
 /* ホバー選択時のスタイル */
 .navbar ul li a:hover {
   color: rgba(0, 0, 0, 0.8);
   background-color: #d1d5db; /* ホバー時の背景色 */
-  border-top-left-radius: 120px;
-  border-top-right-radius: 120px;
+  /* border-top-left-radius: 120px;
+  border-top-right-radius: 120px; */
 }
 
 /* hambarger_menu */
