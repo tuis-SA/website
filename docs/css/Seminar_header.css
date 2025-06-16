@@ -3,7 +3,7 @@
   flex-shrink: 0;
   margin-right: 29vw;
   white-space: nowrap;
-  font-size: 15px;
+  font-size: 1.2vw;
   color: white;
   display: flex;
   align-items: center;
@@ -42,7 +42,7 @@ nav.navbar {
 .navbar ul li a {
   color: white;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 1.2vw;
   padding: 0.6vw 1vw;
   display: block;
   transition: color 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
