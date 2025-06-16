@@ -1,12 +1,12 @@
 /* 教員タイトルエリア */
-.teacher-title {
+.teacher-title-area {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   display: flex;
-  align-items: center;  /* 垂直中央揃え */
-  justify-content: center;  /* 水平中央揃え */
+  align-items: center;
+  justify-content: center;
 }
 
 /* 背景画像 */
@@ -19,8 +19,8 @@
   object-fit: cover;
 }
 
-/* 中央に表示されるテキスト */
-.teacher-text {
+/* 中央テキスト */
+.teacher-title-text {
   position: relative;
   z-index: 1;
   color: rgb(253, 253, 253);
@@ -35,7 +35,7 @@
 }
 
 /* 教員カード全体 */
-.teacher {
+.teacher-container {
   margin-top: 40px;
   display: grid;
   gap: 30px;
@@ -67,70 +67,70 @@
 }
 
 /* 教員情報 */
-.info {
+.teacher-info {
   flex: 1;
   min-width: 0;
 }
 
 /* 職位 */
-.title {
+.teacher-title {
   font-size: 14px;
   margin: 0 0 4px;
   color: #333;
 }
-.title.light-mode {
+.teacher-title.light-mode {
   color: #444;
 }
 
 /* 氏名 */
-h2 {
+.teacher-name {
   margin: 0;
   font-size: 20px;
   color: #1078b9;
 }
-h2.light-mode {
+.teacher-name.light-mode {
   color: #006699;
 }
 
 /* カナ表記 */
-.kana {
+.teacher-kana {
   font-size: 14px;
   margin-bottom: 10px;
   color: #444;
 }
-.kana.lite-mode {
+.teacher-kana.lite-mode {
   color: #666;
 }
 
 /* 概要テキスト */
-.info p {
+.teacher-info p {
   font-size: 14px;
   line-height: 1.5;
   margin: 4px 0;
   color: #333;
 }
 
-/* 詳細項目（ラベル付き） */
-.info p.detail {
+/* 詳細項目 */
+.teacher-detail {
   margin: 6px 0;
   font-size: 14px;
   line-height: 1.6;
   color: #333;
 }
-.info p.detail span {
+.teacher-detail span {
   display: block;
   margin-bottom: 6px;
   padding-left: 1em;
   position: relative;
 }
-.info p.detail span::before {
+.teacher-detail span::before {
   content: "▹";
   position: absolute;
   left: 0;
   color: #1078b9;
   font-weight: bold;
 }
-.info p.detail strong {
+.teacher-detail strong {
   display: inline-block;
   color: #1078b9;
   font-weight: bold;
@@ -155,8 +155,7 @@ h2.light-mode {
   text-decoration: underline;
 }
 
-
-/*mobile対応*/
+/* モバイル対応 */
 @media screen and (max-width: 600px) {
   .teacher-card {
     flex-direction: column;
@@ -170,29 +169,29 @@ h2.light-mode {
     margin-bottom: 12px;
   }
 
-  .info {
+  .teacher-info {
     width: 100%;
     min-width: unset;
   }
 
-  .title,
-  .kana,
-  .info p,
-  .info p.detail,
-  .more-link a {
+  .teacher-title,
+  .teacher-kana,
+  .teacher-info p,
+  .teacher-detail,
+  .teacher-more-link a {
     font-size: 13px;
   }
 
-  h2 {
+  .teacher-name {
     font-size: 18px;
   }
 
-  .info p.detail span {
+  .teacher-detail span {
     padding-left: 1.2em;
   }
 
-  .info p.detail span::before {
-    content: "▹"; /* 変えたければここで記号変更可能 */
+  .teacher-detail span::before {
+    content: "▹";
     left: 0;
     top: 0.1em;
   }
