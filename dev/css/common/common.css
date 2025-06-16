@@ -7,7 +7,7 @@ body {
 
 /* ライトモードのスタイル */
 body.light-mode {
-  background-color: #939393a3;
+  background-color: white;
   color: black;
 }
 
