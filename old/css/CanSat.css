@@ -1,0 +1,157 @@
+.CanSat_body_content{
+  padding-left: 3.5vw;
+  padding-right: 3.5vw;
+}
+
+/* 基本スタイル */
+.CanSat_title {
+  padding-left: 4vw;
+  padding-top: 5vw;
+  padding-bottom: 6vw;
+    /*背景画像指定*/
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 縦横比 */
+  overflow: hidden;
+  /* min-height: 200px; モバイル対策 */
+}
+
+/* 背景画像として使うimg */
+.CanSat_image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* トリミングしつつぴったり表示 */
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* テキストを上に重ねる */
+.CanSat_text {
+  position: absolute; /* ← 親要素が relative のとき中央配置が可能 */
+  top: 40%;           /* 上から50%の位置に配置 */
+  color: white;
+  text-align: left;
+  z-index: 1;
+  font-size: 7vw;
+  font-weight: bold;
+}
+
+.CanSat_content {
+  margin-bottom: 90px;
+}
+.CanSat_description_title {
+  width: 100%;
+  margin: 90px 0px 90px 0px;
+  text-align: center;
+  color: #d4d1d1f5;
+  font-weight: 700; /*フォント重み*/
+  font-size: 8vw;
+}
+
+.CanSat_description_title.light-mode{
+  color: black;
+}
+
+.CanSat_description_content{
+  font-size: 2vw;
+}
+
+/* CanSat_Topics */
+  .CanSat_Topics {
+    display: flex;
+    flex-wrap: wrap; /* レスポンシブ対応（モバイルで縦並びに） */
+    width: 100%;
+  }
+
+/*width変更による意図しない改行防止。*/
+.CanSat_Topics_event_summary,
+.CanSat_event_day_title,
+.CanSat_Content_event_title {
+  white-space: nowrap;
+}
+
+.CanSat_Topics_Contents,
+.CanSat_Topics_event_pictures {
+  flex: 1 1 48%; /* 横幅50%ずつ、自動で高さ調整 */
+  min-width: 300px; /* ←これを指定すると、狭くなりすぎたときに折り返す */
+  box-sizing: border-box;
+  padding: 1rem; /* 任意の余白（お好みで） */
+  
+}
+.CanSat_Content_event_description_h2{
+  display: inline-block;
+  margin-left: 2vw;
+}
+/* 画像が親に合わせて収まるようにする */
+.CanSat_Topics_event_pictures img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* CanSat_Topics_picture1 */
+.CanSat_Topics_picture1{
+  box-shadow: 2vw 2vw 1vw 0vw #9a9a9a;  /* 右　下　ぼかし　影広がり具合 */
+}
+.CanSat_Topics_picture1.light-mode{
+  box-shadow: 2vw 2vw 1vw 0vw #343a40; /* 右　下　ぼかし　影広がり具合 */
+}
+.CanSat_event_day_title,
+.CanSat_Content_event_title{
+  font-size: 2vw;
+}
+
+.CanSat_event_day_description,
+.CanSat_Content_event_description{
+  font-size: 2vw;
+  margin-left: 4vw;
+}
+.CanSat_Content_event_description,
+.CanSat_Content_event_description_h2 {
+   line-height: 1.6; /* 行間を1.6倍に */
+}
+/* モバイルスタイル */
+@media (max-width: 650px) {
+  .CanSat_title,
+  .CanSat_image{
+    height: 80vh;
+  }
+  .CanSat_text{
+    top: 22%;
+    font-size: 15vw;
+  }
+  .CanSat_description_title{
+    font-size: 13vw;
+  }
+  .CanSat_description_content{
+  font-size: 22px;
+  line-height: 34px;
+
+  }
+    /* 横並び解除 */
+  .CanSat_Topics {
+    flex-direction: column; /* 縦並びにする */
+  }
+
+  /* 画像の影をなくす */
+  .CanSat_Topics_event_pictures {
+    box-shadow: none;
+  }
+  .CanSat_event_day_title,
+  .CanSat_Content_event_title{
+    font-size: 5vw;
+  }
+
+  .CanSat_event_day_description,
+  .CanSat_Content_event_description{
+    font-size: 4vw;
+  }
+  /*--　改行解除　--*/
+  .CanSat_Topics_event_summary,
+  .CanSat_event_day_title,
+  .CanSat_Content_event_title {
+    white-space: normal;
+  }
+}

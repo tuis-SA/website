@@ -4,12 +4,34 @@
   padding-top: 5vw;
   padding-bottom: 6vw;
     /*背景画像指定*/
-  height: 50vw;  /* image_palce */
-  background-image: url("../assets/pictures/home/home_image.jpg");
-  background-repeat: no-repeat; /* 繰り返しを防ぐ */
-  background-size: cover; /* 全体にフィット */
-  background-position: center; /* 中央に配置 */
-  
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 縦横比 */
+  overflow: hidden;
+  /* min-height: 200px; モバイル対策 */
+}
+
+/* 背景画像として使うimg */
+.home_image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* トリミングしつつぴったり表示 */
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* テキストを上に重ねる */
+.home_text {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+/*スマホ用表示*/
+.sp {
+  display: none;/*表示しない*/
 }
 
 .we-are {
@@ -33,7 +55,9 @@
 .we-are::before,
 .we-are::after,
 .embodiment-of-technology::before,
-.embodiment-of-technology::after {
+.embodiment-of-technology::after,
+.technology::before, 
+.technology::after{
   content: '';
   display: block;
   position: absolute;
@@ -65,6 +89,16 @@
   margin-left: 1vw;
 }
 
+.technology::before {
+  bottom: 0.35vw;
+  background-color: white;
+}
+
+.technology::after {
+  bottom: -0.1vw;
+  background-color: red;
+  margin-left: 1vw;
+}
 /* アニメーション */
 @keyframes slideIn {
   from {
@@ -103,130 +137,32 @@
   padding-left: 3.5vw;
   padding-right: 3.5vw;
 }
+
 .home_description_title {
   width: 100%;
-  margin-bottom: 2vw;
-  margin-top: 2vw;
-  position: relative;
+  margin: 90px 0px 90px 0px;
   text-align: center;
   color: #d4d1d1f5;
-  font-weight: 700; /**/
+  font-weight: 700; /*フォント重み*/
   font-size: 8vw;
 }
 
+.home_description_title.light-mode{
+  color: black;
+}
 .home_description_content{
   font-size: 2vw;
 }
 
-/* home description Cards */
-.card-container {
-    display: flex; /* Flexboxを有効にする */
-    flex-wrap: wrap; /* 子要素を折り返す */
-    justify-content: space-around; /* カード間に均等なスペースを確保 */
-    align-items: flex-start; /* カードの上端を揃える */
-    width: 100%; /* 親要素の幅いっぱいに広げる */
-    padding: 1vw; /* コンテナ全体の余白（任意） */
-    box-sizing: border-box; /* paddingをwidthに含める */
+.home_description_Announcement{
+  margin-top: 20px;
 }
-
-.card {
-    /* width: calc(50% - 2vw); */ /* 50%から左右の余白を引く */
-    flex: 0 0 calc(50% - 2vw); /* Flexアイテムとして、伸縮せず50%から余白を引いた幅 */
-    max-width: calc(50% - 2vw); /* 念のため最大幅も指定 */
-    margin: 1vw; /* 上下左右の余白 */
-    border: 1px solid #ddd; /* カードの境界線 */
-    border-radius: 0.5vw; /* 角丸 */
-    box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.1); /* 影 */
-    background-color: #fff; /* 背景色 */
-    padding: 1.5vw; /* カード内部の余白 */
-    box-sizing: border-box; /* paddingをwidthに含める */
-    display: flex; /* カード内の要素をFlexboxで配置 */
-    flex-direction: column; /* 縦方向に並べる */
-}
-
-.card-media {
-    width: 100%;
-    /* height: 15vw; */ /* 画像の縦横比に合わせて調整してください */
-    padding-bottom: 56.25%; /* 16:9 のアスペクト比を維持するためのハック */
-    background-color: #333; /* プレースホルダーの背景色 */
-    position: relative; /* padding-bottomで高さを確保するため */
-    overflow: hidden; /* メディア内容がはみ出さないように */
-    border-radius: 0.3vw;
-    margin-bottom: 1.5vw;
-}
-
-/* 実際の画像を使用する場合は以下のように */
-/* .card-media img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} */
-
-.card-title {
-    font-size: 1.8vw; /* タイトルのフォントサイズ */
-    margin-top: 0;
-    margin-bottom: 0.5vw;
-    color: #333;
-}
-
-.card-subhead {
-    font-size: 1.2vw; /* サブヘッドのフォントサイズ */
-    margin-top: 0;
-    margin-bottom: 1vw;
-    color: #666;
-}
-
-.card-text {
-    font-size: 1vw; /* 本文のフォントサイズ */
-    line-height: 1.5;
-    margin-bottom: 1.5vw;
-    color: #555;
-    flex-grow: 1; /* テキストが余白を埋めるように伸縮 */
-}
-
-.card-actions {
-    display: flex;
-    gap: 0.8vw; /* ボタン間のスペース */
-    margin-top: auto; /* ボタン群をカードの下部に配置 */
-}
-
-.card-actions button {
-    padding: 0.8vw 1.5vw;
-    border: none;
-    border-radius: 0.3vw;
-    cursor: pointer;
-    font-size: 1vw;
-    white-space: nowrap; /* ボタン内のテキストが折り返さないように */
-}
-
-.primary-action {
-    background-color: #333;
-    color: #fff;
-}
-
-.primary-action:hover {
-    background-color: #555;
-}
-
-.secondary-action {
-    background-color: transparent;
-    color: #333;
-    border: 1px solid #333;
-}
-
-.secondary-action:hover {
-    background-color: #f0f0f0;
-}
-
-
-
-
-/* home topic styles */
+/* home topic styles (New Topics)*/
   .home_topics{
     margin-top: 10vw;
+    width: 100%;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
   }
 
   .home_topic_content{
@@ -241,36 +177,170 @@
   }
 
   .home_topic_description{
+    font-size: 1.5vw;
     border-bottom: 1px solid white;
   }
-
-  .home_topic_description{
-    font-size: 1.5vw;
+  .home_topic_description.light-mode {
+    border-bottom: 1px solid black;
   }
 
+/*new topic more_button*/
+  /* .extra-topic はデフォルトで非表示にする */
+  .extra-topic {
+      display: none;
+  }
+
+  /* .is-visible クラスが追加されたら表示する */
+  .extra-topic.is-visible {
+      display: block; /* または flex など、表示したい形式に合わせてください */
+  }
+
+  /* ボタンのスタイル (オプション、必要に応じて調整) */
+  #toggleTopicsButton_more,
+  #toggleTopicsButton_close {
+    display: inline-block; /* デフォルトの表示 */
+    background-color: black;
+    padding: 0.8vw 1.5vw;
+    margin: 0.5vw;
+    border: 0.2vw solid #ccc;
+    color: white;
+    cursor: pointer;
+    font-size: 1vw;  
+  }
+
+  #toggleTopicsButton_more.light-mode,
+  #toggleTopicsButton_close.light-mode{
+    background-color: transparent; /* 背景指定なし */
+    color: black;
+  }
+/*new topic more_button end*/
+/* home topic styles (New Topics) end*/
+/* ボタンの非表示状態 */
+#toggleTopicsButton_more.is-hidden,
+#toggleTopicsButton_close.is-hidden {
+    display: none;
+}
+/* Cards styles */
+  .cards {
+    margin-top: 100px;
+    display: flex;/* 一番高い高さのカードで文字数が決定される。*/
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  }
+
+  .card {
+    width: 33vw;
+    max-width: 33vw;
+    margin-right: 6vw;
+    margin-left: 6vw;
+    background-color: black !important;
+    border-color: #fff !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 0 !important;
+  }
+  .card.light-mode{
+    background-color: #726a5d !important;
+  }
+  .card-media {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    height: 17vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: black;
+  }
+  .card-content.light-mode {
+    padding: 1rem;
+    background-color: #726a5d;
+  }
+  
+  .card-title {
+    font-size: 2.5vw;
+    font-weight: bold;
+    color: #e0dfdf  !important;
+  }
+  .card-subhead {
+    color: #bebebe;
+    font-size: 1.9vw;
+    margin-bottom: 0.5rem;
+  }
+  .card-text {
+    color: white;
+    font-size: 1.5vw;
+    line-height: 1.4;
+  }
+  .card-actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .card-link{
+    font-size: 1.5vw !important;
+    color: skyblue !important;
+    margin-top: auto;
+    text-align: right;
+    padding-bottom: 1vw;
+    padding-right: 1vw;
+  }
+/* card pictures */
+.card_Seminar_activities{
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 縦横比4800:3600に合わせる */
+  overflow: hidden;
+  position: relative;
+  min-height: 200px; /*スマホでの最小高さ（例: 200px）を設定 */
+}
+.bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* カバー表示・トリミング */
+  object-position: center;
+  display: block;
+}
 
 /* home helpus styles */
   .home_helpus {
     margin-top: 10vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
   }
+
 /* モバイルスタイル */
 @media (max-width: 650px) {
-  .home_title{
-    margin-top: 64px;
+  .pc {
+    display: none;
+  }
+  .sp {
+    display: block;
+    padding-top: 70px;
     height: 80vh;
   }
+  .home_title{
+    padding-top: 64px;
+  }
   .home_description_title{
-    font-size: 12vw;
+    font-size: 13vw;
   }
   .home_description_content{
     font-size: 15px;
+    line-height: 30px;
   }
   .home_topic_description {
-    font-size: 12px;
+    font-size: 14px;
   }
   .home_topic_time {
     margin-bottom: 0.2vw;
-    font-size: 12px;
+    font-size: 13px;
     color: gray;
   }
 
@@ -279,5 +349,78 @@
   }
   footer .footer_address_infomation p {
     font-size: 2.4vw;
+  }
+
+  .technology {
+    font-size: 8vw;
+    color: rgba(212, 209, 209, 0.96);
+    position: relative;/*要素の「位置指定の基準をその要素自身」*/
+    margin-left: 48vw;
+    font-weight: bold;
+  }
+
+  .technology::before {
+    --line-width: 44vw;
+    animation: 1.5s ease-out 0s 1 normal forwards running slideIn;
+  }
+  
+  .technology::after {
+    --line-width: 45vw;
+    animation: 1.8s ease-out 0s 1 normal forwards running slideIn;
+  }
+  .we-are {
+    font-size: 8vw;
+  }
+  .embodiment-of-technology {
+    padding-top: 5px;
+    font-weight: bold;
+    font-size: 8vw;
+    margin-left: 9vw;
+  }
+  .embodiment-of-technology::before {
+    --line-width: 73vw;
+  }
+  .embodiment-of-technology::after {
+    --line-width: 74vw;
+  }
+  /*new topic more_button*/
+  #toggleTopicsButton_more,
+  #toggleTopicsButton_close {
+      display: inline-block; /* デフォルトの表示 */
+      padding: 8px 15px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-size: 1rem;
+  }
+  /* Cards */
+  .cards {
+    flex-direction: column;
+    align-items: center; /* カードを中央に寄せる */
+    gap: 8vw; /* スマホ用の間隔調整（必要なら） */
+  }
+
+  .card {
+    width: 100%;
+    max-width: 90vw; /* スマホ画面いっぱい使う */
+    margin-bottom: 20px;
+  }
+  
+  .card-title{
+      font-size: 8vw;
+  }
+
+  .card-subhead{
+    font-size: 4vw;
+  }
+
+  .card-text,
+  .card-link{
+    font-size: 5vw  !important;
+    margin-right: 1vw;
+  }
+
+  .card-media {
+    height: auto; /* ここをautoにして、画像の比率維持を優先 */
   }
 }

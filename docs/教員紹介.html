@@ -8,17 +8,63 @@
     <script src="js/Seminar_header.js"></script>
 </head>
 <body>
+  
     <script src="js/Seminar_header.js"></script>
 
     <!-- コンテンツが表示される領域 -->
     <div id="content" class="section-content">  <!-- ここのdiv要素の中に内容を書く。　レンダリングするためなのでここのクラス名はいじらない。--->
-      <div class="teacher construction">
-        <h2>Comming soon...</h2>
-          <div class="seminar_test">
-            <!-- test -->
-          </div>
-      </div>
+    <link rel="stylesheet" href="css/teacher.css"> <!-- CSSファイルを読み込む -->
+    
 
+    <!--教員紹介ホーム画像-->
+      <div class="teacher-title">
+        <img src="assets/pictures/teacher/faculty.png" alt="教員紹介タイトル画像" class="teacher-header-image">
+        <div class="teacher-text">
+          教員紹介
+        </div>
+      </div>
+      <!--教員紹介カードのコンテナ-->
+      <div class = "teacher" >
+        <!--教員カード1-->
+        <div class = "teacher-card">
+          <!--教員情報1-->
+          <img src="assets/pictures/teacher/saitou.jpg" alt="斎藤" class="teacher-image">
+          <div class="info">
+          <p class="title">教授</p>
+          <p class="kana">サイトウ タクヤ</p>
+          <h2>斎藤　卓也</h2>
+            <p class="detail">
+              <span><strong>学系</strong><br>情報システム</span>
+              <span><strong>研究室</strong><br>AI・システムデザイン</span>
+              <span><strong>研究テーマ</strong><br>惑星探査ローバ、Deep Learning</span>
+            </p>
+            <div class="teacher-more-link">
+              <a href="https://www.tuis.ac.jp/department/teacher/gakubu_informatics/saito-taku/" target="_blank" rel="noopener noreferrer">more→</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 教員カード2 -->
+        <div class="teacher-card">
+          <!--教員情報2-->
+          <img src="assets/pictures/teacher/akiyama.jpg" alt="秋山" class="teacher-image">
+          <div class="info">
+            <p class="title">助教</p>
+            <p class="kana">アキヤマ　ミホ</p>
+            <h2>秋山　実穂</h2>
+
+            <p class="detail">
+              <span><strong>学系</strong><br>情報システム</span>
+              <span><strong>研究室</strong><br>AI・システムデザイン</span>
+              <span><strong>研究テーマ</strong><br>惑星探査ローバ、Deep Learning</span>
+            </p>
+
+            <div class="teacher-more-link">
+              <a href="https://www.tuis.ac.jp/department/teacher/gakubu_informatics/akiyama/" target="_blank" rel="noopener noreferrer">more→</a>
+            </div>
+          </div>
+        </div>
+    </div>
 
           <!-- 共通部分　footer--->
     <footer>
