@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // フェードイン効果の設定
-  document.body.classList.add('fade-in');
 
   // ページ読み込み完了時の処理
   window.addEventListener('load', () => {
@@ -223,7 +221,6 @@ function initializeContactForm() {
     });
   }
 }
-
 function initializeThemeSwitcher() {
     const themeSwitcherButton = document.getElementById('themeSwitch');
     const body = document.body;
@@ -231,11 +228,11 @@ function initializeThemeSwitcher() {
     // ボタンが存在しない場合は処理しない
     if (!themeSwitcherButton) return;
 
-    // 初期状態：常にダークモード（light-modeクラスがない状態）
-    // 以前のlocalStorageからテーマを読み込む処理は削除しました
-    body.classList.remove('light-mode'); // bodyからlight-modeクラスを削除
-    removeLightModeFromAll(); // 全要素からlight-modeクラスを削除
-    themeSwitcherButton.textContent = '現在：ダークモード'; // ボタンのテキストもダークモードに設定
+    // ★変更点：初期状態をライトモードに設定
+    // ページロード時にbodyにlight-modeクラスを付与し、全要素に適用
+    body.classList.add('light-mode');
+    applyLightModeToAll(); // 全要素にlight-modeクラスを適用
+    themeSwitcherButton.textContent = '現在：ライトモード'; // ボタンのテキストもライトモードに設定
 
     // テーマ切り替え時の処理
     themeSwitcherButton.addEventListener('click', () => {
