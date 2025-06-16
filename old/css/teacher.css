@@ -1,3 +1,204 @@
-.seminar_test{
-  font-size: 5vw;
+/* 教員タイトルエリア */
+.teacher-title {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;  /* 垂直中央揃え */
+  justify-content: center;  /* 水平中央揃え */
+}
+
+/* 背景画像 */
+.teacher-header-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 中央に表示されるテキスト */
+.teacher-text {
+  position: relative;
+  z-index: 1;
+  color: rgb(253, 253, 253);
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.05em;
+  font-size: clamp(24px, 5vw, 60px);
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.9),
+   -1px -1px 2px rgba(0, 0, 0, 0.9),
+    0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/* 教員カード全体 */
+.teacher {
+  margin-top: 40px;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+}
+
+/* 個別カード */
+.teacher-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  margin: 0 3.5vw;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  min-height: 180px;
+}
+
+/* 教員画像 */
+.teacher-image {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+/* 教員情報 */
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 職位 */
+.title {
+  font-size: 14px;
+  margin: 0 0 4px;
+  color: #333;
+}
+.title.light-mode {
+  color: #444;
+}
+
+/* 氏名 */
+h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #1078b9;
+}
+h2.light-mode {
+  color: #006699;
+}
+
+/* カナ表記 */
+.kana {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #444;
+}
+.kana.lite-mode {
+  color: #666;
+}
+
+/* 概要テキスト */
+.info p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 4px 0;
+  color: #333;
+}
+
+/* 詳細項目（ラベル付き） */
+.info p.detail {
+  margin: 6px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+.info p.detail span {
+  display: block;
+  margin-bottom: 6px;
+  padding-left: 1em;
+  position: relative;
+}
+.info p.detail span::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #1078b9;
+  font-weight: bold;
+}
+.info p.detail strong {
+  display: inline-block;
+  color: #1078b9;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+/* "more→" リンク */
+.teacher-more-link {
+  margin-top: auto;
+  text-align: right;
+  width: 100%;
+}
+.teacher-more-link a {
+  font-size: 14px;
+  font-weight: bold;
+  color: #004488;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.teacher-more-link a:hover {
+  color: #3377cc;
+  text-decoration: underline;
+}
+
+
+/*mobile対応*/
+@media screen and (max-width: 600px) {
+  .teacher-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .teacher-image {
+    width: 120px;
+    margin-bottom: 12px;
+  }
+
+  .info {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .title,
+  .kana,
+  .info p,
+  .info p.detail,
+  .more-link a {
+    font-size: 13px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .info p.detail span {
+    padding-left: 1.2em;
+  }
+
+  .info p.detail span::before {
+    content: "▹"; /* 変えたければここで記号変更可能 */
+    left: 0;
+    top: 0.1em;
+  }
+
+  .teacher-more-link {
+    text-align: center;
+    margin-top: 16px;
+  }
 }
