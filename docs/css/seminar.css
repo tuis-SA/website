@@ -1,6 +1,6 @@
-.seminar_body_content{
-  padding-left: 3.5vw;
-  padding-right: 3.5vw;
+.seminar_body_content {
+  padding-left: 17vw;
+  padding-right: 17vw;
 }
 
 /* 基本スタイル */
@@ -8,12 +8,10 @@
   padding-left: 4vw;
   padding-top: 5vw;
   padding-bottom: 6vw;
-    /*背景画像指定*/
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3; /* 縦横比 */
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  /* min-height: 200px; モバイル対策 */
 }
 
 /* 背景画像として使うimg */
@@ -21,7 +19,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* トリミングしつつぴったり表示 */
+  object-fit: cover;
   top: 0;
   left: 0;
   z-index: 0;
@@ -29,8 +27,8 @@
 
 /* テキストを上に重ねる */
 .seminar_text {
-  position: absolute; /* ← 親要素が relative のとき中央配置が可能 */
-  top: 40%;           /* 上から50%の位置に配置 */
+  position: absolute;
+  top: 40%;
   color: white;
   text-align: left;
   z-index: 1;
@@ -41,29 +39,30 @@
 .seminar_content {
   margin-bottom: 90px;
 }
+
 .seminar_description_title {
   width: 100%;
-  margin: 90px 0px 90px 0px;
+  margin: 45px 0px 45px 0px;
   text-align: center;
   color: #d4d1d1f5;
-  font-weight: 700; /*フォント重み*/
-  font-size: 8vw;
+  font-weight: 700;
+  font-size: 6vw;
 }
 
-.seminar_description_title.light-mode{
+.seminar_description_title.light-mode {
   color: black;
 }
 
-.seminar_description_content{
-  font-size: 2vw;
+.seminar_description_content {
+  font-size: 1.5vw;
 }
 
 /* seminar_Topics */
-  .seminar_Topics {
-    display: flex;
-    flex-wrap: wrap; /* レスポンシブ対応（モバイルで縦並びに） */
-    width: 100%;
-  }
+.seminar_Topics {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
 
 /*width変更による意図しない改行防止。*/
 .seminar_Topics_event_summary,
@@ -74,16 +73,17 @@
 
 .seminar_Topics_Contents,
 .seminar_Topics_event_pictures {
-  flex: 1 1 48%; /* 横幅50%ずつ、自動で高さ調整 */
-  min-width: 300px; /* ←これを指定すると、狭くなりすぎたときに折り返す */
+  flex: 1 1 48%;
+  min-width: 300px;
   box-sizing: border-box;
-  padding: 1rem; /* 任意の余白（お好みで） */
-  
+  padding: 1rem;
 }
-.seminar_Content_event_description_h2{
+
+.seminar_Content_event_description_h2 {
   display: inline-block;
   margin-left: 2vw;
 }
+
 /* 画像が親に合わせて収まるようにする */
 .seminar_Topics_event_pictures img {
   width: 100%;
@@ -92,62 +92,76 @@
 }
 
 /* seminar_Topics_picture1 */
-.seminar_Topics_picture1{
-  box-shadow: 2vw 2vw 1vw 0vw #9a9a9a;  /* 右　下　ぼかし　影広がり具合 */
+.seminar_Topics_picture1 {
+  box-shadow: 2vw 2vw 1vw 0vw #9a9a9a;
 }
-.seminar_Topics_picture1.light-mode{
-  box-shadow: 2vw 2vw 1vw 0vw #343a40; /* 右　下　ぼかし　影広がり具合 */
+
+.seminar_Topics_picture1.light-mode {
+  box-shadow: 2vw 2vw 1vw 0vw #343a40;
 }
+
 .seminar_event_day_title,
-.seminar_Content_event_title{
+.seminar_Content_event_title {
   font-size: 2vw;
 }
 
 .seminar_event_day_description,
-.seminar_Content_event_description{
+.seminar_Content_event_description {
   font-size: 2vw;
   margin-left: 4vw;
 }
+
 .seminar_Content_event_description,
 .seminar_Content_event_description_h2 {
-   line-height: 1.6; /* 行間を1.6倍に */
+  line-height: 1.6;
 }
+
 /* モバイルスタイル */
 @media (max-width: 650px) {
-  .seminar_title,
-  .seminar_image{
-    height: 80vh;
+  .seminar_body_content {
+    padding-left: 5vw;
+    padding-right: 5vw;
   }
-  .seminar_text{
+
+  .seminar_title,
+  .seminar_image {
+    height: 100vh;
+  }
+
+  .seminar_text {
     top: 22%;
     font-size: 15vw;
   }
-  .seminar_description_title{
-    font-size: 13vw;
-  }
-  .seminar_description_content{
-  font-size: 22px;
-  line-height: 34px;
 
+  .seminar_description_title {
+    font-size: 12vw;
   }
-    /* 横並び解除 */
+
+  .seminar_description_content {
+    font-size: 15px;
+    line-height: 30px;
+  }
+
+  /* 横並び解除 */
   .seminar_Topics {
-    flex-direction: column; /* 縦並びにする */
+    flex-direction: column;
   }
 
   /* 画像の影をなくす */
   .seminar_Topics_event_pictures {
     box-shadow: none;
   }
+
   .seminar_event_day_title,
-  .seminar_Content_event_title{
+  .seminar_Content_event_title {
     font-size: 5vw;
   }
 
   .seminar_event_day_description,
-  .seminar_Content_event_description{
+  .seminar_Content_event_description {
     font-size: 4vw;
   }
+
   /*--　改行解除　--*/
   .seminar_Topics_event_summary,
   .seminar_event_day_title,

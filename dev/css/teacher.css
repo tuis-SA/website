@@ -1,12 +1,13 @@
 /* 教員タイトルエリア */
 .teacher-title-area {
+  padding-left: 4vw;
+  padding-top: 5vw;
+  padding-bottom: 6vw;
+    /*背景画像指定*/
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 3; /* 縦横比 */
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* 背景画像 */
@@ -19,9 +20,11 @@
   object-fit: cover;
 }
 
-/* 中央テキスト */
 .teacher-title-text {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
   color: rgb(253, 253, 253);
   font-weight: bold;
@@ -30,9 +33,10 @@
   font-size: clamp(24px, 5vw, 60px);
   text-shadow:
     1px 1px 2px rgba(0, 0, 0, 0.9),
-   -1px -1px 2px rgba(0, 0, 0, 0.9),
+    -1px -1px 2px rgba(0, 0, 0, 0.9),
     0 0 6px rgba(0, 0, 0, 0.5);
 }
+
 
 /* 教員カード全体 */
 .teacher-container {
@@ -157,6 +161,9 @@
 
 /* モバイル対応 */
 @media screen and (max-width: 600px) {
+  .teacher-title-area{
+    height: 100vh;
+  }
   .teacher-card {
     flex-direction: column;
     align-items: center;

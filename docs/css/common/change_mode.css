@@ -24,12 +24,12 @@
     transform: translate3d(0, -50%, 0);
     top: 50%; }
   .theme-switch__label::before {
-    content: '\263E';
+    content: '\263C';
     right: 100%;
     margin-right: 10px;
-    color: turquoise; }
+    color: orange; }
   .theme-switch__label::after {
-    content: '\263C';
+    content: '\263E';
     left: 100%;
     margin-left: 10px;
     color: lightSlateGray; }
@@ -55,7 +55,7 @@
   .theme-switch__input:checked ~ .theme-switch__label::before {
     color: lightSlateGray; }
   .theme-switch__input:checked ~ .theme-switch__label::after {
-    color: orange; }
+    color: turquoise; }
   .theme-switch__input:checked ~ .theme-switch__label span::after {
     transform: translate3d(6.5vw, 0, 0); }
 

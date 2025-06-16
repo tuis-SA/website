@@ -3,7 +3,7 @@
   flex-shrink: 0;
   margin-right: 29vw;
   white-space: nowrap;
-  font-size: 1.3vw;
+  font-size: 15px;
   color: white;
   display: flex;
   align-items: center;
@@ -18,7 +18,6 @@
 
 .navbar {
   background-color: black;
-  height: 56px;
   /* background-image: linear-gradient(180deg, #52525f 0%, #000000 100%); */
 }
 /* ナビゲーションバーの上下左右余白0 */
@@ -43,7 +42,7 @@ nav.navbar {
 .navbar ul li a {
   color: white;
   text-decoration: none;
-  font-size: 1.25vw;
+  font-size: 15px;
   padding: 0.6vw 1vw;
   display: block;
   transition: color 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
