@@ -94,7 +94,7 @@ p{
   transform: scale(0.4);
   position: fixed;
   margin-left: 60vw;
-  margin-top: 60px;
+  margin-top: 4vw;
   width: 100%;
   z-index: 999;
 }
