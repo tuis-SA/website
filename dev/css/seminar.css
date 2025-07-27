@@ -57,6 +57,81 @@
   font-size: 1.5vw;
 }
 
+.seminar_record_year_dropdown-toggle {
+  all: unset;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.seminar_record_year-label {
+  flex-shrink: 0;
+  font-size: 40px;
+}
+
+.seminar_record_line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #000;
+  margin: 0 8px;
+}
+
+.seminar_record_year_arrow {
+  flex-shrink: 0;
+}
+
+/* ドロップダウンの各アイテムのスタイル */
+.seminar_record_item {
+    opacity: 0;           /* 最初は透明にして見えないようにする */
+    transform: translateY(-10px); /* 最初は少し上にずらしておく */
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out; /* フェードインと落下のアニメーション */
+    /* transition-delay はJavaScriptで個別に設定するのでここでは不要 */
+    margin-bottom: 5px; /* 各行の間のスペース*/
+    margin-left: 30px;
+}
+/* 最後のアイテムのmargin-bottomをなくす（任意）*/
+.seminar_record_item:last-child {
+    margin-bottom: 0;
+}
+
+/* seminar_record_items */
+.seminar_record_description {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.seminar_record_description_picture {
+    display: flex; /* 画像をFlexアイテムとして並べる */
+    flex-wrap: wrap; /* 画像が収まらない場合に折り返す */
+    justify-content: flex-start; /* 左寄せ */
+    align-items: flex-start; /* 上寄せ */
+    gap: 10px; /* 画像間の間隔 */
+}
+.seminar_record_description_text,
+.seminar_record_description_picture {
+    /* flex-basis: 48%; /* flex-basis を使用して幅の基準を設定 */
+    /* flex-grow: 1; を組み合わせることで、余ったスペースを埋める */
+    /* flex: 1 1 48%; は flex-grow: 1; flex-shrink: 1; flex-basis: 48%; のショートハンド */
+    flex: 1 1 48%; /* 2列レイアウトの基本 */
+    min-width: 300px; /* 小さすぎる画面での折り返し */
+    box-sizing: border-box;
+    padding: 1rem;
+}
+.seminar_record_picture { /* imgタグに直接このクラスが付与されている前提 */
+    width: calc(50% - 5px); /* 2列にするため、50%からgapの半分を引く */
+    object-fit: cover; /* 画像がアスペクト比を維持しつつ、指定された領域を埋める */
+    overflow: clip; /* CSS clipping を適用 */
+    /* overflow-clip-margin: content-box; は、object-fit: cover; と height: 固定値; でのクリッピングでは通常不要です。 */
+    /* object-fit: cover; がすでに領域内に画像を収める処理を行います。*/
+    /* もし意図的にコンテンツボックスのマージンをクリップ領域に含めたい場合は記述します。*/
+    /* 現在の目的（画像サイズ固定でのクリッピング）では不要です。 */
+}
+
 /* seminar_Topics */
 .seminar_Topics {
   display: flex;
@@ -141,7 +216,25 @@
     font-size: 15px;
     line-height: 30px;
   }
+  .seminar_record_year-label{
+    font-size: 30px;
+  }
+  .seminar_Topics_picture1{
+    height: 9rem;
+  }
+    /* seminar_record_description_text, seminar_record_description_picture の横並び解除 */
+  .seminar_record_description_text,
+  .seminar_record_description_picture {
+      flex: 1 1 100%; /* スマホでは1列にする */
+      min-width: auto; /* min-widthをリセット */
+  }
 
+  /* seminar_record_picture もスマホでは1列に */
+  .seminar_record_picture {
+    width: calc(50% - 5px); /* PCと同じく2列表示を維持 (gapの半分を引く) */
+    object-fit: cover; /* PCと同じくcoverを維持 */
+    /* overflow: clip; も継承 */
+  }
   /* 横並び解除 */
   .seminar_Topics {
     flex-direction: column;
