@@ -117,7 +117,8 @@
 }
 .CanSat_Content_event_description,
 .CanSat_Content_event_description_h2 {
-   line-height: 1.6; /* 行間を1.6倍に */
+  line-height: 1.6; /* 行間を1.6倍に */
+  font-size: 1.5vw;
 }
 /* モバイルスタイル */
 @media (max-width: 650px) {
