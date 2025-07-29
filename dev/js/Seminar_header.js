@@ -73,15 +73,25 @@ function loadInitialContent() {
 function initializeNavEvents() {
     document.addEventListener('click', event => {
         const target = event.target.closest('.nav-link');
-        if (target && target.dataset.page) {
+        // ここを修正: target.dataset.page ではなく target.href を使用する
+        if (target && target.href) { // target.href が存在するか確認
             event.preventDefault();
 
             const links = document.querySelectorAll('.nav-link');
             links.forEach(link => link.classList.remove('active'));
 
-            target.classList.add('active');
+            // active クラスの付与は data-page の値を使うか、別途ロジックを検討
+            // 今回はハッシュ部分を含まない data-page を active クラス用に使うのが自然
+            if (target.dataset.page) {
+                const activeTarget = document.querySelector(`.nav-link[data-page="${target.dataset.page}"]`);
+                if (activeTarget) {
+                    activeTarget.classList.add('active');
+                }
+            }
 
-            loadContent(target.dataset.page);
+
+            // 修正箇所：loadContentに渡す引数を target.href に変更
+            loadContent(target.href); 
         }
     });
 }
@@ -113,10 +123,33 @@ function loadContent(page, updateHistory = true) {
         return;
     }
 
+    // ★追加: ナビゲーションバーの要素を取得し、その高さを取得
+    // header.html に読み込まれるヘッダー要素に適切なIDを付けてください (例: <header id="main-header">)
+    const headerElement = document.querySelector('.navigation_bar'); // もしヘッダーが<header>タグなら
+    // または、ヘッダーを読み込む際に作成した div (headerContainer) の子要素としてヘッダーがある場合
+    // const headerElement = document.querySelector('#header-container .your-header-class'); // 例
+    let headerHeight = 0;
+    if (headerElement) {
+        headerHeight = headerElement.offsetHeight; // ヘッダーの高さを取得
+        // console.log("Header Height:", headerHeight); // デバッグ用
+    } else {
+        // ヘッダー要素が見つからない場合、適切なデフォルト値を設定するか警告
+        console.warn("ヘッダー要素が見つかりません。スクロールオフセットが適用されない可能性があります。");
+        // 例: デフォルトで60pxとする場合
+        // headerHeight = 60; 
+    }
+
+
     const repoName = location.pathname.split('/')[1] || '';
     const baseUrl = repoName ? `/${repoName}` : '';
 
-    fetch(page)
+    let url = new URL(page, window.location.origin);
+    let targetPage = url.pathname.split('/').pop();
+    let hash = url.hash;
+
+    const fetchPage = targetPage; 
+
+    fetch(fetchPage)
         .then(response => {
             if (!response.ok) {
                 console.error(`コンテンツロード失敗: ${response.url} - HTTP error! status: ${response.status}`);
@@ -148,7 +181,24 @@ function loadContent(page, updateHistory = true) {
 
                 contentDiv.innerHTML = newContent.innerHTML;
 
-                window.scrollTo(0, 0);
+                // ★修正: スクロールロジックを調整
+                if (!hash) { 
+                    window.scrollTo(0, 0);
+                } else {
+                    const targetElement = document.querySelector(hash);
+                    if (targetElement) {
+                        // 要素のY座標を取得し、ヘッダーの高さを引く
+                        const targetOffset = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+                        window.scrollTo({
+                            top: targetOffset,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        // ターゲット要素が見つからない場合、ページトップにスクロール
+                        window.scrollTo(0, 0);
+                    }
+                }
+                
                 initializePageSpecificFeatures();
 
                 if (document.body.classList.contains('light-mode')) {
@@ -158,11 +208,11 @@ function loadContent(page, updateHistory = true) {
                 }
 
                 if (updateHistory) {
-                    history.pushState({ page }, '', `${baseUrl}/?page=${page}`);
+                    history.pushState({ page: page }, '', `${baseUrl}/?page=${targetPage}${hash}`);
                 }
 
             } else {
-                console.error(`#content要素が読み込まれたHTML内に見つかりません: ${page}`);
+                console.error(`#content要素が読み込まれたHTML内に見つかりません: ${fetchPage}`);
             }
         })
         .catch(error => {
