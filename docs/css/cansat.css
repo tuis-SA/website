@@ -166,4 +166,12 @@
   .CanSat_Content_event_title {
     white-space: normal;
   }
+  /*--　文字解除　--*/
+  .CanSat_Content_event_description,
+  .CanSat_Content_event_description_h2{
+    font-size: inherit;
+  }
+  .CanSat_Topics_event_summary{
+    font-size: 25px;
+  }
 }
