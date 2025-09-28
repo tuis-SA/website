@@ -1,3 +1,23 @@
+/* loading-overlay のスタイル */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black; /* これが真っ黒にする */
+    z-index: 9999;           /* これが他の要素の上に表示させる */
+    opacity: 1;              /* これが初期の不透明度 */
+    transition: opacity 3s ease-out, visibility 0s 3s; /* opacity と visibility の両方 */
+    pointer-events: none;    /* 下の要素をクリックできるようにする */
+}
+
+#loading-overlay.hidden {
+    opacity: 0;              /* フェードアウト後の透明度 */
+    visibility: hidden;      /* フェードアウト後に要素を非表示にする */
+}
+
+
 /* 全体の基本スタイル */
 body {
   font-family: 'Arial', sans-serif;
@@ -7,20 +27,10 @@ body {
 
 /* ライトモードのスタイル */
 body.light-mode {
-  background-color: #939393a3;
+  background-color: white;
   color: black;
 }
 
-/* ページ暗転時の初期状態 */
-body.fade-in {
-  opacity: 0;
-  transition: opacity 3s ease-in-out; /* フェードインの時間を調整 */
-}
-
-/* ページが完全に表示される状態 */
-body.loaded {
-  opacity: 1;
-}
 
 .non-header-link{
   text-decoration: underline;
@@ -84,7 +94,7 @@ p{
   transform: scale(0.4);
   position: fixed;
   margin-left: 60vw;
-  margin-top: 6vw;
+  margin-top: 4vw;
   width: 100%;
   z-index: 999;
 }
