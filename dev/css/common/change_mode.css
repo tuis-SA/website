@@ -1,0 +1,86 @@
+.theme-switch__input,
+.theme-switch__label {
+  position: absolute;
+  z-index: 1; }
+
+.theme-switch__input {
+  opacity: 0; }
+  .theme-switch__input:hover + .theme-switch__label, .theme-switch__input:focus + .theme-switch__label {
+    background-color: lightSlateGray; }
+  .theme-switch__input:hover + .theme-switch__label span::after, .theme-switch__input:focus + .theme-switch__label span::after {
+    background-color: #d4ebf2; }
+
+.theme-switch__label {
+  transition: background-color 200ms ease-in-out;
+  width: 12.1vw;
+  height: 5.1vw;
+  border-radius: 60px;
+  text-align: center;
+  background-color: slateGray;
+  box-shadow: -4px 4px 15px inset rgba(0, 0, 0, 0.4); }
+  .theme-switch__label::before, .theme-switch__label::after {
+    font-size: 4.5vw;/*太陽アイコンと月アイコン大きさ指定 */
+    position: absolute;
+    transform: translate3d(0, -50%, 0);
+    top: 50%; }
+  .theme-switch__label::before {
+    content: '\263C';
+    right: 100%;
+    margin-right: 10px;
+    color: orange; }
+  .theme-switch__label::after {
+    content: '\263E';
+    left: 100%;
+    margin-left: 10px;
+    color: lightSlateGray; }
+  .theme-switch__label span {
+    position: absolute;
+    bottom: calc(100% + 1.2vw);
+    left: 0;
+    width: 100%; }
+  .theme-switch__label span::after {
+    position: absolute;
+    top: calc(100% + 1.5vw);
+    left: 0.5vw;
+    width: 4.2vw;
+    height: 4.2vw;
+    content: '';
+    border-radius: 50%;
+    background-color: lightBlue;
+    transition: transform 200ms, background-color 200ms;
+    box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.4); }
+
+.theme-switch__input:checked ~ .theme-switch__label {
+  background-color: lightSlateGray; }
+  .theme-switch__input:checked ~ .theme-switch__label::before {
+    color: lightSlateGray; }
+  .theme-switch__input:checked ~ .theme-switch__label::after {
+    color: turquoise; }
+  .theme-switch__input:checked ~ .theme-switch__label span::after {
+    transform: translate3d(6.5vw, 0, 0); }
+
+/*# sourceMappingURL=change_mode.css.map */
+@media (max-width: 650px) {
+  .theme-switch__label {
+      width: 26.1vw;
+      height: 12.1vw;
+}
+  .theme-switch__label::before, .theme-switch__label::after {
+      font-size: 12vw;
+  }
+  .theme-switch__label span {
+    bottom: calc(100% + 1.2vw);
+  }
+  .theme-switch__label span::after {
+    top: calc(100% + 2.1vw);
+    left: 0.8vw;
+    width: 10.2vw;
+    height: 10.2vw;
+  }
+  .theme-switch__label span {
+    bottom: calc(100% + 1.2vw);
+  }
+  .theme-switch__input:checked ~ .theme-switch__label span::after {
+    transform: translate3d(13.5vw, 0px, 0px);
+}
+}
