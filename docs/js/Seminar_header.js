@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. テーマ切り替え要素の取得と初期化 (永続化ロジック)
     initializeThemeSwitcherLogic(); 
 
+    // 5. 💡 ナビゲーションのアクティブ状態の初期化を追加
+    initializeActiveNavLink(); 
+    
     // スクロール位置の自動復元を無効化し、ページトップへ移動（遷移直後の挙動統一）
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
@@ -42,7 +45,6 @@ window.addEventListener('load', () => {
 // ------------------------------------
 
 function applyLightModeToAll() {
-    // 💡 確定: ガード条件を削除し、無条件でクラスを追加
     const allElements = document.querySelectorAll('*');
     allElements.forEach(el => {
         el.classList.add('light-mode');
@@ -74,12 +76,11 @@ function initializeThemeSwitcherLogic() {
     removeLightModeFromAll();
 
     if (isDarkMode) { // ダークモードでロード
-        // クラス操作はリセット後のため不要
         themeSwitcher.checked = true; 
     } else { // ライトモードでロード
-        body.classList.add('light-mode');     
-        applyLightModeToAll();                 
-        themeSwitcher.checked = false;         
+        body.classList.add('light-mode');     
+        applyLightModeToAll();                 
+        themeSwitcher.checked = false;         
     }
     
     // --- 2. スイッチ操作時のイベントリスナーを設定 ---
@@ -94,6 +95,40 @@ function initializeThemeSwitcherLogic() {
             body.classList.add('light-mode');
             applyLightModeToAll(); 
             localStorage.setItem('theme', 'light');
+        }
+    });
+}
+
+// ------------------------------------
+// --- ナビゲーションのアクティブ状態設定関数 (新規追加) ---
+// ------------------------------------
+
+/**
+ * 現在のページのURLに基づいて、ナビゲーションリンクにアクティブスタイルを適用します。
+ * (適用するクラス名を 'active' に変更)
+ */
+function initializeActiveNavLink() {
+    // 現在のページのパス名を取得し、ファイル名部分のみを抽出（例: /path/to/index.html -> index.html）
+    let currentFile = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+    
+    // ルートパス（/）の場合、ファイル名が空になるため、index.htmlと見なす
+    if (currentFile === '') {
+        currentFile = 'index.html';
+    }
+
+    // ナビゲーションリンクを全て取得
+    const navLinks = document.querySelectorAll('.nav-link'); 
+
+    navLinks.forEach(link => {
+        const linkFile = link.getAttribute('href');
+
+        // リンクのhref属性が現在のファイル名と完全に一致する場合
+        if (linkFile === currentFile) {
+            // 💡 アクティブクラスを付与 (active に変更)
+            link.classList.add('active'); 
+        } else {
+            // 念のため、一致しない場合は削除 (active に変更)
+            link.classList.remove('active');
         }
     });
 }
@@ -170,6 +205,7 @@ function initializeContactForm() {
             event.preventDefault();
             const responseMessage = document.getElementById('responseMessage');
             if (responseMessage) {
+                // これはフォーム送信をシミュレーションしているため、実際にはここでサーバーへのPOSTリクエストを実行します。
                 responseMessage.textContent = 'メッセージが送信されました。ありがとうございます！';
                 responseMessage.style.color = 'green';
             }
