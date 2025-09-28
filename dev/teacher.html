@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Meta情報 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教員紹介</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <!-- カスタムCSS -->
+    <link rel="stylesheet" href="css/common/common.css">
+    <!-- 基SCSS -->
+    <link rel="stylesheet" href="css/common/change_mode.css">
+    <link rel="stylesheet" href="css/Seminar_header.css">
+    
+    <script src="js/Seminar_header.js"></script>
+</head>
+
+<body>
+
+    <!-- ナビゲーションバー -->
+    <div class="navigation_bar">
+        <nav class="navbar">
+        
+            <div class="navititle">CANSAT LAB</div>
+            
+            <!-- ハンバーガーメニューボタン -->
+            <div class="hamburger_aria">
+                <button class="hamburger_menu" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- ナビゲーションメニュー -->
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link" data-page="index.html">ホーム</a></li>
+                    <li><a href="seminar.html" class="nav-link" data-page="seminar.html">ゼミ活動</a></li>
+                    <li><a href="cansat.html" class="nav-link" data-page="cansat.html">CanSat</a></li>
+                    <li><a href="teacher.html" class="nav-link" data-page="teacher.html">教員紹介</a></li>
+                    <li><a href="sponsor.html" class="nav-link" data-page="sponsor.html">スポンサー</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- click change light-mode and dark-mode . default dark0--- -->
+    <div class="themes_content">
+        <!-- Theme switch -->
+        <input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" />
+        <label for="themeSwitch" class="theme-switch__label">
+            <span></span>
+        </label>
+    </div>
+
+    <!-- コンテンツが表示される領域 -->
+    <div id="content" class="section-content">  <!-- ここのdiv要素の中に内容を書く。　レンダリングするためなのでここのクラス名はいじらない。--- -->
+        <link rel="stylesheet" href="css/teacher.css"> <!-- CSSファイルを読み込む -->
+
+        <!-- 教員紹介ホーム画像 -->
+        <div class="teacher-title-area">
+            <picture>
+                <source media="(max-width: 650px)" srcset="assets/pictures/teacher/faculty_long.jpg">
+                <img src="assets/pictures/teacher/faculty.png" alt="教員紹介タイトル画像" class="teacher-header-image">
+            </picture>
+            <div class="teacher-title-text">教員紹介</div>
+        </div>
+
+        <!-- 教員カードのコンテナ -->
+        <div class="teacher-container">
+            <!-- 教員カード1 -->
+            <div class="teacher-card">
+                <img src="assets/pictures/teacher/saitou.jpg" alt="斎藤" class="teacher-image">
+                <div class="teacher-info">
+                    <p class="teacher-title">教授</p>
+                    <p class="teacher-kana">サイトウ タクヤ</p>
+                    <h2 class="teacher-name">斎藤　卓也</h2>
+                    <p class="teacher-detail">
+                        <span><strong>学系</strong><br>情報システム</span>
+                        <span><strong>研究室</strong><br>AI・システムデザイン</span>
+                        <span><strong>研究テーマ</strong><br>惑星探査ローバ、Deep Learning</span>
+                    </p>
+                    <div class="teacher-more-link">
+                        <a href="https://www.tuis.ac.jp/department/teacher/gakubu_informatics/saito-taku/" target="_blank" rel="noopener noreferrer">more→</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教員カード2 -->
+            <div class="teacher-card">
+                <img src="assets/pictures/teacher/akiyama.jpg" alt="秋山" class="teacher-image">
+                <div class="teacher-info">
+                    <p class="teacher-title">助教</p>
+                    <p class="teacher-kana">アキヤマ　ミホ</p>
+                    <h2 class="teacher-name">秋山　実穂</h2>
+                    <p class="teacher-detail">
+                        <span><strong>学系</strong><br>情報システム</span>
+                        <span><strong>研究室</strong><br>AI・システムデザイン</span>
+                        <span><strong>研究テーマ</strong><br>惑星探査ローバ、Deep Learning</span>
+                    </p>
+                    <div class="teacher-more-link">
+                        <a href="https://www.tuis.ac.jp/department/teacher/gakubu_informatics/akiyama/" target="_blank" rel="noopener noreferrer">more→</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 共通部分　footer--- -->
+        <footer>
+            <div class="social-links">
+                <!-- twitter icon　target="_blank"で新しいタブで開く -->
+                <a href="https://x.com/tuis_saitolab?s=21&t=dLSNgFhon_sUEKbFCtq_Hg" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fa-brands fa-x-twitter fa-3x" ></i>
+                </a>
+                
+                <!-- Instagram icon　target="_blank"で新しいタブで開く -->
+                <a href="https://www.instagram.com/tuis.cansat.saitolab/profilecard/?igsh=MTluMDNqNWVhOG9wYg==" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fa-brands fa-instagram fa-3x"></i>
+                </a>
+            </div>
+
+            
+            <div  class="footer_section1">
+                <div class="footer_address_infomation">
+                    <p>東京情報大学　〒265-0077 <br>
+                        千葉県千葉市若葉区御成台４丁目４−１<br></p>
+                    <p>7号館　4館　斎藤・秋山ゼミ</p>
+                </div>
+            
+                <div class="footer_navigations">
+                    <a href="index.html" class="nav-link non-header-link" data-page="index.html">ホーム</a>
+                    <a href="seminar.html" class="nav-link non-header-link" data-page="seminar.html">ゼミ紹介</a>
+                    <a href="cansat.html" class="nav-link non-header-link" data-page="cansat.html">CanSat</a>
+                    <a href="teacher.html" class="nav-link non-header-link" data-page="teacher.html">教員紹介</a>
+                    <a href="sponsor.html" class="nav-link non-header-link" data-page="sponsor.html">スポンサー</a>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- End ここのdiv要素の中に内容を書く。　レンダリングするためなのでここのクラス名はいじらない。--- -->
+</body>
+</html>
