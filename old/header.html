@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Meta情報 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ヘッダー</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  
+  <!-- カスタムCSS -->
+  <link rel="stylesheet" href="css/common/common.css">
+  <!---基SCSS-->
+  <link rel="stylesheet" href="css/common/change_mode.css">
+  <link rel="stylesheet" href="css/Seminar_header.css">
+</head>
+  <!-- ナビゲーションバー -->
+  <div class="navigation_bar">
+    <nav class="navbar">
+    
+      <div class="navititle">CANSAT LAB</div>
+      
+      <!-- ハンバーガーメニューボタン -->
+      <div class="hamburger_aria">
+        <button class="hamburger_menu" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <!-- ナビゲーションメニュー -->
+      <div class="menu">
+        <ul>
+          <li><a href="index.html" class="nav-link" data-page="index.html">ホーム</a></li>
+          <li><a href="seminar.html" class="nav-link" data-page="seminar.html">ゼミ活動</a></li>
+          <li><a href="cansat.html" class="nav-link" data-page="cansat.html">CanSat</a></li>
+          <li><a href="teacher.html" class="nav-link" data-page="teacher.html">教員紹介</a></li>
+          <li><a href="sponsor.html" class="nav-link" data-page="sponsor.html">スポンサー</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+  <!-- click change light-mode and dark-mode . default dark0--->
+  <div class="themes_content">
+    <!-- Theme switch -->
+    <input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" />
+    <label for="themeSwitch" class="theme-switch__label">
+      <span></span>
+    </label>
+  </div>
+</html>
