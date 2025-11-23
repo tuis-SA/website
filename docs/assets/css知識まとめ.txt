@@ -5,4 +5,4 @@ Flexbox（フレックスボックス）とは？
     これにより：
     その要素は 「フレックスコンテナ」 になる
     子要素は 「フレックスアイテム」 になる
-    justify-content, align-items, flex-direction などの フレックス特有の制御プロパティ が使えるようになる
+    justify-content, align-items, flex-direction などの フレックス特有の制御プロパティ が使えるようになる。
