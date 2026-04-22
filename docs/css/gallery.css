@@ -1,0 +1,220 @@
+.gallery_body_content{
+  padding-left: 17vw;
+  padding-right: 17vw;
+}
+
+/* 基本スタイル */
+.gallery_title {
+  padding-left: 4vw;
+  padding-top: 5vw;
+  padding-bottom: 6vw;
+    /*背景画像指定*/
+  height: 100vh;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 縦横比 */
+  overflow: hidden;
+}
+
+/* 背景画像として使うimg */
+.gallery_image {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover; /* トリミングしつつぴったり表示 */
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* テキストを上に重ねる */
+.gallery_text {
+  position: absolute; /* ← 親要素が relative のとき中央配置が可能 */
+  top: 40%;           /* 上から50%の位置に配置 */
+  color: white;
+  text-align: left;
+  z-index: 1;
+  font-size: 7vw;
+  font-weight: bold;
+}
+
+.gallery_content {
+  margin-bottom: 90px;
+}
+.gallery_description_title {
+  width: 100%;
+  margin: 45px 0px 45px 0px;
+  text-align: center;
+  color: #d4d1d1f5;
+  font-weight: 700; /*フォント重み*/
+  font-size: 6vw;
+}
+
+.gallery_description_title.light-mode{
+  color: black;
+}
+
+.gallery_description_content{
+  font-size: 1.5vw;
+}
+
+/* gallery_Topics */
+.gallery_Topics {
+  display: flex;
+  flex-wrap: wrap; /* レスポンシブ対応（モバイルで縦並びに） */
+  width: 100%;
+}
+.gallery_Topics_event_summary{
+  font-size: 2vw;
+}
+
+.gallery_subtitle{
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+/*width変更による意図しない改行防止。*/
+.gallery_Topics_event_summary,
+.gallery_event_day_title,
+.gallery_Content_event_title {
+  white-space: nowrap;
+}
+
+.gallery_Topics_Contents,
+.gallery_Topics_event_pictures {
+  flex: 1 1 48%; /* 横幅50%ずつ、自動で高さ調整 */
+  min-width: 300px; /* ←これを指定すると、狭くなりすぎたときに折り返す */
+  box-sizing: border-box;
+  padding: 1rem; /* 任意の余白（お好みで） */
+  
+}
+.gallery_Content_event_description_h2{
+  display: inline-block;
+  margin-left: 2vw;
+}
+/* 画像が親に合わせて収まるようにする */
+.gallery_Topics_event_pictures img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* gallery_Topics_picture1 */
+.gallery_Topics_picture1{
+  box-shadow: 2vw 2vw 1vw 0vw #9a9a9a;  /* 右　下　ぼかし　影広がり具合 */
+}
+.gallery_Topics_picture1.light-mode{
+  box-shadow: 2vw 2vw 1vw 0vw #343a40; /* 右　下　ぼかし　影広がり具合 */
+}
+.gallery_event_day_title,
+.gallery_Content_event_title{
+  font-size: 1.8vw;
+}
+
+.gallery_event_day_description,
+.gallery_Content_event_description{
+  font-size: 1.5vw;
+  margin-left: 4vw;
+}
+.gallery_Content_event_description,
+.gallery_Content_event_description_h2 {
+  line-height: 1.6; /* 行間を1.6倍に */
+  font-size: 1.5vw;
+}
+
+/* gallery contents */
+.gallery_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  align-items: flex-start; 
+}
+.gallery_item {
+  /* 4列に並べる計算（gap分を引く） */
+  width: calc(25% - 10px);
+  
+  /* --- ここが重要 --- */
+  /* すべての画像の「表示枠」のアスペクト比を固定（例: 16:9） */
+  aspect-ratio: 16 / 9;
+  
+  /* 画像を枠いっぱいに広げつつ、歪まないようにトリミング */
+  object-fit: cover;
+  
+  /* 角丸や影などの装飾 */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+  /* 余計な高さを出さない */
+  height: auto; 
+}
+
+/* モバイルスタイル */
+@media (max-width: 650px) {
+  .gallery_body_content{
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  .gallery_title,
+  .gallery_image{
+    height: 100vh;
+  }
+  .gallery_text{
+    top: 22%;
+    font-size: 15vw;
+  }
+  .gallery_description_title{
+    font-size: 12vw;
+  }
+  .gallery_description_content{
+  font-size: 22px;
+  line-height: 34px;
+
+  }
+    /* 横並び解除 */
+  .gallery_Topics {
+    flex-direction: column; /* 縦並びにする */
+  }
+
+  /* 画像の影をなくす */
+  .gallery_Topics_event_pictures {
+    box-shadow: none;
+  }
+  .gallery_event_day_title,
+  .gallery_Content_event_title{
+    font-size: 5vw;
+  }
+
+  .gallery_event_day_description,
+  .gallery_Content_event_description{
+    font-size: 4vw;
+  }
+  /*--　改行解除　--*/
+  .gallery_Topics_event_summary,
+  .gallery_event_day_title,
+  .gallery_Content_event_title {
+    white-space: normal;
+  }
+  /*--　文字解除　--*/
+  .gallery_Content_event_description,
+  .gallery_Content_event_description_h2{
+    font-size: inherit;
+  }
+  .gallery_Topics_event_summary{
+    font-size: 25px;
+  }
+}
+
+/* タブレット用のスタイル（画面幅が768px以下の場合に適用） */
+@media (max-width: 768px) {
+    .gallery_item {
+        width: calc(50% - 10px);
+    }
+}
+
+/* スマートフォン用のスタイル（画面幅が480px以下の場合に適用） */
+@media (max-width: 480px) {
+    .gallery_item {
+        width: 100%;
+    }
+}

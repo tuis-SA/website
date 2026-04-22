@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Meta情報 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <!-- カスタムCSS -->
+    <link rel="stylesheet" href="css/common/common.css">
+    <!-- -基SCSS -->
+    <link rel="stylesheet" href="css/common/change_mode.css">
+    <link rel="stylesheet" href="css/Seminar_header.css">
+    <link rel="stylesheet" href="css/seminar.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    
+    <!-- JavaScript -->
+    <script src="js/Seminar_header.js"></script>
+</head>
+
+<body>
+    <!-- ナビゲーションバー -->
+    <div class="navigation_bar">
+        <nav class="navbar">
+        
+            <div class="navititle">CANSAT LAB</div>
+            
+            <!-- ハンバーガーメニューボタン -->
+            <div class="hamburger_aria">
+                <button class="hamburger_menu" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- ナビゲーションメニュー -->
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link" data-page="index.html">ホーム</a></li>
+                    <li><a href="seminar.html" class="nav-link" data-page="seminar.html">ゼミ活動</a></li>
+                    <li><a href="cansat.html" class="nav-link" data-page="cansat.html">CanSat</a></li>
+                    <li><a href="teacher.html" class="nav-link" data-page="teacher.html">教員紹介</a></li>
+                    <li><a href="sponsor.html" class="nav-link" data-page="sponsor.html">スポンサー</a></li>
+                    <li><a href="gallery.html" class="nav-link" data-page="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- Light/Darkモード切り替え -->
+    <div class="themes_content">
+        <!-- Theme switch -->
+        <input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" />
+        <label for="themeSwitch" class="theme-switch__label">
+            <span></span>
+        </label>
+    </div>
+
+    <!-- galleryセクション -->
+    <div id="content" class="section-content">  <!-- ここのdiv要素の中に内容を書く。　レンダリングするためなのでここのクラス名はいじらない。--- -->
+
+        <!-- タイトル -->
+        <div class="gallery_title">
+            <img src="assets/pictures/gallery/104.jpeg" alt="情報大学斎藤ゼミ・秋山ゼミのCanSat説明" class="gallery_image">
+            <div class="gallery_text">
+                Gallery
+            </div>
+        </div>
+
+        <div class="gallery_body_content"><!-- body全体 -->
+            
+            <!-- 概要 -->
+            <div class="gallery_content">
+                <div class="gallery_description">
+                    <h1 class="gallery_description_title"><span style="color:red;">G</span>allery</h1>
+                </div>
+            </div>
+            
+            <!--  In 2025 -->
+            <div class="seminar_record_year"><!-- year template -->
+                <button class="seminar_record_year_dropdown-toggle">
+                    <span class="seminar_record_year-label">2025</span>
+                    <span class="seminar_record_line"></span>
+                    <span class="seminar_record_year_arrow">◀</span>
+                </button>
+
+                <div class="seminar_record_year_content"><!-- 年度内のコンテンツ -->
+
+                    <div class="gallery_container"><!-- 写真はここに -->
+                        Coming soon.
+                    </div>
+                </div>
+            </div><!--  End 2025 -->
+        </div><!-- End body全体 -->
+
+        <!-- Footer -->
+        <footer>
+            <div class="social-links">
+                <!-- Twitter -->
+                <a href="https://x.com/tuis_saitolab?s=21&t=dLSNgFhon_sUEKbFCtq_Hg" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fa-brands fa-x-twitter fa-3x" ></i>
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/tuis.cansat.saitolab/profilecard/?igsh=MTluMDNqNWVhOG9wYg==" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fa-brands fa-instagram fa-3x"></i>
+                </a>
+            </div>
+
+            <div class="footer_section1">
+                <div class="footer_address_infomation">
+                    <p>東京情報大学　〒265-0077 <br>
+                        千葉県千葉市若葉区御成台４丁目４−１<br></p>
+                    <p>７号館４F　　斎藤・秋山ゼミ<br>
+                        共創ラボ２F　知能ロボティクスLab</p>
+                </div>
+            
+                <div class="footer_navigations">
+                    <a href="index.html" class="nav-link non-header-link" data-page="index.html">ホーム</a>
+                    <a href="seminar.html" class="nav-link non-header-link" data-page="seminar.html">ゼミ紹介</a>
+                    <a href="cansat.html" class="nav-link non-header-link" data-page="cansat.html">CanSat</a>
+                    <a href="teacher.html" class="nav-link non-header-link" data-page="teacher.html">教員紹介</a>
+                    <a href="sponsor.html" class="nav-link non-header-link" data-page="sponsor.html">スポンサー</a>
+                    <a href="gallery.html" class="nav-link non-header-link" data-page="gallery.html">Gallery</a>
+                </div>
+            </div>
+        </footer>
+    </div><!-- End galleryセクション -->
+</body>
+</html>
